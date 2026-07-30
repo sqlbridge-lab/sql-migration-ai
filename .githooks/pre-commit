@@ -9,14 +9,15 @@ if [ -z "$added" ]; then
     exit 0
 fi
 
-# Catch only cases where an actual value is attached in key = value / key: value form.
-# Pass if the value is ${ENV}, <PLACEHOLDER>, or a dummy (test/dummy/example/changeme/xxx).
+# Only flag a secret-looking name assigned a QUOTED literal of >=8 chars
+# (e.g. a password or api_key set to a real quoted string).
+# This ignores prose colons like `pre-commit`: blocks hardcoded secrets, because the
+# value there is not a quoted literal.
+# Pass if the literal is ${ENV}, <PLACEHOLDER>, or a dummy (test/dummy/example/...).
 secret=$(printf '%s\n' "$added" \
-    | grep -iE '(api[_-]?key|secret|password|passwd|token|credential)' \
-    | grep -iE '[:=]\s*["'\'']?[^"'\'' ]' \
-    | grep -ivE '\$\{[^}]+\}' \
-    | grep -ivE '<[^>]+>' \
-    | grep -ivE '(test|dummy|example|sample|placeholder|changeme|xxx+|your[_-])')
+    | grep -iE '(api[_-]?key|secret|password|passwd|token|credential)[a-z_]*["'\'' ]*[:=]\s*["'\''][^"'\'']{8,}["'\'']' \
+    | grep -ivE '["'\''](\$\{[^}]+\}|<[^>]+>)["'\'']' \
+    | grep -ivE '["'\''][^"'\'']*(test|dummy|example|sample|placeholder|changeme|xxx+|your[_-])' )
 
 if [ -n "$secret" ]; then
     echo "pre-commit: lines that look like hardcoded secrets were found:" >&2
