@@ -1,0 +1,17 @@
+# Claude 개인 설정 (공유하지 않음)
+**/.claude/settings.local.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 도구 캐시
+.ruff_cache/
+.pytest_cache/
+.pyright/
+
+# 환경/비밀값
+.env
+.env.*
