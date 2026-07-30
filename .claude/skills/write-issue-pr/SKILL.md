@@ -16,6 +16,13 @@ description: Use when writing GitHub issue or PR body text for this project — 
    해설은 넣지 않는다. 무엇을 하는지만 적는다.
 4. **딱 필요한 말만, 흐름만.** 상세 근거·트레이드오프는 스펙 문서에 있으니 링크로 대신한다.
 
+## 제목
+
+본문과 함께 **제목도 항상 준다.** 짧고 사람이 바로 알아보게. 커밋 규칙과 결을 맞춘다:
+`{purpose}: {무엇}` (purpose 예: feat, fix, chore, docs). 예:
+- `feat: MySQL·PostgreSQL 도커 세팅`
+- `fix: 페이징 쿼리 변환 오류`
+
 ## 이슈 본문 형식
 
 프로젝트 이슈 템플릿(`.github/ISSUE_TEMPLATE/`)을 따른다. 흐름:
