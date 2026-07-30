@@ -1,0 +1,43 @@
+#!/bin/sh
+# Pre-push quality gate. Block the push if any check fails.
+# Bypass: git push --no-verify
+#
+# fail-closed: if a tool is missing, don't skip — fail with an install hint.
+# Install the dev tools with: pip install ruff pyright pytest
+
+fail=0
+
+require() {
+    if ! command -v "$1" >/dev/null 2>&1; then
+        echo "pre-push: '$1' is not installed." >&2
+        echo "  install: pip install ruff pyright pytest" >&2
+        echo "  bypass: git push --no-verify" >&2
+        exit 1
+    fi
+}
+
+require ruff
+require pyright
+require pytest
+
+run() {
+    echo "pre-push: \$ $*"
+    if ! "$@"; then
+        echo "pre-push: failed → $*" >&2
+        fail=1
+    fi
+}
+
+run ruff check .
+run ruff format --check .
+run pyright
+run pytest
+
+if [ "$fail" -ne 0 ]; then
+    echo "" >&2
+    echo "pre-push: gate failed. Fix the items above and push again." >&2
+    echo "  bypass: git push --no-verify" >&2
+    exit 1
+fi
+
+exit 0

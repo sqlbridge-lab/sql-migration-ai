@@ -1,0 +1,30 @@
+#!/bin/sh
+# Detect hardcoded secrets in added lines of the staged diff and block the commit.
+# Bypass: git commit --no-verify
+
+# Inspect only added lines (+) of the staged diff. Exclude diff meta lines (+++).
+added=$(git diff --cached --no-color | grep -E '^\+' | grep -vE '^\+\+\+')
+
+if [ -z "$added" ]; then
+    exit 0
+fi
+
+# Catch only cases where an actual value is attached in key = value / key: value form.
+# Pass if the value is ${ENV}, <PLACEHOLDER>, or a dummy (test/dummy/example/changeme/xxx).
+secret=$(printf '%s\n' "$added" \
+    | grep -iE '(api[_-]?key|secret|password|passwd|token|credential)' \
+    | grep -iE '[:=]\s*["'\'']?[^"'\'' ]' \
+    | grep -ivE '\$\{[^}]+\}' \
+    | grep -ivE '<[^>]+>' \
+    | grep -ivE '(test|dummy|example|sample|placeholder|changeme|xxx+|your[_-])')
+
+if [ -n "$secret" ]; then
+    echo "pre-commit: lines that look like hardcoded secrets were found:" >&2
+    echo "$secret" | sed 's/^/  /' >&2
+    echo "" >&2
+    echo "Use an environment variable (\${ENV}) or a placeholder (<...>)." >&2
+    echo "If this is a false positive: git commit --no-verify" >&2
+    exit 1
+fi
+
+exit 0
