@@ -1,0 +1,76 @@
+# SQLBridge AI — 실험 환경 (MySQL 8.4 / PostgreSQL 16)
+#
+# 재현성 고정 (스펙 "재현성" 참조):
+#   - 이미지 버전을 패치까지 핀 (부동 태그 금지)
+#   - timezone: 두 컨테이너 모두 UTC
+#   - charset/collation: MySQL utf8mb4 + 명시적 collation, PostgreSQL UTF8 + 명시적 locale
+#   - MySQL sql_mode: STRICT_TRANS_TABLES 포함 명시 고정
+#   - 헬스체크로 스키마·시드 주입 완료(=기동 완료) 확인
+#   - 볼륨으로 데이터 보존, 깨끗한 재현은 `docker compose down -v && up`
+#
+# init 스크립트는 컨테이너 최초 기동(빈 데이터 디렉터리)일 때만 자동 실행된다.
+# 스키마/시드를 바꾼 뒤에는 반드시 `down -v`로 볼륨을 비우고 다시 올려야 반영된다.
+
+services:
+  mysql:
+    image: mysql:8.4.11
+    container_name: sqlbridge-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: shop
+      TZ: UTC
+    # 서버 기본 charset/collation과 sql_mode, timezone을 명시적으로 고정한다.
+    # (init 스크립트/클라이언트가 별도 지정을 안 해도 이 값이 적용된다.)
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_0900_ai_ci
+      - --default-time-zone=+00:00
+      - --sql-mode=STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION,ONLY_FULL_GROUP_BY,NO_ZERO_DATE,NO_ZERO_IN_DATE,ERROR_FOR_DIVISION_BY_ZERO
+    ports:
+      # 호스트 포트는 로컬에 이미 설치된 DB와의 충돌을 피하려고 비표준값을 쓴다.
+      # 127.0.0.1에만 바인딩해 같은 네트워크의 다른 기기에 노출되지 않게 한다
+      # (로컬 실험 전용). 컨테이너 내부 포트는 표준값 그대로다.
+      - "127.0.0.1:13306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      # docker-entrypoint-initdb.d: 최초 기동 시 01, 02 순서로 자동 실행
+      - ./mysql/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      # mysqladmin ping은 서버가 연결을 받는 순간 통과하므로,
+      # 시드가 큰 이번 케이스에선 start_period를 넉넉히 준다.
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 120s
+
+  postgres:
+    image: postgres:16.14
+    container_name: sqlbridge-postgres
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: shop
+      TZ: UTC
+      PGTZ: UTC
+      # 새 DB 생성 시 UTF8 + 명시적 locale 고정.
+      # POSTGRES_DB(shop)는 이 설정으로 initdb 시점에 만들어진다.
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8 --locale=C.UTF-8"
+    ports:
+      # 호스트 포트는 로컬에 이미 설치된 DB와의 충돌을 피하려고 비표준값을 쓴다.
+      # 127.0.0.1에만 바인딩해 같은 네트워크의 다른 기기에 노출되지 않게 한다
+      # (로컬 실험 전용). 컨테이너 내부 포트는 표준값 그대로다.
+      - "127.0.0.1:15432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      # /docker-entrypoint-initdb.d: 최초 기동 시 01, 02 순서로 자동 실행
+      - ./postgres/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres", "-d", "shop"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 60s
+
+volumes:
+  mysql-data:
+  postgres-data:
