@@ -28,8 +28,9 @@ services:
       - --sql-mode=STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION,ONLY_FULL_GROUP_BY,NO_ZERO_DATE,NO_ZERO_IN_DATE,ERROR_FOR_DIVISION_BY_ZERO
     ports:
       # 호스트 포트는 로컬에 이미 설치된 DB와의 충돌을 피하려고 비표준값을 쓴다.
-      # 컨테이너 내부 포트는 표준값 그대로다.
-      - "13306:3306"
+      # 127.0.0.1에만 바인딩해 같은 네트워크의 다른 기기에 노출되지 않게 한다
+      # (로컬 실험 전용). 컨테이너 내부 포트는 표준값 그대로다.
+      - "127.0.0.1:13306:3306"
     volumes:
       - mysql-data:/var/lib/mysql
       # docker-entrypoint-initdb.d: 최초 기동 시 01, 02 순서로 자동 실행
@@ -56,8 +57,9 @@ services:
       POSTGRES_INITDB_ARGS: "--encoding=UTF8 --locale=C.UTF-8"
     ports:
       # 호스트 포트는 로컬에 이미 설치된 DB와의 충돌을 피하려고 비표준값을 쓴다.
-      # 컨테이너 내부 포트는 표준값 그대로다.
-      - "15432:5432"
+      # 127.0.0.1에만 바인딩해 같은 네트워크의 다른 기기에 노출되지 않게 한다
+      # (로컬 실험 전용). 컨테이너 내부 포트는 표준값 그대로다.
+      - "127.0.0.1:15432:5432"
     volumes:
       - postgres-data:/var/lib/postgresql/data
       # /docker-entrypoint-initdb.d: 최초 기동 시 01, 02 순서로 자동 실행
