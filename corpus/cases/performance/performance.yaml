@@ -1,0 +1,89 @@
+# 성능 씨드 케이스 (performance)
+#
+# dql 전용. perf.relations로 실행 계획 기대치를 선언한다(판정 규칙은 comparison-contract 2장).
+# 각 SQL은 MySQL 컨테이너에서 실제 실행돼 문법이 유효해야 한다.
+# max_examined_rows는 PG normalized metric 기준(MySQL TREE는 필터 제거분 미노출).
+
+cases:
+  - id: covering-index
+    kind: dql
+    concepts: [covering-index]
+    ordered: false
+    note: >
+      idx_products_name_price(name, price)로 SELECT name, price가 index-only(covering).
+      PG는 VACUUM ANALYZE 전처리 후 Index Only Scan. name은 ASCII라 collation 무관.
+      max_examined_rows는 PG metric 기준.
+    mysql: |
+      SELECT name, price
+      FROM products
+      WHERE name = 'Product 0042'
+    perf:
+      relations:
+        - name: products
+          access: index_only
+          mysql_index_name: idx_products_name_price
+          forbid_full_scan: true
+          max_examined_rows: 5
+
+  - id: multi-join
+    kind: dql
+    concepts: [multi-join]
+    ordered: true
+    note: orders→order_items→products 3중 조인. order_items가 조인 중심.
+    mysql: |
+      SELECT oi.id, o.status, p.name, oi.qty
+      FROM orders o
+      JOIN order_items oi ON oi.order_id = o.id
+      JOIN products p ON p.id = oi.product_id
+      WHERE o.id = 42
+      ORDER BY oi.id
+
+  - id: keyset-vs-offset
+    kind: dql
+    concepts: [keyset-pagination, offset-pagination]
+    ordered: true
+    note: >
+      keyset(seek) 페이징. idx_orders_user_ordered(user_id, ordered_at)로 마지막 키 이후를
+      집는다. 대조군 offset 페이징은 note로만 남기고 실제 판정은 keyset 접근을 본다.
+    mysql: |
+      SELECT id, ordered_at
+      FROM orders
+      WHERE user_id = 7
+        AND ordered_at > TIMESTAMP '2025-01-10 00:00:00'
+      ORDER BY ordered_at, id
+      LIMIT 10
+    perf:
+      relations:
+        - name: orders
+          access: index
+          mysql_index_name: idx_orders_user_ordered
+          forbid_full_scan: true
+
+  - id: non-sargable-like
+    kind: dql
+    concepts: [non-sargable-like]
+    ordered: true
+    note: >
+      선행 와일드카드 LIKE '%excellent%'는 인덱스를 못 탄다(non-sargable). full scan을
+      금지하지 않고, 접근이 any임을 확인해 "인덱스로 못 좁힘"을 기록한다.
+    mysql: |
+      SELECT id, product_id
+      FROM reviews
+      WHERE content LIKE '%excellent%'
+      ORDER BY id
+      LIMIT 20
+    perf:
+      relations:
+        - name: reviews
+          access: any
+
+  - id: groupby-aggregate
+    kind: dql
+    concepts: [groupby-aggregate]
+    ordered: true
+    note: status별 주문 수·합계. GROUP BY + COUNT/SUM. ordered로 그룹 순서까지 비교.
+    mysql: |
+      SELECT status, COUNT(*) AS cnt, SUM(total) AS total_sum
+      FROM orders
+      GROUP BY status
+      ORDER BY status
