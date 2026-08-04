@@ -1,0 +1,47 @@
+# SQLBridge AI — 개념 화이트리스트 (기계 판독 단일 원본)
+#
+# 이 파일이 concept id의 **유일한 원본**이다. schema.md의 표는 사람이 읽는 설명이고,
+# validate_corpus.py와 커버리지 판정은 이 파일만 읽는다.
+#
+# 각 개념은:
+#   - id: kebab-case, 케이스의 `concepts:` 리스트가 참조하는 값 (전역 유일)
+#   - summary: 이 개념이 무엇이고 왜 변환 검증에서 중요한지 한 줄
+#
+# 개념은 두 부류로 나뉜다.
+#   (1) 문법 변환 개념 — MySQL 고유 문법/타입이 PostgreSQL로 어떻게 바뀌는가
+#   (2) 성능 개념 — 실행 계획(인덱스·조인·페이징·집계)이 양 DB에서 어떻게 나타나는가
+
+concepts:
+  # --- (1) 문법 변환 개념 ---
+  - id: limit-pagination
+    summary: LIMIT/OFFSET 페이징 문법. MySQL의 `LIMIT n, m`과 `LIMIT m OFFSET n` 변환.
+  - id: ifnull-coalesce
+    summary: MySQL IFNULL(x, y)을 PostgreSQL COALESCE(x, y)로 변환.
+  - id: backtick-identifier
+    summary: MySQL 백틱(`) 식별자 인용을 PostgreSQL 큰따옴표(") 인용으로 변환.
+  - id: date-function
+    summary: 날짜/시간 함수(NOW, DATE_ADD 등) 변환. 비결정 함수는 고정 처리 필요.
+  - id: enum-type
+    summary: MySQL 인라인 ENUM 컬럼 타입을 PostgreSQL로 표현(CREATE TYPE 또는 CHECK).
+  - id: tinyint-bool
+    summary: MySQL TINYINT(1)=불리언 관용을 PostgreSQL BOOLEAN으로, 0/1 ↔ false/true.
+  - id: unsigned-type
+    summary: MySQL UNSIGNED 정수 타입 변환. PostgreSQL에 UNSIGNED가 없어 처리 필요.
+  - id: upsert-on-duplicate
+    summary: MySQL INSERT ... ON DUPLICATE KEY UPDATE를 PostgreSQL ON CONFLICT로 변환.
+  - id: auto-increment
+    summary: MySQL AUTO_INCREMENT를 PostgreSQL GENERATED/IDENTITY(또는 SERIAL)로 변환.
+
+  # --- (2) 성능 개념 ---
+  - id: covering-index
+    summary: 커버링 인덱스(index-only scan). 필요한 컬럼이 인덱스에만 있어 heap fetch 없음.
+  - id: multi-join
+    summary: 다중 테이블 조인의 실행 계획과 접근 경로 비교.
+  - id: keyset-pagination
+    summary: keyset(seek) 페이징. WHERE 키 > 마지막값 방식으로 OFFSET을 피함.
+  - id: offset-pagination
+    summary: OFFSET 기반 페이징. 뒤로 갈수록 건너뛴 행을 훑어 느려짐(대조군).
+  - id: non-sargable-like
+    summary: 선행 와일드카드 LIKE('%kw%') 등 인덱스를 못 타는(non-sargable) 조건.
+  - id: groupby-aggregate
+    summary: GROUP BY + 집계 함수(COUNT/SUM/AVG)의 실행 계획과 결과 비교.

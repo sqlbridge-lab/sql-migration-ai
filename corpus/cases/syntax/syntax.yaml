@@ -1,0 +1,123 @@
+# 문법 변환 씨드 케이스 (syntax)
+#
+# 각 SQL은 MySQL 컨테이너(docker)에서 그대로 실행돼 문법이 유효해야 한다.
+# 피검증 SQL은 dql=`mysql`, dml/ddl=`statement`. 제어 SQL은 변환하지 않는다.
+# 문자열 리터럴은 전부 ASCII라 collation 비범위 제약(문자열=바이트 동일)에 안전하다.
+
+cases:
+  - id: limit-pagination
+    kind: dql
+    concepts: [limit-pagination]
+    ordered: true
+    note: MySQL `LIMIT offset, count` 두-인자 문법. PG는 LIMIT ... OFFSET으로 변환.
+    mysql: |
+      SELECT id, name
+      FROM products
+      ORDER BY id
+      LIMIT 10, 5
+
+  - id: ifnull-coalesce
+    kind: dql
+    concepts: [ifnull-coalesce]
+    ordered: true
+    note: IFNULL(x, y) → COALESCE(x, y). payments.paid_at은 nullable.
+    mysql: |
+      SELECT id, IFNULL(paid_at, TIMESTAMP '2000-01-01 00:00:00') AS effective_at
+      FROM payments
+      ORDER BY id
+      LIMIT 20
+
+  - id: backtick-identifier
+    kind: dql
+    concepts: [backtick-identifier]
+    ordered: true
+    note: MySQL 백틱 식별자 인용 → PG 큰따옴표. `name`이 컬럼명.
+    mysql: |
+      SELECT `id`, `name`
+      FROM `products`
+      ORDER BY `id`
+      LIMIT 5
+
+  - id: date-function
+    kind: dql
+    concepts: [date-function]
+    nondeterministic:
+      strategy: fixed_clock
+    note: NOW() 등 비결정 시각 함수. 하니스가 양 DB 시계를 고정해 비교(비교 계약 1.8).
+    mysql: |
+      SELECT id, DATE_ADD(ordered_at, INTERVAL 7 DAY) AS due_at
+      FROM orders
+      WHERE ordered_at < NOW()
+      ORDER BY id
+      LIMIT 20
+
+  - id: enum-type
+    kind: dql
+    concepts: [enum-type]
+    ordered: true
+    note: orders.status는 인라인 ENUM. WHERE에 ENUM 리터럴 비교.
+    mysql: |
+      SELECT id, status
+      FROM orders
+      WHERE status = 'paid'
+      ORDER BY id
+      LIMIT 20
+
+  - id: bool-tinyint
+    kind: dql
+    concepts: [tinyint-bool]
+    ordered: true
+    note: payments.paid는 TINYINT(1)=bool. 0/1 필터 → PG BOOLEAN false/true.
+    mysql: |
+      SELECT id, paid
+      FROM payments
+      WHERE paid = 1
+      ORDER BY id
+      LIMIT 20
+
+  - id: unsigned-type
+    kind: dql
+    concepts: [unsigned-type]
+    ordered: true
+    note: products.stock은 INT UNSIGNED. 경계값 0 포함 범위 조회.
+    mysql: |
+      SELECT id, stock
+      FROM products
+      WHERE stock < 10
+      ORDER BY id
+      LIMIT 20
+
+  - id: upsert-on-duplicate
+    kind: dml
+    concepts: [upsert-on-duplicate]
+    isolation: fresh
+    note: >
+      INSERT ... ON DUPLICATE KEY UPDATE → PG ON CONFLICT. users.email이 UNIQUE라
+      기존 이메일이면 name을 갱신한다. setup은 격리를 위해 전용 이메일로 선삽입.
+    setup: |
+      INSERT INTO users (email, name, created_at)
+      VALUES ('upsert-seed@example.com', 'Before', TIMESTAMP '2025-06-01 00:00:00')
+    statement: |
+      INSERT INTO users (email, name, created_at)
+      VALUES ('upsert-seed@example.com', 'After', TIMESTAMP '2025-06-01 00:00:00')
+      ON DUPLICATE KEY UPDATE name = VALUES(name)
+    post_query: |
+      SELECT name FROM users WHERE email = 'upsert-seed@example.com'
+
+  - id: auto-increment
+    kind: ddl
+    concepts: [auto-increment]
+    isolation: fresh
+    object: { type: table, name: tmp_ai }
+    note: >
+      AUTO_INCREMENT → PG IDENTITY/SERIAL. 전용 TEMPORARY TABLE에서 4단계로 검증하고
+      정리는 하니스 finally DROP이 전담(공유 fixture 불변). {{object_name}}은 하니스가 치환.
+    statement: |
+      CREATE TEMPORARY TABLE {{object_name}} (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        label VARCHAR(20) NOT NULL
+      )
+    exercise: |
+      INSERT INTO {{object_name}} (label) VALUES ('a'), ('b'), ('c')
+    post_query: |
+      SELECT id, label FROM {{object_name}} ORDER BY id
