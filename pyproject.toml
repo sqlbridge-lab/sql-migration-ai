@@ -13,6 +13,8 @@ dev = [
     "ruff>=0.6.0",
     "pyright>=1.1.380",
     "pytest>=8.0.0",
+    "PyYAML>=6.0",
+    "types-PyYAML>=6.0",
 ]
 
 [tool.ruff]
@@ -21,6 +23,13 @@ target-version = "py312"
 [tool.pyright]
 pythonVersion = "3.12"
 typeCheckingMode = "standard"
+# tools/는 패키지가 아니라 스크립트 디렉터리라, 테스트가 sys.path로 임포트한다.
+# pyright도 같은 경로를 보게 해 임포트 해석을 맞춘다.
+extraPaths = ["tools"]
+# pyright는 기본적으로 자기 번들 환경을 봐서 dev 의존성(pytest 등)을 못 찾는다.
+# 개발 환경(anaconda base)을 명시해 임포트 해석을 맞춘다. 다른 머신은 각자 조정.
+venvPath = "/opt"
+venv = "anaconda3"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
