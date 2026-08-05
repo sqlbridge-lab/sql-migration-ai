@@ -51,8 +51,11 @@ class QueryResult:
 
 
 def safe_object_name(case_id: str, object_name: str) -> str:
+    # case_id·object_name 모두 식별자로 정규화한다. 고유명이 DROP 등 DDL에 직접
+    # 보간되므로, 허용 문자 외(하이픈·공백·따옴표 등)를 `_`로 바꿔 SQL 주입을 막는다.
     safe_id = re.sub(r"[^0-9a-zA-Z_]", "_", case_id)
-    name = f"sqlbridge_{safe_id}_{object_name}"
+    safe_name = re.sub(r"[^0-9a-zA-Z_]", "_", object_name)
+    name = f"sqlbridge_{safe_id}_{safe_name}"
     if len(name) <= _MAX_IDENT:
         return name
     suffix = "_" + hashlib.sha1(case_id.encode()).hexdigest()[:8]

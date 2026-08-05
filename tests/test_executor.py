@@ -25,6 +25,13 @@ def test_safe_object_name_truncates_long():
     assert len(name) <= 63
 
 
+def test_safe_object_name_sanitizes_object_name():
+    # object_name의 위험 문자(따옴표·세미콜론·공백)를 `_`로 정규화해 SQL 주입을 막는다.
+    name = safe_object_name("c", 'x"; DROP TABLE users; --')
+    assert '"' not in name and ";" not in name and " " not in name
+    assert name == "sqlbridge_c_x___DROP_TABLE_users____"
+
+
 def test_only_table_object_type_allowed():
     assert ALLOWED_OBJECT_TYPES == {"table"}
 

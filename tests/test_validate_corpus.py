@@ -154,6 +154,15 @@ def test_ddl_missing_object():
     assert any("object" in e for e in result.errors)
 
 
+def test_object_name_must_be_identifier():
+    # 고유명이 SQL에 보간되므로 식별자 형식이 아니면 정적 검증에서 실패한다.
+    case = valid_ddl()
+    case["object"] = {"type": "table", "name": 'x"; DROP TABLE users; --'}
+    result = validate_case(case, WHITELIST)
+    assert not result.ok
+    assert any("식별자" in e for e in result.errors)
+
+
 # --- dml pairable 규칙 (setup optional, post_query required) ---
 
 
