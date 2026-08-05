@@ -35,6 +35,10 @@ venv = "anaconda3"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+# repo 루트를 sys.path에 넣어 `harness` 패키지를 import한다. 이게 없으면
+# `python -m pytest`(루트 자동 추가)에선 되지만 bare `pytest`(pre-push 훅)에선
+# ModuleNotFoundError: No module named 'harness'가 난다.
+pythonpath = ["."]
 markers = [
     "integration: 실제 DB 컨테이너가 필요한 통합 테스트 (pytest -m integration으로만 실행)",
 ]
