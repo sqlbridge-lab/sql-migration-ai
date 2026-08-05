@@ -223,32 +223,37 @@ context manager(`with`)로 열어 항상 닫는다.
 @dataclass
 class Case:
     id: str
-    kind: str                    # dql | dml | ddl
+    kind: str  # dql | dml | ddl
     concepts: list[str]
-    mysql: str | None            # dql 피검증 SQL
-    statement: str | None        # dml/ddl 피검증 SQL
+    mysql: str | None  # dql 피검증 SQL
+    statement: str | None  # dml/ddl 피검증 SQL
     ordered: bool
     isolation: str | None
-    object: dict | None          # ddl: {type, name}
-    nondeterministic: dict | None   # {strategy, columns?} — 아래 "비결정성 처리"
-    control_mysql: dict[str, str]   # setup/exercise/post_query (MySQL용, 정규화 후)
+    object: dict | None  # ddl: {type, name}
+    nondeterministic: dict | None  # {strategy, columns?} — 아래 "비결정성 처리"
+    control_mysql: dict[str, str]  # setup/exercise/post_query (MySQL용, 정규화 후)
     control_postgres: dict[str, str]
+
 
 @dataclass
 class QueryResult:
     columns: list[str]
-    rows: list[tuple]            # 드라이버 원본 타입 (Decimal/int/datetime/None)
+    rows: list[tuple]  # 드라이버 원본 타입 (Decimal/int/datetime/None)
+
 
 @dataclass
 class Comparison:
     equal: bool
     reason: str | None
 
+
 @dataclass
 class CaseResult:
     case_id: str
-    status: str                  # pass | fail | error
-    stage: str | None            # transform | mysql.statement | pg.statement | control | infrastructure | compare
+    status: str  # pass | fail | error
+    stage: (
+        str | None
+    )  # transform | mysql.statement | pg.statement | control | infrastructure | compare
     reason: str | None
 ```
 

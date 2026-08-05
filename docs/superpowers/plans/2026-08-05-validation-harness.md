@@ -129,22 +129,24 @@ pyproject.toml            PyMySQL, psycopg 추가 + integration 마커 등록
 @dataclass
 class Case:
     id: str
-    kind: str                        # dql | dml | ddl
+    kind: str  # dql | dml | ddl
     concepts: list[str]
-    mysql: str | None                # dql 피검증 SQL
-    statement: str | None            # dml/ddl 피검증 SQL
+    mysql: str | None  # dql 피검증 SQL
+    statement: str | None  # dml/ddl 피검증 SQL
     ordered: bool
     isolation: str | None
-    object: dict | None              # ddl: {type, name}
-    nondeterministic: dict | None    # {strategy, columns?}
-    control_mysql: dict[str, str]    # setup/exercise/post_query (MySQL용, 정규화 후)
+    object: dict | None  # ddl: {type, name}
+    nondeterministic: dict | None  # {strategy, columns?}
+    control_mysql: dict[str, str]  # setup/exercise/post_query (MySQL용, 정규화 후)
     control_postgres: dict[str, str]
+
 
 # harness/executor.py
 @dataclass
 class QueryResult:
     columns: list[str]
-    rows: list[tuple]                # 드라이버 원본 타입 (Decimal/int/datetime/None)
+    rows: list[tuple]  # 드라이버 원본 타입 (Decimal/int/datetime/None)
+
 
 # harness/compare.py
 @dataclass
@@ -152,12 +154,15 @@ class Comparison:
     equal: bool
     reason: str | None
 
+
 # harness/runner.py
 @dataclass
 class CaseResult:
     case_id: str
-    status: str                      # pass | fail | error
-    stage: str | None                # transform | mysql.statement | pg.statement | control | infrastructure | compare
+    status: str  # pass | fail | error
+    stage: (
+        str | None
+    )  # transform | mysql.statement | pg.statement | control | infrastructure | compare
     reason: str | None
 ```
 
@@ -254,15 +259,25 @@ class CaseResult:
 
 ```python
 def test_dml_without_setup_passes():
-    case = {"id": "u", "kind": "dml", "isolation": "fresh",
-            "concepts": ["upsert-on-duplicate"], "statement": "X",
-            "post_query": "SELECT 1"}
+    case = {
+        "id": "u",
+        "kind": "dml",
+        "isolation": "fresh",
+        "concepts": ["upsert-on-duplicate"],
+        "statement": "X",
+        "post_query": "SELECT 1",
+    }
     assert validate_case(case, {"upsert-on-duplicate"}).ok
 
 
 def test_dml_without_post_query_fails():
-    case = {"id": "u", "kind": "dml", "isolation": "fresh",
-            "concepts": ["upsert-on-duplicate"], "statement": "X"}
+    case = {
+        "id": "u",
+        "kind": "dml",
+        "isolation": "fresh",
+        "concepts": ["upsert-on-duplicate"],
+        "statement": "X",
+    }
     assert not validate_case(case, {"upsert-on-duplicate"}).ok
 ```
 
@@ -461,7 +476,9 @@ def test_fix_clock_replaces_mysql_now():
 
 
 def test_fix_clock_replaces_current_timestamp():
-    out = fix_clock("SELECT CURRENT_TIMESTAMP", "2025-06-01 12:00:00", dialect="postgres")
+    out = fix_clock(
+        "SELECT CURRENT_TIMESTAMP", "2025-06-01 12:00:00", dialect="postgres"
+    )
     assert "CURRENT_TIMESTAMP" not in out.upper()
     assert "2025-06-01 12:00:00" in out
 
@@ -475,14 +492,17 @@ def test_fix_clock_replaces_curdate():
 def test_fix_clock_in_where_clause():
     out = fix_clock(
         "SELECT id FROM orders WHERE ordered_at < NOW()",
-        "2025-06-01 12:00:00", dialect="mysql",
+        "2025-06-01 12:00:00",
+        dialect="mysql",
     )
     assert "NOW" not in out.upper()
     assert "2025-06-01 12:00:00" in out
 
 
 def test_fix_clock_leaves_non_clock_unchanged():
-    out = fix_clock("SELECT id FROM products ORDER BY id", "2025-06-01 12:00:00", dialect="postgres")
+    out = fix_clock(
+        "SELECT id FROM products ORDER BY id", "2025-06-01 12:00:00", dialect="postgres"
+    )
     assert "2025-06-01" not in out
 ```
 
@@ -639,7 +659,7 @@ def _value_equal(a: object, b: object) -> bool:
 
     # Decimal: 스케일만 흡수(값 붕괴 금지) — Decimal끼리 또는 Decimal↔정수 정확 비교
     if isinstance(a, Decimal) and isinstance(b, Decimal):
-        return a == b                      # Decimal ==는 스케일 무시 수치 비교(10.00 == 10.0)
+        return a == b  # Decimal ==는 스케일 무시 수치 비교(10.00 == 10.0)
     if isinstance(a, Decimal) and isinstance(b, int):
         return a == b
     if isinstance(b, Decimal) and isinstance(a, int):
@@ -647,8 +667,12 @@ def _value_equal(a: object, b: object) -> bool:
 
     # float가 관여하면 오차 비교
     if isinstance(a, float) or isinstance(b, float):
-        if isinstance(a, (int, float, Decimal)) and isinstance(b, (int, float, Decimal)):
-            return math.isclose(float(a), float(b), rel_tol=FLOAT_TOL, abs_tol=FLOAT_TOL)
+        if isinstance(a, (int, float, Decimal)) and isinstance(
+            b, (int, float, Decimal)
+        ):
+            return math.isclose(
+                float(a), float(b), rel_tol=FLOAT_TOL, abs_tol=FLOAT_TOL
+            )
         return False
 
     # 정수 등 나머지는 정확 비교
@@ -666,6 +690,7 @@ def _bool_to_int(v: object) -> int | None:
 def _same_instant(a: datetime, b: datetime) -> bool:
     # naive는 UTC로 간주(두 컨테이너 UTC 고정). aware는 그대로.
     from datetime import timezone
+
     aa = a if a.tzinfo else a.replace(tzinfo=timezone.utc)
     bb = b if b.tzinfo else b.replace(tzinfo=timezone.utc)
     return aa == bb
@@ -715,7 +740,7 @@ def _multiset_equal(rows_a: list[tuple], rows_b: list[tuple]) -> Comparison:
     완전 매칭(모든 a가 매칭)이면 equal(개수는 이미 같음).
     """
     n = len(rows_a)
-    match_b: list[int] = [-1] * n          # rows_b[j]에 매칭된 rows_a 인덱스
+    match_b: list[int] = [-1] * n  # rows_b[j]에 매칭된 rows_a 인덱스
 
     def try_augment(i: int, seen: list[bool]) -> bool:
         for j in range(n):
@@ -758,24 +783,26 @@ def test_duplicate_count_mismatch_fails():
 
 # P1-4: 정수·Decimal 정확 비교
 def test_large_ints_not_approximated():
-    assert not row_equal((10**12,), (10**12 + 1,))          # 다른 큰 정수는 다름
+    assert not row_equal((10**12,), (10**12 + 1,))  # 다른 큰 정수는 다름
 
 
 def test_decimal_scale_equal_but_value_exact():
-    assert row_equal((Decimal("10.00"),), (Decimal("10.0"),))       # 스케일만 흡수
-    assert not row_equal((Decimal("9007199254740992"),), (Decimal("9007199254740993"),))  # float 붕괴 안 함
+    assert row_equal((Decimal("10.00"),), (Decimal("10.0"),))  # 스케일만 흡수
+    assert not row_equal(
+        (Decimal("9007199254740992"),), (Decimal("9007199254740993"),)
+    )  # float 붕괴 안 함
 
 
 def test_int_one_vs_bool_true_equal():
     assert row_equal((1,), (True,))
-    assert not row_equal((2,), (True,))     # 2는 True 아님
-    assert not row_equal((True,), (1.0000000005,))   # bool은 float 근사 안 함
+    assert not row_equal((2,), (True,))  # 2는 True 아님
+    assert not row_equal((True,), (1.0000000005,))  # bool은 float 근사 안 함
 
 
 def test_datetime_same_instant_diff_repr_equal():
     utc = datetime(2025, 6, 1, 12, 0, 0, tzinfo=timezone.utc)
     kst = datetime(2025, 6, 1, 21, 0, 0, tzinfo=timezone(timedelta(hours=9)))
-    assert row_equal((utc,), (kst,))         # 같은 순간
+    assert row_equal((utc,), (kst,))  # 같은 순간
 
 
 def test_datetime_naive_treated_utc():
@@ -793,7 +820,7 @@ def test_float_within_and_outside_tolerance():
 def test_bipartite_matching_beats_greedy():
     cols = ["v"]
     a = [(0.9e-9,), (0.0,)]
-    b = [(0.0,), (1.8e-9,)]     # 완전 매칭: 0.9e-9↔1.8e-9, 0↔0
+    b = [(0.0,), (1.8e-9,)]  # 완전 매칭: 0.9e-9↔1.8e-9, 0↔0
     assert compare(cols, a, cols, b, ordered=False).equal
 
 
@@ -831,7 +858,9 @@ def test_exclude_columns_drops_column():
 def test_exclude_columns_missing_target_is_noop():
     # 없는 열 제외는 무해(전체 비교)
     cols = ["id"]
-    assert compare(cols, [(1,)], cols, [(1,)], ordered=True, exclude_columns=["nope"]).equal
+    assert compare(
+        cols, [(1,)], cols, [(1,)], ordered=True, exclude_columns=["nope"]
+    ).equal
 ```
 
 - [ ] **Step 6: 전체 통과**
@@ -872,29 +901,53 @@ from harness.loader import load_case
 
 
 def test_dql_basic_and_ordered():
-    c = load_case({"id": "x", "kind": "dql", "concepts": ["limit-pagination"],
-                   "mysql": "SELECT 1", "ordered": True})
+    c = load_case(
+        {
+            "id": "x",
+            "kind": "dql",
+            "concepts": ["limit-pagination"],
+            "mysql": "SELECT 1",
+            "ordered": True,
+        }
+    )
     assert c.id == "x" and c.kind == "dql" and c.mysql == "SELECT 1"
     assert c.ordered is True
     assert c.control_mysql == {} and c.control_postgres == {}
 
 
 def test_ordered_defaults_false_when_absent():
-    c = load_case({"id": "x", "kind": "dql", "concepts": ["limit-pagination"], "mysql": "S"})
+    c = load_case(
+        {"id": "x", "kind": "dql", "concepts": ["limit-pagination"], "mysql": "S"}
+    )
     assert c.ordered is False
 
 
 def test_dml_ordered_loaded():
-    c = load_case({"id": "u", "kind": "dml", "isolation": "fresh",
-                   "concepts": ["upsert-on-duplicate"], "statement": "X",
-                   "post_query": "SELECT 1", "ordered": True})
+    c = load_case(
+        {
+            "id": "u",
+            "kind": "dml",
+            "isolation": "fresh",
+            "concepts": ["upsert-on-duplicate"],
+            "statement": "X",
+            "post_query": "SELECT 1",
+            "ordered": True,
+        }
+    )
     assert c.ordered is True
 
 
 def test_common_control_copied_to_both():
-    c = load_case({"id": "u", "kind": "dml", "isolation": "fresh",
-                   "concepts": ["upsert-on-duplicate"],
-                   "statement": "UPDATE t SET x=2", "post_query": "SELECT x FROM t"})
+    c = load_case(
+        {
+            "id": "u",
+            "kind": "dml",
+            "isolation": "fresh",
+            "concepts": ["upsert-on-duplicate"],
+            "statement": "UPDATE t SET x=2",
+            "post_query": "SELECT x FROM t",
+        }
+    )
     assert c.control_mysql["post_query"] == "SELECT x FROM t"
     assert c.control_postgres["post_query"] == "SELECT x FROM t"
 ```
@@ -931,8 +984,8 @@ from validate_corpus import (  # noqa: E402
     validate_corpus,
 )
 
-_PAIRABLE = ("setup", "post_query")     # 공통형 또는 _mysql/_postgres 쌍
-_COMMON_ONLY = ("exercise",)            # 항상 공통형
+_PAIRABLE = ("setup", "post_query")  # 공통형 또는 _mysql/_postgres 쌍
+_COMMON_ONLY = ("exercise",)  # 항상 공통형
 
 
 @dataclass
@@ -993,25 +1046,48 @@ Expected: PASS
 
 ```python
 def test_db_specific_pair_split():
-    c = load_case({"id": "p", "kind": "dml", "isolation": "fresh",
-                   "concepts": ["upsert-on-duplicate"], "statement": "X",
-                   "setup_mysql": "SET @x=1", "setup_postgres": "SELECT 1"})
+    c = load_case(
+        {
+            "id": "p",
+            "kind": "dml",
+            "isolation": "fresh",
+            "concepts": ["upsert-on-duplicate"],
+            "statement": "X",
+            "setup_mysql": "SET @x=1",
+            "setup_postgres": "SELECT 1",
+        }
+    )
     assert c.control_mysql["setup"] == "SET @x=1"
     assert c.control_postgres["setup"] == "SELECT 1"
 
 
 def test_dml_exercise_loaded_both():
-    c = load_case({"id": "e", "kind": "dml", "isolation": "fresh",
-                   "concepts": ["upsert-on-duplicate"], "statement": "X",
-                   "exercise": "INSERT INTO t VALUES (9)"})
+    c = load_case(
+        {
+            "id": "e",
+            "kind": "dml",
+            "isolation": "fresh",
+            "concepts": ["upsert-on-duplicate"],
+            "statement": "X",
+            "exercise": "INSERT INTO t VALUES (9)",
+        }
+    )
     assert c.control_mysql["exercise"] == "INSERT INTO t VALUES (9)"
     assert c.control_postgres["exercise"] == "INSERT INTO t VALUES (9)"
 
 
 def test_ddl_setup_and_object():
-    c = load_case({"id": "d", "kind": "ddl", "isolation": "fresh",
-                   "concepts": ["auto-increment"], "statement": "CREATE ...",
-                   "object": {"type": "table", "name": "tmp"}, "setup": "SELECT 1"})
+    c = load_case(
+        {
+            "id": "d",
+            "kind": "ddl",
+            "isolation": "fresh",
+            "concepts": ["auto-increment"],
+            "statement": "CREATE ...",
+            "object": {"type": "table", "name": "tmp"},
+            "setup": "SELECT 1",
+        }
+    )
     assert c.control_mysql["setup"] == "SELECT 1"
     assert c.object == {"type": "table", "name": "tmp"}
 ```
@@ -1039,14 +1115,15 @@ def load_corpus(cases_dir: Path, concepts_path: Path) -> list[Case]:
 def test_load_real_corpus():
     from pathlib import Path
     from harness.loader import load_corpus
+
     root = Path(__file__).resolve().parent.parent
     cases = load_corpus(root / "corpus" / "cases", root / "corpus" / "concepts.yaml")
     assert len(cases) == 14
     date_case = next(c for c in cases if c.id == "date-function")
     assert date_case.nondeterministic == {"strategy": "fixed_clock"}
-    assert date_case.ordered is True         # Task 0에서 명시함
+    assert date_case.ordered is True  # Task 0에서 명시함
     upsert = next(c for c in cases if c.id == "upsert-on-duplicate")
-    assert "setup" not in upsert.control_mysql   # Task 0에서 setup 제거
+    assert "setup" not in upsert.control_mysql  # Task 0에서 setup 제거
     assert upsert.control_mysql["post_query"]
 ```
 
@@ -1094,7 +1171,10 @@ from harness.executor import safe_object_name, ALLOWED_OBJECT_TYPES
 
 
 def test_safe_object_name_normalizes_hyphen():
-    assert safe_object_name("auto-increment", "tmp_ai") == "sqlbridge_auto_increment_tmp_ai"
+    assert (
+        safe_object_name("auto-increment", "tmp_ai")
+        == "sqlbridge_auto_increment_tmp_ai"
+    )
 
 
 def test_safe_object_name_truncates_long():
@@ -1195,13 +1275,21 @@ class Executor:
         try:
             if dialect == "mysql":
                 conn = pymysql.connect(
-                    host=config.host, port=config.port, user=config.user,
-                    password=config.password, database=config.database, autocommit=False,
+                    host=config.host,
+                    port=config.port,
+                    user=config.user,
+                    password=config.password,
+                    database=config.database,
+                    autocommit=False,
                 )
             elif dialect == "postgres":
                 conn = psycopg.connect(
-                    host=config.host, port=config.port, user=config.user,
-                    password=config.password, dbname=config.database, autocommit=False,
+                    host=config.host,
+                    port=config.port,
+                    user=config.user,
+                    password=config.password,
+                    dbname=config.database,
+                    autocommit=False,
                 )
             else:
                 raise ValueError(f"알 수 없는 dialect: {dialect}")
@@ -1218,16 +1306,16 @@ class Executor:
         """
         try:
             yield
-        except psycopg.errors.QueryCanceled as e:            # PG statement_timeout
+        except psycopg.errors.QueryCanceled as e:  # PG statement_timeout
             raise StatementTimeout(str(e)) from e
-        except pymysql.err.OperationalError as e:            # MySQL: 3024=timeout
+        except pymysql.err.OperationalError as e:  # MySQL: 3024=timeout
             code = e.args[0] if e.args else None
             if code == 3024:
                 raise StatementTimeout(str(e)) from e
             raise SqlExecutionFailure(str(e)) from e
-        except psycopg.OperationalError as e:                # PG 연결 단절
+        except psycopg.OperationalError as e:  # PG 연결 단절
             raise ConnectionFailure(str(e)) from e
-        except (pymysql.err.MySQLError, psycopg.Error) as e: # 구문/제약 등
+        except (pymysql.err.MySQLError, psycopg.Error) as e:  # 구문/제약 등
             raise SqlExecutionFailure(str(e)) from e
 
     @contextmanager
@@ -1247,25 +1335,27 @@ class Executor:
         try:
             self._conn.close()
         except Exception:
-            pass          # 닫기 실패는 무시(이미 종료 경로 — 여기서 던지면 원 예외를 가림)
+            pass  # 닫기 실패는 무시(이미 종료 경로 — 여기서 던지면 원 예외를 가림)
 
     def _apply_timeout(self, cur: object) -> None:
         ms = STATEMENT_TIMEOUT_SECONDS * 1000
         # timeout SET 자체 실패는 인프라(예: PG aborted 트랜잭션). _translate_infra로 감쌈.
         with self._translate_infra():
             if self.dialect == "postgres":
-                cur.execute(f"SET statement_timeout = {ms}")   # 모든 문장 적용(보장)
+                cur.execute(f"SET statement_timeout = {ms}")  # 모든 문장 적용(보장)
             else:
-                cur.execute(f"SET SESSION MAX_EXECUTION_TIME = {ms}")  # SELECT만(DML/DDL 비보장)
+                cur.execute(
+                    f"SET SESSION MAX_EXECUTION_TIME = {ms}"
+                )  # SELECT만(DML/DDL 비보장)
 
     def run_query(self, sql: str) -> QueryResult:
         with self._translate_infra():
             cur = self._conn.cursor()
         try:
             self._apply_timeout(cur)
-            with self._translate_query():            # 쿼리 본체만 query 번역
+            with self._translate_query():  # 쿼리 본체만 query 번역
                 cur.execute(sql)
-            with self._translate_infra():            # description·fetch는 인프라
+            with self._translate_infra():  # description·fetch는 인프라
                 columns = [d[0] for d in cur.description]
                 rows = [tuple(r) for r in cur.fetchall()]
             return QueryResult(columns, rows)
@@ -1285,7 +1375,7 @@ class Executor:
                 cur.close()
 
     def begin(self) -> None:
-        pass          # autocommit=False라 첫 실행 시 트랜잭션이 열린다.
+        pass  # autocommit=False라 첫 실행 시 트랜잭션이 열린다.
 
     def rollback(self) -> None:
         with self._translate_infra():
@@ -1372,7 +1462,8 @@ def test_connection_failure_translated():
 
 def ConnectionConfig_bad():
     from harness.executor import ConnectionConfig
-    return ConnectionConfig("127.0.0.1", 1, "x", "x", "x")   # 닫힌 포트
+
+    return ConnectionConfig("127.0.0.1", 1, "x", "x", "x")  # 닫힌 포트
 
 
 @pytest.mark.integration
@@ -1393,17 +1484,21 @@ def test_ddl_cleanup_after_pg_abort(postgres_up):
     """PG statement 실패로 트랜잭션이 aborted여도 ROLLBACK→DROP→COMMIT로 정리된다."""
     name = safe_object_name("cleanup-test", "tmp")
     with Executor.connect(POSTGRES_CONFIG, "postgres") as ex:
-        ex.drop_object("table", name); ex.commit()
-        ex.run_statement(f"CREATE TABLE {name} (id int)"); ex.commit()  # 영구 테이블
+        ex.drop_object("table", name)
+        ex.commit()
+        ex.run_statement(f"CREATE TABLE {name} (id int)")
+        ex.commit()  # 영구 테이블
         try:
-            ex.run_statement("SELECT * FROM no_such_xyz")   # 실패 → abort
+            ex.run_statement("SELECT * FROM no_such_xyz")  # 실패 → abort
         except SqlExecutionFailure:
             pass
         ex.rollback()
-        ex.drop_object("table", name); ex.commit()
+        ex.drop_object("table", name)
+        ex.commit()
         # catalog에서 부재 확인
         r = ex.run_query(
-            "SELECT COUNT(*) FROM information_schema.tables WHERE table_name = %s" % f"'{name}'"
+            "SELECT COUNT(*) FROM information_schema.tables WHERE table_name = %s"
+            % f"'{name}'"
         )
         assert r.rows[0][0] == 0
 ```
@@ -1459,7 +1554,10 @@ from harness.loader import load_case
 from harness.runner import Runner, CaseResult
 from harness.executor import QueryResult
 from harness.errors import (
-    StatementTimeout, ConnectionFailure, InfrastructureFailure, SqlExecutionFailure,
+    StatementTimeout,
+    ConnectionFailure,
+    InfrastructureFailure,
+    SqlExecutionFailure,
 )
 
 
@@ -1469,21 +1567,30 @@ class FakeExecutor:
     """
 
     def __init__(self, script, *, rollback_error=None, commit_error=None):
-        self.script = script          # {sql_substring: result|exception}
+        self.script = script  # {sql_substring: result|exception}
         self.rollback_error = rollback_error
         self.commit_error = commit_error
         self.dialect = "fake"
 
-    def __enter__(self): return self
-    def __exit__(self, *a): pass
-    def begin(self): pass
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *a):
+        pass
+
+    def begin(self):
+        pass
+
     def rollback(self):
         if self.rollback_error:
             raise self.rollback_error
+
     def commit(self):
         if self.commit_error:
             raise self.commit_error
-    def drop_object(self, t, n): pass
+
+    def drop_object(self, t, n):
+        pass
 
     def _resolve(self, sql):
         for key, val in self.script.items():
@@ -1491,10 +1598,13 @@ class FakeExecutor:
                 if isinstance(val, Exception):
                     raise val
                 return val
-        return QueryResult(["c"], [(1,)])   # 기본
+        return QueryResult(["c"], [(1,)])  # 기본
 
-    def run_query(self, sql): return self._resolve(sql)
-    def run_statement(self, sql): self._resolve(sql)
+    def run_query(self, sql):
+        return self._resolve(sql)
+
+    def run_statement(self, sql):
+        self._resolve(sql)
 
 
 def make_runner(my_script, pg_script, **my_kwargs):
@@ -1502,14 +1612,24 @@ def make_runner(my_script, pg_script, **my_kwargs):
         if dialect == "mysql":
             return FakeExecutor(my_script, **my_kwargs)
         return FakeExecutor(pg_script)
+
     class RaisingTransformer:
-        def transform(self, s): return s
+        def transform(self, s):
+            return s
+
     return Runner(None, None, RaisingTransformer(), executor_factory=factory)
 
 
 def _dql(mysql="SELECT 1"):
-    return load_case({"id": "c", "kind": "dql", "concepts": ["limit-pagination"],
-                      "mysql": mysql, "ordered": True})
+    return load_case(
+        {
+            "id": "c",
+            "kind": "dql",
+            "concepts": ["limit-pagination"],
+            "mysql": mysql,
+            "ordered": True,
+        }
+    )
 
 
 def test_stage_pg_statement_fail():
@@ -1530,16 +1650,23 @@ def test_stage_infrastructure_on_timeout():
 def test_stage_infrastructure_on_connection():
     def factory(config, dialect):
         raise ConnectionFailure("down")
+
     class T:
-        def transform(self, s): return s
+        def transform(self, s):
+            return s
+
     r = Runner(None, None, T(), executor_factory=factory).run_case(_dql())
     assert r.status == "error" and r.stage == "infrastructure"
 
 
 def test_stage_transform_fail():
     class BadT:
-        def transform(self, s): raise ValueError("parse error")
-    def factory(config, dialect): return FakeExecutor({})
+        def transform(self, s):
+            raise ValueError("parse error")
+
+    def factory(config, dialect):
+        return FakeExecutor({})
+
     r = Runner(None, None, BadT(), executor_factory=factory).run_case(_dql())
     assert r.status == "fail" and r.stage == "transform"
 
@@ -1552,9 +1679,16 @@ def test_stage_compare_fail():
 
 
 def test_stage_control_error_dml():
-    case = load_case({"id": "u", "kind": "dml", "isolation": "fresh",
-                      "concepts": ["upsert-on-duplicate"], "statement": "UPDATE x",
-                      "post_query": "SELECT name"})
+    case = load_case(
+        {
+            "id": "u",
+            "kind": "dml",
+            "isolation": "fresh",
+            "concepts": ["upsert-on-duplicate"],
+            "statement": "UPDATE x",
+            "post_query": "SELECT name",
+        }
+    )
     my = {"SELECT name": SqlExecutionFailure("bad control")}
     r = make_runner(my, {}).run_case(case)
     assert r.status == "error" and r.stage == "control"
@@ -1569,9 +1703,16 @@ def test_stage_pass():
 
 def test_stage_infrastructure_failure_maps_to_infra():
     # 제어 SQL에서 InfrastructureFailure(예: timeout SET 실패)는 control이 아니라 infra.
-    case = load_case({"id": "u", "kind": "dml", "isolation": "fresh",
-                      "concepts": ["upsert-on-duplicate"], "statement": "UPDATE x",
-                      "post_query": "SELECT name"})
+    case = load_case(
+        {
+            "id": "u",
+            "kind": "dml",
+            "isolation": "fresh",
+            "concepts": ["upsert-on-duplicate"],
+            "statement": "UPDATE x",
+            "post_query": "SELECT name",
+        }
+    )
     my = {"SELECT name": InfrastructureFailure("timeout set failed")}
     r = make_runner(my, {}).run_case(case)
     assert r.status == "error" and r.stage == "infrastructure"
@@ -1579,17 +1720,28 @@ def test_stage_infrastructure_failure_maps_to_infra():
 
 # --- cleanup 4우선순위(P1-2) ---
 
+
 def _dml_case():
-    return load_case({"id": "u", "kind": "dml", "isolation": "fresh",
-                      "concepts": ["upsert-on-duplicate"], "statement": "UPDATE x",
-                      "post_query": "SELECT name"})
+    return load_case(
+        {
+            "id": "u",
+            "kind": "dml",
+            "isolation": "fresh",
+            "concepts": ["upsert-on-duplicate"],
+            "statement": "UPDATE x",
+            "post_query": "SELECT name",
+        }
+    )
 
 
 def test_cleanup_fail_on_body_success_becomes_infra():
     # ① 본체 성공 + rollback(cleanup) 실패 → infrastructure/error
     my = {"SELECT name": QueryResult(["name"], [("a",)])}
-    r = make_runner(my, {"SELECT name": QueryResult(["name"], [("a",)])},
-                    rollback_error=InfrastructureFailure("rollback boom")).run_case(_dml_case())
+    r = make_runner(
+        my,
+        {"SELECT name": QueryResult(["name"], [("a",)])},
+        rollback_error=InfrastructureFailure("rollback boom"),
+    ).run_case(_dml_case())
     assert r.status == "error" and r.stage == "infrastructure"
     assert "cleanup" in (r.reason or "")
 
@@ -1678,7 +1830,9 @@ class Runner:
         mysql_config: ConnectionConfig | None,
         postgres_config: ConnectionConfig | None,
         transformer: Transformer,
-        executor_factory: Callable[[ConnectionConfig, str], Executor] = Executor.connect,
+        executor_factory: Callable[
+            [ConnectionConfig, str], Executor
+        ] = Executor.connect,
     ) -> None:
         self._mysql_config = mysql_config
         self._postgres_config = postgres_config
@@ -1696,7 +1850,7 @@ class Runner:
             raise _StageError("control", "error", f"알 수 없는 kind: {case.kind}")
         except _StageError as e:
             return CaseResult(case.id, e.status, e.stage, e.reason)
-        except Exception as e:      # 마지막 방어선(P1-4): 번역 누락 등 예상 밖 예외
+        except Exception as e:  # 마지막 방어선(P1-4): 번역 누락 등 예상 밖 예외
             return CaseResult(case.id, "error", "infrastructure", f"예상 밖 오류: {e}")
 
     # --- 공통 헬퍼 ---
@@ -1725,28 +1879,46 @@ class Runner:
         try:
             ex.run_statement(sql)
         except (StatementTimeout, ConnectionFailure, InfrastructureFailure) as e:
-            raise _StageError("infrastructure", "error", f"{type(e).__name__}: {e}") from e
+            raise _StageError(
+                "infrastructure", "error", f"{type(e).__name__}: {e}"
+            ) from e
         except SqlExecutionFailure as e:
             if dialect == "mysql":
-                raise _StageError("mysql.statement", "error", f"MySQL 피검증 실패: {e}") from e
+                raise _StageError(
+                    "mysql.statement", "error", f"MySQL 피검증 실패: {e}"
+                ) from e
             raise _StageError("pg.statement", "fail", f"PG 피검증 실패: {e}") from e
 
-    def _run_control(self, ex: Executor, dialect: str, sql: str, *, query: bool = False):
+    def _run_control(
+        self, ex: Executor, dialect: str, sql: str, *, query: bool = False
+    ):
         """제어 SQL 실행. 본체 실패=control/error, timeout/infra=infrastructure/error."""
         try:
             return ex.run_query(sql) if query else ex.run_statement(sql)
         except (StatementTimeout, ConnectionFailure, InfrastructureFailure) as e:
-            raise _StageError("infrastructure", "error", f"{type(e).__name__}: {e}") from e
+            raise _StageError(
+                "infrastructure", "error", f"{type(e).__name__}: {e}"
+            ) from e
         except SqlExecutionFailure as e:
-            raise _StageError("control", "error", f"{dialect} 제어 SQL 실패: {e}") from e
+            raise _StageError(
+                "control", "error", f"{dialect} 제어 SQL 실패: {e}"
+            ) from e
 
-    def _compare_results(self, case, my_res: QueryResult, pg_res: QueryResult) -> CaseResult:
+    def _compare_results(
+        self, case, my_res: QueryResult, pg_res: QueryResult
+    ) -> CaseResult:
         exclude = None
         nd = case.nondeterministic
         if nd and nd.get("strategy") == "exclude_columns":
             exclude = nd.get("columns")
-        cmp = compare(my_res.columns, my_res.rows, pg_res.columns, pg_res.rows,
-                      ordered=case.ordered, exclude_columns=exclude)
+        cmp = compare(
+            my_res.columns,
+            my_res.rows,
+            pg_res.columns,
+            pg_res.rows,
+            ordered=case.ordered,
+            exclude_columns=exclude,
+        )
         if cmp.equal:
             return CaseResult(case.id, "pass", None, None)
         return CaseResult(case.id, "fail", "compare", cmp.reason)
@@ -1755,28 +1927,33 @@ class Runner:
 - [ ] **Step 4: dql 경로(_run_dql) 구현 (P1-1: transform 먼저)**
 
 ```python
-    def _run_dql(self, case: Case) -> CaseResult:
-        assert case.mysql is not None
-        # 변환은 DB 연결 전(P1-1). 예외는 transform/fail.
-        pg_sql = self._transform_or_stage(case.mysql)
-        my_sql = self._maybe_fix_clock(case, case.mysql, "mysql")
-        pg_sql = self._maybe_fix_clock(case, pg_sql, "postgres")
+def _run_dql(self, case: Case) -> CaseResult:
+    assert case.mysql is not None
+    # 변환은 DB 연결 전(P1-1). 예외는 transform/fail.
+    pg_sql = self._transform_or_stage(case.mysql)
+    my_sql = self._maybe_fix_clock(case, case.mysql, "mysql")
+    pg_sql = self._maybe_fix_clock(case, pg_sql, "postgres")
 
-        with self._connect(self._mysql_config, "mysql") as my, \
-                self._connect(self._postgres_config, "postgres") as pg:
-            my_res = self._run_verified_query(my, "mysql", my_sql)
-            pg_res = self._run_verified_query(pg, "postgres", pg_sql)
-        return self._compare_results(case, my_res, pg_res)
+    with (
+        self._connect(self._mysql_config, "mysql") as my,
+        self._connect(self._postgres_config, "postgres") as pg,
+    ):
+        my_res = self._run_verified_query(my, "mysql", my_sql)
+        pg_res = self._run_verified_query(pg, "postgres", pg_sql)
+    return self._compare_results(case, my_res, pg_res)
 
-    def _run_verified_query(self, ex: Executor, dialect: str, sql: str) -> QueryResult:
-        try:
-            return ex.run_query(sql)
-        except (StatementTimeout, ConnectionFailure, InfrastructureFailure) as e:
-            raise _StageError("infrastructure", "error", f"{type(e).__name__}: {e}") from e
-        except SqlExecutionFailure as e:
-            if dialect == "mysql":
-                raise _StageError("mysql.statement", "error", f"MySQL 피검증 실패: {e}") from e
-            raise _StageError("pg.statement", "fail", f"PG 피검증 실패: {e}") from e
+
+def _run_verified_query(self, ex: Executor, dialect: str, sql: str) -> QueryResult:
+    try:
+        return ex.run_query(sql)
+    except (StatementTimeout, ConnectionFailure, InfrastructureFailure) as e:
+        raise _StageError("infrastructure", "error", f"{type(e).__name__}: {e}") from e
+    except SqlExecutionFailure as e:
+        if dialect == "mysql":
+            raise _StageError(
+                "mysql.statement", "error", f"MySQL 피검증 실패: {e}"
+            ) from e
+        raise _StageError("pg.statement", "fail", f"PG 피검증 실패: {e}") from e
 ```
 
 - [ ] **Step 5: stage 행렬 단위 테스트 통과**
@@ -1789,74 +1966,99 @@ Expected: dql 관련 stage 테스트 PASS(dml/control 테스트는 Step 6 후 �
 **cleanup 4우선순위(P1-2)**: 본체(setup~post_query)와 cleanup(rollback 등)을 분리 실행하고 아래 규칙으로 최종 결정한다. `_cleanup`은 모든 단계를 시도하며 실패 메시지를 누적한다:
 
 ```python
-    def _cleanup(self, steps: list[Callable[[], None]]) -> str | None:
-        """cleanup 단계를 모두 시도. 성공 시 None, 실패 시 누적 메시지 반환(삼키지 않음)."""
-        errors: list[str] = []
-        for step in steps:
-            try:
-                step()
-            except Exception as e:
-                errors.append(f"{type(e).__name__}: {e}")
-        return "; ".join(errors) if errors else None
-
-    def _finalize(
-        self, case: Case, body_error: _StageError | None,
-        cleanup_error: str | None, result: CaseResult | None,
-    ) -> CaseResult:
-        """본체 결과/예외 + cleanup 결과를 4규칙으로 종합(P1-2)."""
-        if body_error is None:
-            if cleanup_error is not None:                    # ① 본체 성공 + cleanup 실패
-                return CaseResult(case.id, "error", "infrastructure",
-                                  f"cleanup 실패: {cleanup_error}")
-            assert result is not None
-            return result                                     # 정상
-        # 본체 실패
-        if cleanup_error is None:                             # ② 본체 실패 + cleanup 성공
-            return CaseResult(case.id, body_error.status, body_error.stage, body_error.reason)
-        # ③ 본체 실패 + cleanup 실패 → 원 stage 유지 + reason 누적
-        return CaseResult(case.id, body_error.status, body_error.stage,
-                          f"{body_error.reason} | cleanup 실패: {cleanup_error}")
-
-    def _run_dml(self, case: Case) -> CaseResult:
-        assert case.statement is not None
-        pg_stmt = self._transform_or_stage(case.statement)     # P1-1: dml도 연결 전 변환
-        with self._connect(self._mysql_config, "mysql") as my, \
-                self._connect(self._postgres_config, "postgres") as pg:
-            my_res = self._run_state_path(case, my, "mysql", case.statement)
-            if isinstance(my_res, CaseResult):     # 본체 실패가 CaseResult로 돌아옴
-                return my_res
-            pg_res = self._run_state_path(case, pg, "postgres", pg_stmt)
-            if isinstance(pg_res, CaseResult):
-                return pg_res
-        return self._compare_state(case, my_res, pg_res)
-
-    def _run_state_path(self, case, ex, dialect, statement):
-        """본체 실행 후 cleanup(rollback). 반환: QueryResult|None(성공) 또는 CaseResult(실패)."""
-        control = case.control_mysql if dialect == "mysql" else case.control_postgres
-        body_error: _StageError | None = None
-        result: QueryResult | None = None
+def _cleanup(self, steps: list[Callable[[], None]]) -> str | None:
+    """cleanup 단계를 모두 시도. 성공 시 None, 실패 시 누적 메시지 반환(삼키지 않음)."""
+    errors: list[str] = []
+    for step in steps:
         try:
-            ex.begin()
-            if "setup" in control:
-                self._run_control(ex, dialect, self._maybe_fix_clock(case, control["setup"], dialect))
-            self._run_verified(ex, dialect, self._maybe_fix_clock(case, statement, dialect))
-            if "exercise" in control:
-                self._run_control(ex, dialect, self._maybe_fix_clock(case, control["exercise"], dialect))
-            if "post_query" in control:
-                result = self._run_control(
-                    ex, dialect, self._maybe_fix_clock(case, control["post_query"], dialect), query=True
-                )
-        except _StageError as e:
-            body_error = e
-        cleanup_error = self._cleanup([ex.rollback])           # 격리: 반드시 롤백(삼키지 않음)
-        if body_error is not None or cleanup_error is not None:
-            return self._finalize(case, body_error, cleanup_error, None)
-        return result       # 성공: QueryResult|None
+            step()
+        except Exception as e:
+            errors.append(f"{type(e).__name__}: {e}")
+    return "; ".join(errors) if errors else None
 
-    def _compare_state(self, case, my_res, pg_res) -> CaseResult:
-        if my_res is None or pg_res is None:
-            return CaseResult(case.id, "pass", None, None)   # post_query 없으면 실행 성공=pass
-        return self._compare_results(case, my_res, pg_res)
+
+def _finalize(
+    self,
+    case: Case,
+    body_error: _StageError | None,
+    cleanup_error: str | None,
+    result: CaseResult | None,
+) -> CaseResult:
+    """본체 결과/예외 + cleanup 결과를 4규칙으로 종합(P1-2)."""
+    if body_error is None:
+        if cleanup_error is not None:  # ① 본체 성공 + cleanup 실패
+            return CaseResult(
+                case.id, "error", "infrastructure", f"cleanup 실패: {cleanup_error}"
+            )
+        assert result is not None
+        return result  # 정상
+    # 본체 실패
+    if cleanup_error is None:  # ② 본체 실패 + cleanup 성공
+        return CaseResult(
+            case.id, body_error.status, body_error.stage, body_error.reason
+        )
+    # ③ 본체 실패 + cleanup 실패 → 원 stage 유지 + reason 누적
+    return CaseResult(
+        case.id,
+        body_error.status,
+        body_error.stage,
+        f"{body_error.reason} | cleanup 실패: {cleanup_error}",
+    )
+
+
+def _run_dml(self, case: Case) -> CaseResult:
+    assert case.statement is not None
+    pg_stmt = self._transform_or_stage(case.statement)  # P1-1: dml도 연결 전 변환
+    with (
+        self._connect(self._mysql_config, "mysql") as my,
+        self._connect(self._postgres_config, "postgres") as pg,
+    ):
+        my_res = self._run_state_path(case, my, "mysql", case.statement)
+        if isinstance(my_res, CaseResult):  # 본체 실패가 CaseResult로 돌아옴
+            return my_res
+        pg_res = self._run_state_path(case, pg, "postgres", pg_stmt)
+        if isinstance(pg_res, CaseResult):
+            return pg_res
+    return self._compare_state(case, my_res, pg_res)
+
+
+def _run_state_path(self, case, ex, dialect, statement):
+    """본체 실행 후 cleanup(rollback). 반환: QueryResult|None(성공) 또는 CaseResult(실패)."""
+    control = case.control_mysql if dialect == "mysql" else case.control_postgres
+    body_error: _StageError | None = None
+    result: QueryResult | None = None
+    try:
+        ex.begin()
+        if "setup" in control:
+            self._run_control(
+                ex, dialect, self._maybe_fix_clock(case, control["setup"], dialect)
+            )
+        self._run_verified(ex, dialect, self._maybe_fix_clock(case, statement, dialect))
+        if "exercise" in control:
+            self._run_control(
+                ex, dialect, self._maybe_fix_clock(case, control["exercise"], dialect)
+            )
+        if "post_query" in control:
+            result = self._run_control(
+                ex,
+                dialect,
+                self._maybe_fix_clock(case, control["post_query"], dialect),
+                query=True,
+            )
+    except _StageError as e:
+        body_error = e
+    cleanup_error = self._cleanup([ex.rollback])  # 격리: 반드시 롤백(삼키지 않음)
+    if body_error is not None or cleanup_error is not None:
+        return self._finalize(case, body_error, cleanup_error, None)
+    return result  # 성공: QueryResult|None
+
+
+def _compare_state(self, case, my_res, pg_res) -> CaseResult:
+    if my_res is None or pg_res is None:
+        return CaseResult(
+            case.id, "pass", None, None
+        )  # post_query 없으면 실행 성공=pass
+    return self._compare_results(case, my_res, pg_res)
 ```
 
 > `_run_state_path`는 이제 성공 시 `QueryResult|None`, 실패 시 `CaseResult`를 반환한다(cleanup 결과를 이미 종합). `_run_dml`이 `isinstance(res, CaseResult)`로 분기한다. 검증 대상은 post_query라 `post_query`가 required(Task 0 P1-2차)이므로 정상 dml은 항상 `QueryResult`를 낸다.
@@ -1871,58 +2073,75 @@ Expected: 전부 PASS(control/error 포함).
 **P1-3**: 고유명은 연결 없이 결정되므로 `_run_ddl`에서 `name` 계산 → `my_stmt = subst(statement)` → `pg_stmt = _transform_or_stage(my_stmt)`를 **DB 연결 전**에 하고, 각 경로에 준비된 statement를 넘긴다(dql/dml과 동일한 순서). **P1-2**: pre-clean DROP 실패는 본체 미실행 + infrastructure, 본체 cleanup은 `_cleanup`+`_finalize`로 4규칙.
 
 ```python
-    def _run_ddl(self, case: Case) -> CaseResult:
-        assert case.statement is not None and case.object is not None
-        obj_type = case.object["type"]
-        if obj_type not in ALLOWED_OBJECT_TYPES:
-            raise _StageError("control", "error", f"지원하지 않는 object type: {obj_type}")
-        name = safe_object_name(case.id, case.object["name"])
-        my_stmt = case.statement.replace("{{object_name}}", name)   # 고유명 치환(연결 전)
-        pg_stmt = self._transform_or_stage(my_stmt)                 # P1-3: 연결 전 변환
+def _run_ddl(self, case: Case) -> CaseResult:
+    assert case.statement is not None and case.object is not None
+    obj_type = case.object["type"]
+    if obj_type not in ALLOWED_OBJECT_TYPES:
+        raise _StageError("control", "error", f"지원하지 않는 object type: {obj_type}")
+    name = safe_object_name(case.id, case.object["name"])
+    my_stmt = case.statement.replace("{{object_name}}", name)  # 고유명 치환(연결 전)
+    pg_stmt = self._transform_or_stage(my_stmt)  # P1-3: 연결 전 변환
 
-        with self._connect(self._mysql_config, "mysql") as my, \
-                self._connect(self._postgres_config, "postgres") as pg:
-            my_res = self._run_ddl_path(case, my, "mysql", obj_type, name, my_stmt)
-            if isinstance(my_res, CaseResult):
-                return my_res
-            pg_res = self._run_ddl_path(case, pg, "postgres", obj_type, name, pg_stmt)
-            if isinstance(pg_res, CaseResult):
-                return pg_res
-        return self._compare_state(case, my_res, pg_res)
+    with (
+        self._connect(self._mysql_config, "mysql") as my,
+        self._connect(self._postgres_config, "postgres") as pg,
+    ):
+        my_res = self._run_ddl_path(case, my, "mysql", obj_type, name, my_stmt)
+        if isinstance(my_res, CaseResult):
+            return my_res
+        pg_res = self._run_ddl_path(case, pg, "postgres", obj_type, name, pg_stmt)
+        if isinstance(pg_res, CaseResult):
+            return pg_res
+    return self._compare_state(case, my_res, pg_res)
 
-    def _run_ddl_path(self, case, ex, dialect, obj_type, name, statement):
-        """본체 후 cleanup(ROLLBACK→DROP→COMMIT). 성공: QueryResult|None, 실패: CaseResult."""
-        def subst(sql: str) -> str:
-            return sql.replace("{{object_name}}", name)
 
-        control = case.control_mysql if dialect == "mysql" else case.control_postgres
+def _run_ddl_path(self, case, ex, dialect, obj_type, name, statement):
+    """본체 후 cleanup(ROLLBACK→DROP→COMMIT). 성공: QueryResult|None, 실패: CaseResult."""
 
-        # ④ pre-clean: 실패 시 본체 미실행 + infrastructure(DROP IF EXISTS는 객체 없어도 성공).
-        pre_error = self._cleanup([lambda: ex.drop_object(obj_type, name), ex.commit])
-        if pre_error is not None:
-            return CaseResult(case.id, "error", "infrastructure", f"pre-clean 실패: {pre_error}")
+    def subst(sql: str) -> str:
+        return sql.replace("{{object_name}}", name)
 
-        body_error: _StageError | None = None
-        result: QueryResult | None = None
-        try:
-            if "setup" in control:
-                self._run_control(ex, dialect, subst(self._maybe_fix_clock(case, control["setup"], dialect)))
-            self._run_verified(ex, dialect, self._maybe_fix_clock(case, statement, dialect))
-            if "exercise" in control:
-                self._run_control(ex, dialect, subst(self._maybe_fix_clock(case, control["exercise"], dialect)))
-            if "post_query" in control:
-                result = self._run_control(
-                    ex, dialect, subst(self._maybe_fix_clock(case, control["post_query"], dialect)), query=True
-                )
-        except _StageError as e:
-            body_error = e
-        # ②③ aborted 정리: ROLLBACK → 새 트랜잭션 DROP → COMMIT (삼키지 않고 누적).
-        cleanup_error = self._cleanup(
-            [ex.rollback, lambda: ex.drop_object(obj_type, name), ex.commit]
+    control = case.control_mysql if dialect == "mysql" else case.control_postgres
+
+    # ④ pre-clean: 실패 시 본체 미실행 + infrastructure(DROP IF EXISTS는 객체 없어도 성공).
+    pre_error = self._cleanup([lambda: ex.drop_object(obj_type, name), ex.commit])
+    if pre_error is not None:
+        return CaseResult(
+            case.id, "error", "infrastructure", f"pre-clean 실패: {pre_error}"
         )
-        if body_error is not None or cleanup_error is not None:
-            return self._finalize(case, body_error, cleanup_error, None)
-        return result
+
+    body_error: _StageError | None = None
+    result: QueryResult | None = None
+    try:
+        if "setup" in control:
+            self._run_control(
+                ex,
+                dialect,
+                subst(self._maybe_fix_clock(case, control["setup"], dialect)),
+            )
+        self._run_verified(ex, dialect, self._maybe_fix_clock(case, statement, dialect))
+        if "exercise" in control:
+            self._run_control(
+                ex,
+                dialect,
+                subst(self._maybe_fix_clock(case, control["exercise"], dialect)),
+            )
+        if "post_query" in control:
+            result = self._run_control(
+                ex,
+                dialect,
+                subst(self._maybe_fix_clock(case, control["post_query"], dialect)),
+                query=True,
+            )
+    except _StageError as e:
+        body_error = e
+    # ②③ aborted 정리: ROLLBACK → 새 트랜잭션 DROP → COMMIT (삼키지 않고 누적).
+    cleanup_error = self._cleanup(
+        [ex.rollback, lambda: ex.drop_object(obj_type, name), ex.commit]
+    )
+    if body_error is not None or cleanup_error is not None:
+        return self._finalize(case, body_error, cleanup_error, None)
+    return result
 ```
 
 > `statement`는 이미 `_run_ddl`에서 dialect별로 준비됨(MySQL=`my_stmt`, PG=`pg_stmt`). `subst`는 setup/exercise/post_query(제어 SQL)의 `{{object_name}}` 치환용으로 남는다. MySQL 피검증 실패는 `_run_verified`가 `mysql.statement`/error로 잡으므로 stage 계약과 충돌 없음(P1-3 리뷰 확인).
@@ -1946,29 +2165,48 @@ def runner(mysql_up, postgres_up):
 
 @pytest.mark.integration
 def test_dql_standard_passes(runner):
-    case = load_case({"id": "enum-type", "kind": "dql", "concepts": ["enum-type"],
-                      "ordered": True,
-                      "mysql": "SELECT id, status FROM orders WHERE status='paid' ORDER BY id LIMIT 5"})
+    case = load_case(
+        {
+            "id": "enum-type",
+            "kind": "dql",
+            "concepts": ["enum-type"],
+            "ordered": True,
+            "mysql": "SELECT id, status FROM orders WHERE status='paid' ORDER BY id LIMIT 5",
+        }
+    )
     r = runner.run_case(case)
     assert r.status == "pass", r.reason
 
 
 @pytest.mark.integration
 def test_dql_backtick_fails_at_pg(runner):
-    case = load_case({"id": "backtick-identifier", "kind": "dql",
-                      "concepts": ["backtick-identifier"], "ordered": True,
-                      "mysql": "SELECT `id` FROM `products` ORDER BY `id` LIMIT 5"})
+    case = load_case(
+        {
+            "id": "backtick-identifier",
+            "kind": "dql",
+            "concepts": ["backtick-identifier"],
+            "ordered": True,
+            "mysql": "SELECT `id` FROM `products` ORDER BY `id` LIMIT 5",
+        }
+    )
     r = runner.run_case(case)
     assert r.status == "fail" and r.stage == "pg.statement" and r.reason
 
 
 @pytest.mark.integration
 def test_fixed_clock_same_instant(runner):
-    case = load_case({"id": "date-function", "kind": "dql", "concepts": ["date-function"],
-                      "ordered": True, "nondeterministic": {"strategy": "fixed_clock"},
-                      "mysql": "SELECT id FROM orders WHERE ordered_at < NOW() ORDER BY id LIMIT 5"})
+    case = load_case(
+        {
+            "id": "date-function",
+            "kind": "dql",
+            "concepts": ["date-function"],
+            "ordered": True,
+            "nondeterministic": {"strategy": "fixed_clock"},
+            "mysql": "SELECT id FROM orders WHERE ordered_at < NOW() ORDER BY id LIMIT 5",
+        }
+    )
     r = runner.run_case(case)
-    assert r.status == "pass", r.reason      # NOW() 고정 리터럴 치환으로 양 DB 동일 필터
+    assert r.status == "pass", r.reason  # NOW() 고정 리터럴 치환으로 양 DB 동일 필터
 ```
 
 - [ ] **Step 10: dml/ddl 통합 + 격리 불변(P2-5: 양 DB·값·catalog)**
@@ -1976,44 +2214,58 @@ def test_fixed_clock_same_instant(runner):
 ```python
 @pytest.mark.integration
 def test_dml_upsert_fails_at_pg_and_isolated(runner):
-    case = load_case({
-        "id": "upsert-on-duplicate", "kind": "dml", "isolation": "fresh",
-        "concepts": ["upsert-on-duplicate"],
-        "statement": "INSERT INTO users (id, email, name, created_at) "
-                     "VALUES (1, 'user1@example.com', 'Upserted', TIMESTAMP '2025-01-01 00:01:00') "
-                     "ON DUPLICATE KEY UPDATE name = VALUES(name)",
-        "post_query": "SELECT name FROM users WHERE id = 1",
-    })
+    case = load_case(
+        {
+            "id": "upsert-on-duplicate",
+            "kind": "dml",
+            "isolation": "fresh",
+            "concepts": ["upsert-on-duplicate"],
+            "statement": "INSERT INTO users (id, email, name, created_at) "
+            "VALUES (1, 'user1@example.com', 'Upserted', TIMESTAMP '2025-01-01 00:01:00') "
+            "ON DUPLICATE KEY UPDATE name = VALUES(name)",
+            "post_query": "SELECT name FROM users WHERE id = 1",
+        }
+    )
+
     # 양 DB 값 스냅샷(격리 입증: 값까지 불변)
     def snapshot(cfg, dialect):
         with Executor.connect(cfg, dialect) as ex:
             return ex.run_query("SELECT name FROM users WHERE id = 1").rows[0][0]
+
     my_before = snapshot(MYSQL_CONFIG, "mysql")
     pg_before = snapshot(POSTGRES_CONFIG, "postgres")
     r = runner.run_case(case)
-    assert my_before == snapshot(MYSQL_CONFIG, "mysql")     # 'User 1' 복원
+    assert my_before == snapshot(MYSQL_CONFIG, "mysql")  # 'User 1' 복원
     assert pg_before == snapshot(POSTGRES_CONFIG, "postgres")
     assert r.status == "fail" and r.stage == "pg.statement"  # ON DUPLICATE PG 미지원
 
 
 @pytest.mark.integration
 def test_ddl_auto_increment_fails_and_no_leftover(runner):
-    case = load_case({
-        "id": "auto-increment", "kind": "ddl", "isolation": "fresh",
-        "concepts": ["auto-increment"], "object": {"type": "table", "name": "tmp_ai"},
-        "statement": "CREATE TABLE {{object_name}} "
-                     "(id INT AUTO_INCREMENT PRIMARY KEY, label VARCHAR(20) NOT NULL)",
-        "exercise": "INSERT INTO {{object_name}} (label) VALUES ('a'),('b'),('c')",
-        "post_query": "SELECT id, label FROM {{object_name}} ORDER BY id",
-    })
+    case = load_case(
+        {
+            "id": "auto-increment",
+            "kind": "ddl",
+            "isolation": "fresh",
+            "concepts": ["auto-increment"],
+            "object": {"type": "table", "name": "tmp_ai"},
+            "statement": "CREATE TABLE {{object_name}} "
+            "(id INT AUTO_INCREMENT PRIMARY KEY, label VARCHAR(20) NOT NULL)",
+            "exercise": "INSERT INTO {{object_name}} (label) VALUES ('a'),('b'),('c')",
+            "post_query": "SELECT id, label FROM {{object_name}} ORDER BY id",
+        }
+    )
     # 영구 테이블로 바꿔 catalog 부재를 실제로 확인(temp면 연결 종료로 가려짐).
     r = runner.run_case(case)
     assert r.status == "fail" and r.stage == "pg.statement"  # AUTO_INCREMENT PG 미지원
     name = safe_object_name("auto-increment", "tmp_ai")
     for cfg, dialect in [(MYSQL_CONFIG, "mysql"), (POSTGRES_CONFIG, "postgres")]:
         with Executor.connect(cfg, dialect) as ex:
-            q = ("SELECT COUNT(*) FROM information_schema.tables WHERE table_name = '%s'" % name)
-            assert ex.run_query(q).rows[0][0] == 0        # 양 DB catalog 부재
+            q = (
+                "SELECT COUNT(*) FROM information_schema.tables WHERE table_name = '%s'"
+                % name
+            )
+            assert ex.run_query(q).rows[0][0] == 0  # 양 DB catalog 부재
 ```
 
 > 코퍼스의 `CREATE TEMPORARY TABLE`은 연결 종료로 사라져 catalog 부재를 입증 못 한다(P2-5). 통합 테스트에선 영구 `CREATE TABLE`로 바꿔 정리를 실증한다. 실제 코퍼스는 TEMPORARY 유지(공유 fixture 오염 방지) — 이 테스트는 정리 로직 자체 검증용.
@@ -2195,11 +2447,20 @@ from harness.executor import Executor, MYSQL_CONFIG, POSTGRES_CONFIG
 
 # pass-through 기준 기대 스냅샷. Task 9(Step 3) 실행으로 확정.
 EXPECTED_STATUS = {
-    "limit-pagination": "fail", "ifnull-coalesce": "fail", "backtick-identifier": "fail",
-    "date-function": "fail", "enum-type": "pass", "bool-tinyint": "fail",   # P3: PG boolean
-    "unsigned-type": "pass", "upsert-on-duplicate": "fail", "auto-increment": "fail",
-    "covering-index": "pass", "multi-join": "pass", "keyset-vs-offset": "pass",
-    "non-sargable-like": "pass", "groupby-aggregate": "pass",
+    "limit-pagination": "fail",
+    "ifnull-coalesce": "fail",
+    "backtick-identifier": "fail",
+    "date-function": "fail",
+    "enum-type": "pass",
+    "bool-tinyint": "fail",  # P3: PG boolean
+    "unsigned-type": "pass",
+    "upsert-on-duplicate": "fail",
+    "auto-increment": "fail",
+    "covering-index": "pass",
+    "multi-join": "pass",
+    "keyset-vs-offset": "pass",
+    "non-sargable-like": "pass",
+    "groupby-aggregate": "pass",
 }
 
 
@@ -2237,13 +2498,17 @@ def test_seed_invariant_both_dbs(results):
             assert ex.run_query("SELECT COUNT(*) FROM users").rows[0][0] == 1000
             assert ex.run_query("SELECT COUNT(*) FROM orders").rows[0][0] == 50000
             # upsert 대상 값 복원 확인
-            assert ex.run_query("SELECT name FROM users WHERE id = 1").rows[0][0] == "User 1"
+            assert (
+                ex.run_query("SELECT name FROM users WHERE id = 1").rows[0][0]
+                == "User 1"
+            )
 
 
 @pytest.mark.integration
 def test_cli_exit_code_nonzero(mysql_up, postgres_up):
     """실제 CLI main()이 fail 존재 시 non-zero 종료(P2-6)."""
     from harness.__main__ import main
+
     assert main([]) == 1
 ```
 
