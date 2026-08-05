@@ -24,6 +24,8 @@ ISOLATION_VALUES = {"fresh"}
 ACCESS_VALUES = {"index_only", "index", "any"}
 NONDET_STRATEGIES = {"fixed_clock", "fixed_seed", "exclude_columns"}
 ID_PATTERN = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
+# object.name은 DDL 고유명으로 SQL에 직접 보간되므로 식별자 형식만 허용한다.
+OBJECT_NAME_PATTERN = re.compile(r"^[a-zA-Z_][a-zA-Z0-9_]*$")
 
 # 제어 SQL 필드 중 "공통형 또는 DB별 쌍"으로 적을 수 있는 것들의 기준 이름.
 # 실제 케이스에서는 `setup` 또는 `setup_mysql`+`setup_postgres` 형태로 나타난다.
@@ -50,12 +52,13 @@ KIND_SPECS: dict[str, KindSpec] = {
     ),
     "dml": KindSpec(
         required={"statement", "isolation"},
-        optional={"nondeterministic", "exercise"},
-        pairable_required={"setup", "post_query"},
+        optional={"nondeterministic", "exercise", "ordered"},
+        pairable_required={"post_query"},  # 검증 대상 — 없으면 상태 비교 불가
+        pairable_optional={"setup"},  # 기존 시드 재사용 케이스는 setup 불필요
     ),
     "ddl": KindSpec(
         required={"statement", "isolation", "object"},
-        optional={"exercise"},
+        optional={"exercise", "ordered"},
         pairable_optional={"setup", "post_query"},
     ),
 }
@@ -164,6 +167,14 @@ def _check_object(case: dict[str, Any], ctx: str, result: ValidationResult) -> N
             result.errors.append(
                 f"{ctx}: `object.{key}`가 비어있지 않은 문자열이어야 한다"
             )
+    # object.name은 DDL 고유명으로 SQL에 직접 보간되므로 식별자 형식만 허용한다
+    # (하니스가 조용히 변형하지 않고, 부적합하면 정적 검증에서 실패하게 한다).
+    name = obj.get("name")
+    if _nonempty_str(name) and not OBJECT_NAME_PATTERN.match(name):
+        result.errors.append(
+            f"{ctx}: `object.name`은 식별자 형식이어야 한다(영문자/밑줄로 시작, "
+            f"영숫자·밑줄만): {name!r}"
+        )
 
 
 def _check_nondeterministic(

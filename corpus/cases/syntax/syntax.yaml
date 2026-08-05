@@ -41,6 +41,7 @@ cases:
   - id: date-function
     kind: dql
     concepts: [date-function]
+    ordered: true
     nondeterministic:
       strategy: fixed_clock
     note: NOW() 등 비결정 시각 함수. 하니스가 양 DB 시계를 고정해 비교(비교 계약 1.8).
@@ -93,16 +94,15 @@ cases:
     isolation: fresh
     note: >
       INSERT ... ON DUPLICATE KEY UPDATE → PG ON CONFLICT. users.email이 UNIQUE라
-      기존 이메일이면 name을 갱신한다. setup은 격리를 위해 전용 이메일로 선삽입.
-    setup: |
-      INSERT INTO users (email, name, created_at)
-      VALUES ('upsert-seed@example.com', 'Before', TIMESTAMP '2025-06-01 00:00:00')
+      기존 시드 행(id=1, user1@example.com)과 email이 충돌해 name을 갱신한다.
+      기존 행을 재사용해 새 id/AUTO_INCREMENT를 소비하지 않는다(공유 fixture 불변).
+      전체가 트랜잭션 안에서 ROLLBACK되어 시드가 복원된다.
     statement: |
-      INSERT INTO users (email, name, created_at)
-      VALUES ('upsert-seed@example.com', 'After', TIMESTAMP '2025-06-01 00:00:00')
+      INSERT INTO users (id, email, name, created_at)
+      VALUES (1, 'user1@example.com', 'Upserted', TIMESTAMP '2025-01-01 00:01:00')
       ON DUPLICATE KEY UPDATE name = VALUES(name)
     post_query: |
-      SELECT name FROM users WHERE email = 'upsert-seed@example.com'
+      SELECT name FROM users WHERE id = 1
 
   - id: auto-increment
     kind: ddl

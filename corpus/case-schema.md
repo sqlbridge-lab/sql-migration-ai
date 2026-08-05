@@ -38,8 +38,8 @@ cases:
 | kind | 피검증 SQL | 제어 SQL | 기타 필수 | 선택 | 금지 |
 |------|-----------|----------|----------|------|------|
 | `dql` | `mysql` | — | — | `ordered`, `nondeterministic`, `perf` | `setup*`, `statement`, `exercise`, `post_query*`, `object`, `params`, `teardown*` |
-| `dml` | `statement` | `setup*`, `post_query*` | `isolation` | `nondeterministic`, `exercise` | `mysql`, `perf`, `object`, `params`, `teardown*` |
-| `ddl` | `statement` | `post_query*` | `isolation`, `object` | `setup*`, `exercise` | `mysql`, `perf`, `params`, `teardown*` |
+| `dml` | `statement` | `setup*`(선택), `post_query*`(필수) | `isolation` | `ordered`, `nondeterministic`, `exercise` | `mysql`, `perf`, `object`, `params`, `teardown*` |
+| `ddl` | `statement` | `setup*`, `post_query*` | `isolation`, `object` | `ordered`, `exercise` | `mysql`, `perf`, `params`, `teardown*` |
 
 - `*`가 붙은 제어 SQL 필드는 **공통형(`setup`) 또는 완전한 DB별 쌍(`setup_mysql`+
   `setup_postgres`)** 둘 중 하나로 적는다. 둘 다 적거나 쌍 중 한쪽만 적으면 검증 실패.
@@ -48,8 +48,12 @@ cases:
 ### 필드 설명
 
 - `isolation`: 허용값 `fresh`뿐. dml/ddl 필수. 매 케이스를 깨끗한 상태에서 실행함을 뜻한다.
-- `ordered`: bool. total order를 요구(비교 계약 1.1). 기본은 ORDER BY 유무로 추론하되, 모호하면
-  명시한다.
+- `ordered`: bool. **전 kind 허용**(dql/dml/ddl). total order를 요구(비교 계약 1.1). 기본은
+  False다. **비교 대상 쿼리(dql `mysql`, dml/ddl `post_query`)에 `ORDER BY`가 있으면 `ordered: true`를
+  명시한다**(추론에 기대지 않는다).
+- **dml `post_query`는 필수다.** dml은 statement 반환값을 비교하지 않으므로, post_query가 없으면
+  양 DB의 최종 상태가 달라도 통과해 버린다(검증 대상이 post_query 결과라서). `setup`은 선택이다
+  (기존 시드 행을 재사용하는 케이스는 setup이 불필요하다).
 - WHERE 등 리터럴은 **SQL 안에 구체 값으로 직접 적는다**(별도 `params` 바인딩 없음 — `params`는
   전 kind 금지). 컨테이너에서 그대로 실행돼 문법 유효성을 확인할 수 있어야 한다. 문자열 리터럴은
   collation 비범위 제약을 따른다(비교 계약 1.7).
