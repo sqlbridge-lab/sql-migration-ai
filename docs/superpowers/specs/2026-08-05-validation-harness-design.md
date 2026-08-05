@@ -60,7 +60,7 @@
 - `harness/transform.py` — `Transformer` Protocol + `PassThroughTransformer`.
 - `harness/executor.py` — `Executor`. 한 DB에 SQL 실행, 격리(트랜잭션/DROP), DDL 고유명 생성,
   fixed_seed 세션 주입(생기면) 담당. (fixed_clock은 실행 전 SQL 치환이라 Runner 전처리.)
-- `harness/compare.py` — `Comparator`. 두 결과셋을 비교(정렬/탐욕적 multiset 매칭/타입정규화/
+- `harness/compare.py` — `Comparator`. 두 결과셋을 비교(정렬/이분 최대 매칭/타입정규화/
   오차/NULL/exclude_columns).
 - `harness/runner.py` — `Runner`. 케이스를 로드→변환→양쪽 실행→비교해 `CaseResult` 생성.
 - `harness/report.py` — `CaseResult` 리스트를 터미널 요약으로, exit code 산출.
@@ -212,7 +212,10 @@ Comparator(rows_mysql, rows_pg)
 context manager(`with`)로 열어 항상 닫는다.
 
 **타임아웃**: 잘못된 케이스가 매달리지 않게 실행 쿼리에 statement timeout(예: 30초)을 건다.
-초과 시 `error`. MVP라 고정 상수 하나.
+초과 시 `error`(infrastructure). MVP라 고정 상수 하나. **PG는 `statement_timeout`으로 모든
+문장에 timeout을 보장**하지만, **MySQL `MAX_EXECUTION_TIME`은 read-only SELECT 전용**이라
+**MySQL DML/DDL은 timeout 비보장(비범위)**이다. watchdog+KILL은 MVP 과대이고, 코퍼스 케이스는
+매달리지 않으므로 실무 위험이 없다.
 
 ### 핵심 데이터 모델
 
@@ -255,10 +258,13 @@ class CaseResult:
    성립하는 전제다.
 
 **행 동등성 판정(row_equal)** — 두 행이 같은지는 값별로 판정한다:
-- Decimal → 스케일 맞춰 수치 비교
-- MySQL 0/1(int) ↔ PG bool → 통일
+- 정수 → **정확 비교**(오차 없음). 큰 정수를 float로 붕괴시키지 않는다.
+- Decimal → **스케일만 흡수한 정확 수치 비교**(`10.00 == 10.0`). 값 붕괴 금지 — float로
+  바꾸지 않고 Decimal끼리(또는 Decimal↔정수) 정확 비교한다.
+- MySQL 0/1(int) ↔ PG bool → 통일(상대가 **정확히 0/1**일 때만; 근사 아님).
 - datetime → UTC 순간
-- float → **1e-9 절대·상대 오차 안이면 같음**(근사)
+- float → **float가 관여할 때만 1e-9 절대·상대 오차 안이면 같음**(근사). 정수·Decimal에는
+  이 오차를 적용하지 않는다.
 - None → NULL로 비교
 
 **행 집합 비교** — float 근사 때문에 "행 동등성"이 **정확한 해시 동등성이 아니다.** 그래서
@@ -267,12 +273,16 @@ unordered에서 `Counter`(해시 기반)를 쓸 수 없다(`3.0000000001`과 `3.
 ```
 1. columns 개수·이름 대응 확인
 2. ordered=true → 두 리스트를 index별로 row_equal
-3. ordered=false → 탐욕적 multiset 매칭:
-     PG 행을 순회하며, MySQL 행 중 아직 매칭 안 된 것에서
-     row_equal인 행을 하나 찾아 소비(pop). 못 찾으면 불일치.
-     양쪽 개수·소비가 모두 맞아떨어져야 equal.
+3. ordered=false → 이분 그래프 최대 매칭:
+     rows_a[i]와 rows_b[j]가 row_equal이면 간선을 두고, 완전 매칭(모든 a가
+     매칭)이 존재하는지 증가 경로 탐색(Kuhn/Hopcroft–Karp)으로 판정한다.
+     행 개수는 먼저 비교하므로, 완전 매칭이 있으면 양쪽이 같은 multiset이다.
 ```
-탐욕적 매칭이라 중복 float 행·경계값도 개수까지 정확히 판정한다.
+**탐욕적 매칭은 반례가 있어 금지한다.** 오차 안의 값이 여러 상대와 매칭 가능할 때,
+소비 순서에 따라 완전 매칭을 놓칠 수 있다. 예: A=[0.9e-9, 0], B=[0, 1.8e-9], tol=1e-9
+→ 0.9e-9가 먼저 0을 소비하면 남은 0이 1.8e-9와 매칭 못 해 실패하지만, 실제로는
+0.9e-9↔1.8e-9·0↔0으로 완전 매칭이 존재한다. 최대 매칭은 중복 float 행·경계값도 개수까지
+정확히 판정한다.
 
 collation은 코퍼스가 씨드로 회피했으므로(문자열=바이트 동일) 별도 정규화하지 않는다.
 
@@ -293,6 +303,10 @@ collation은 코퍼스가 씨드로 회피했으므로(문자열=바이트 동�
   비대칭이라, 양 DB를 동일하게 처리하려고 **현재시각 함수를 고정 리터럴로 AST 치환**한다.
   치환은 피검증·제어 SQL 모두에 적용하고, 실행 전 별도 전처리 단계로 둔다(변환기 C와는 무관한
   오라클 고정 처리). SQLGlot을 쓴다(이미 프로젝트 핵심 의존성).
+  - **지원 현재시각 함수 allowlist**: `NOW()`, `CURRENT_TIMESTAMP`, `LOCALTIMESTAMP`
+    (→ 고정 timestamp 리터럴), `CURDATE()`/`CURRENT_DATE`(→ 고정 date 리터럴), `SYSDATE()`
+    (→ 고정 timestamp 리터럴). 그 외 현재시각 함수는 **미지원(비범위)**이며, 코퍼스에는
+    allowlist 함수만 쓴다.
 - `exclude_columns`는 Comparator가 열을 뺀다(Runner가 `Case.nondeterministic`을 Comparator에 전달).
 - `fixed_seed`는 생길 때 Executor 세션 설정으로 주입한다(이번 미구현).
 - 어느 전략이든 `Case.nondeterministic`이 있으면 Runner가 해당 경로로 태운다.
@@ -341,7 +355,7 @@ collation은 코퍼스가 씨드로 회피했으므로(문자열=바이트 동�
 - [ ] `harness/transform.py` — `Transformer` Protocol + `PassThroughTransformer` +
       `fix_clock(sql, ts)`(NOW()/CURRENT_TIMESTAMP → 고정 리터럴 SQLGlot 치환) →
       검증: pass-through가 입력 그대로 반환, fix_clock이 현재시각 함수를 리터럴로 바꾸는 단위 테스트
-- [ ] `harness/compare.py` — `Comparator`(정렬/**탐욕적 multiset 매칭**/타입정규화/오차/NULL/
+- [ ] `harness/compare.py` — `Comparator`(정렬/**이분 최대 매칭**/타입정규화/오차/NULL/
       `exclude_columns`) → 검증: 위 단위 테스트 목록 전부 통과(float 근사+unordered·중복·경계 포함)
 - [ ] `harness/loader.py` — `CaseLoader`(제어 SQL 쌍 정규화, `nondeterministic` 로드) →
       검증: 공통형·쌍이 control_mysql/postgres로 갈리고, dml exercise·ddl setup도 실린다
@@ -381,9 +395,11 @@ collation은 코퍼스가 씨드로 회피했으므로(문자열=바이트 동�
 - **DDL 정리는 PG 트랜잭션 경계를 명시**: PostgreSQL은 트랜잭션 안 한 문장이 실패하면 전체가
   aborted라, 실패한 트랜잭션 안의 정리 DROP도 거부된다. 그래서 finally에서 먼저 ROLLBACK 후
   새 트랜잭션에서 DROP+COMMIT하고, 실행 전 DROP도 독립 COMMIT해 정리가 롤백에 휩쓸리지 않게 한다.
-- **unordered 비교는 Counter 대신 탐욕적 매칭**: float를 근사 비교하면 행 동등성이 정확한 해시
-  동등성이 아니다. Counter는 오차 안의 다른 float를 다른 키로 봐 틀린다. 미매칭 행에서 오차
-  내 행을 하나 소비하는 탐욕적 매칭으로 중복·경계값까지 개수 정확히 판정한다.
+- **unordered 비교는 Counter 대신 이분 최대 매칭**: float를 근사 비교하면 행 동등성이 정확한
+  해시 동등성이 아니다. Counter는 오차 안의 다른 float를 다른 키로 봐 틀린다. 탐욕적 매칭도
+  소비 순서 의존으로 완전 매칭을 놓치는 반례가 있어(위 "행 집합 비교" 참조) 쓰지 않는다.
+  row_equal 간선의 이분 그래프에서 완전 매칭 존재를 증가 경로 탐색(Kuhn)으로 판정해 중복·경계값까지
+  개수 정확히 판정한다.
 - **격리는 코퍼스 계약 그대로(dml 롤백/ddl DROP)**: MySQL DDL은 implicit commit이라 롤백이 안
   돼 종류를 나눈다. 매 케이스 DB 재생성은 5만 행 재주입이라 느리고 계약과도 어긋난다.
 - **통합 테스트를 마커로 격리**: pre-push의 pytest가 DB 없이 통과해야 한다. DB 필요한 건 갈라

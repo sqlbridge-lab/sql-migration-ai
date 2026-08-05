@@ -50,12 +50,13 @@ KIND_SPECS: dict[str, KindSpec] = {
     ),
     "dml": KindSpec(
         required={"statement", "isolation"},
-        optional={"nondeterministic", "exercise"},
-        pairable_required={"setup", "post_query"},
+        optional={"nondeterministic", "exercise", "ordered"},
+        pairable_required={"post_query"},  # 검증 대상 — 없으면 상태 비교 불가
+        pairable_optional={"setup"},  # 기존 시드 재사용 케이스는 setup 불필요
     ),
     "ddl": KindSpec(
         required={"statement", "isolation", "object"},
-        optional={"exercise"},
+        optional={"exercise", "ordered"},
         pairable_optional={"setup", "post_query"},
     ),
 }

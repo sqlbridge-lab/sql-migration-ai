@@ -154,6 +154,32 @@ def test_ddl_missing_object():
     assert any("object" in e for e in result.errors)
 
 
+# --- dml pairable 규칙 (setup optional, post_query required) ---
+
+
+def test_dml_without_setup_passes():
+    case = {
+        "id": "u",
+        "kind": "dml",
+        "isolation": "fresh",
+        "concepts": ["limit-pagination"],
+        "statement": "X",
+        "post_query": "SELECT 1",
+    }
+    assert validate_case(case, WHITELIST).ok
+
+
+def test_dml_without_post_query_fails():
+    case = {
+        "id": "u",
+        "kind": "dml",
+        "isolation": "fresh",
+        "concepts": ["limit-pagination"],
+        "statement": "X",
+    }
+    assert not validate_case(case, WHITELIST).ok
+
+
 # --- 전역 규칙 ---
 
 
