@@ -1,0 +1,5761 @@
+cases:
+- id: unsigned-type-0-lt-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 0
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-0-lt-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 0
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-0-lt-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 0
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-0-lt-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 0
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-0-lt-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 0
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-0-le-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 0
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-0-le-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 0
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-0-le-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 0
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-0-le-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 0
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-0-le-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 0
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-0-eq-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 0
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-0-eq-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 0
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-0-eq-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 0
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-0-eq-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 0
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-0-eq-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 0
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-0-gt-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 0
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-0-gt-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 0
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-0-gt-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 0
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-0-gt-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 0
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-0-gt-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 0
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-0-ge-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 0
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-0-ge-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 0
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-0-ge-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 0
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-0-ge-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 0
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-0-ge-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 0
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-0-ne-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 0
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-0-ne-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 0
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-0-ne-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 0
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-0-ne-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 0
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-0-ne-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 0
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-1-lt-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 1
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-1-lt-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 1
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-1-lt-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 1
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-1-lt-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 1
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-1-lt-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 1
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-1-le-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 1
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-1-le-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 1
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-1-le-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 1
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-1-le-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 1
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-1-le-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 1
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-1-eq-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 1
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-1-eq-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 1
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-1-eq-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 1
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-1-eq-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 1
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-1-eq-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 1
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-1-gt-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 1
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-1-gt-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 1
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-1-gt-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 1
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-1-gt-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 1
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-1-gt-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 1
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-1-ge-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 1
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-1-ge-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 1
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-1-ge-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 1
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-1-ge-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 1
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-1-ge-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 1
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-1-ne-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 1
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-1-ne-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 1
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-1-ne-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 1
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-1-ne-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 1
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-1-ne-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 1
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-5-lt-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 5
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-5-lt-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 5
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-5-lt-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 5
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-5-lt-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 5
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-5-lt-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 5
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-5-le-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 5
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-5-le-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 5
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-5-le-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 5
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-5-le-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 5
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-5-le-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 5
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-5-eq-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 5
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-5-eq-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 5
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-5-eq-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 5
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-5-eq-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 5
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-5-eq-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 5
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-5-gt-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 5
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-5-gt-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 5
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-5-gt-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 5
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-5-gt-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 5
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-5-gt-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 5
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-5-ge-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 5
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-5-ge-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 5
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-5-ge-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 5
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-5-ge-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 5
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-5-ge-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 5
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-5-ne-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 5
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-5-ne-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 5
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-5-ne-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 5
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-5-ne-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 5
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-5-ne-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 5
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-10-lt-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 10
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-10-lt-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 10
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-10-lt-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 10
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-10-lt-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 10
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-10-lt-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 10
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-10-le-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 10
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-10-le-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 10
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-10-le-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 10
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-10-le-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 10
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-10-le-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 10
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-10-eq-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 10
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-10-eq-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 10
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-10-eq-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 10
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-10-eq-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 10
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-10-eq-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 10
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-10-gt-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 10
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-10-gt-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 10
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-10-gt-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 10
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-10-gt-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 10
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-10-gt-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 10
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-10-ge-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 10
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-10-ge-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 10
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-10-ge-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 10
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-10-ge-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 10
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-10-ge-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 10
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-10-ne-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 10
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-10-ne-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 10
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-10-ne-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 10
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-10-ne-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 10
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-10-ne-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 10
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-50-lt-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 50
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-50-lt-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 50
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-50-lt-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 50
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-50-lt-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 50
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-50-lt-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 50
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-50-le-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 50
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-50-le-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 50
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-50-le-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 50
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-50-le-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 50
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-50-le-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 50
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-50-eq-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 50
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-50-eq-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 50
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-50-eq-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 50
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-50-eq-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 50
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-50-eq-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 50
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-50-gt-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 50
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-50-gt-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 50
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-50-gt-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 50
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-50-gt-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 50
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-50-gt-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 50
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-50-ge-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 50
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-50-ge-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 50
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-50-ge-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 50
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-50-ge-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 50
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-50-ge-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 50
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-50-ne-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 50
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-50-ne-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 50
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-50-ne-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 50
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-50-ne-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 50
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-50-ne-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 50
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-100-lt-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 100
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-100-lt-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 100
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-100-lt-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 100
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-100-lt-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 100
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-100-lt-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 100
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-100-le-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 100
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-100-le-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 100
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-100-le-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 100
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-100-le-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 100
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-100-le-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 100
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-100-eq-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 100
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-100-eq-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 100
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-100-eq-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 100
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-100-eq-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 100
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-100-eq-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 100
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-100-gt-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 100
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-100-gt-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 100
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-100-gt-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 100
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-100-gt-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 100
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-100-gt-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 100
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-100-ge-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 100
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-100-ge-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 100
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-100-ge-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 100
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-100-ge-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 100
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-100-ge-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 100
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-100-ne-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 100
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-100-ne-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 100
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-100-ne-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 100
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-100-ne-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 100
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-100-ne-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 100
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-200-lt-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 200
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-200-lt-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 200
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-200-lt-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 200
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-200-lt-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 200
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-200-lt-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 200
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-200-le-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 200
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-200-le-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 200
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-200-le-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 200
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-200-le-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 200
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-200-le-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 200
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-200-eq-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 200
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-200-eq-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 200
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-200-eq-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 200
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-200-eq-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 200
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-200-eq-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 200
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-200-gt-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 200
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-200-gt-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 200
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-200-gt-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 200
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-200-gt-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 200
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-200-gt-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 200
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-200-ge-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 200
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-200-ge-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 200
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-200-ge-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 200
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-200-ge-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 200
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-200-ge-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 200
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-200-ne-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 200
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-200-ne-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 200
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-200-ne-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 200
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-200-ne-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 200
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-200-ne-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 200
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-300-lt-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 300
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-300-lt-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 300
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-300-lt-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 300
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-300-lt-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 300
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-300-lt-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 300
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-300-le-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 300
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-300-le-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 300
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-300-le-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 300
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-300-le-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 300
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-300-le-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 300
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-300-eq-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 300
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-300-eq-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 300
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-300-eq-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 300
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-300-eq-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 300
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-300-eq-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 300
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-300-gt-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 300
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-300-gt-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 300
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-300-gt-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 300
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-300-gt-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 300
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-300-gt-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 300
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-300-ge-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 300
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-300-ge-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 300
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-300-ge-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 300
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-300-ge-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 300
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-300-ge-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 300
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-300-ne-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 300
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-300-ne-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 300
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-300-ne-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 300
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-300-ne-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 300
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-300-ne-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 300
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-500-lt-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 500
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-500-lt-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 500
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-500-lt-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 500
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-500-lt-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 500
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-500-lt-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 500
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-500-le-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 500
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-500-le-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 500
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-500-le-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 500
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-500-le-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 500
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-500-le-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 500
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-500-eq-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 500
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-500-eq-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 500
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-500-eq-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 500
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-500-eq-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 500
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-500-eq-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 500
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-500-gt-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 500
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-500-gt-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 500
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-500-gt-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 500
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-500-gt-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 500
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-500-gt-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 500
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-500-ge-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 500
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-500-ge-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 500
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-500-ge-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 500
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-500-ge-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 500
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-500-ge-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 500
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-500-ne-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 500
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-500-ne-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 500
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-500-ne-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 500
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-500-ne-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 500
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-500-ne-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 500
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-700-lt-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 700
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-700-lt-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 700
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-700-lt-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 700
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-700-lt-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 700
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-700-lt-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 700
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-700-le-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 700
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-700-le-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 700
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-700-le-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 700
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-700-le-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 700
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-700-le-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 700
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-700-eq-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 700
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-700-eq-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 700
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-700-eq-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 700
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-700-eq-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 700
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-700-eq-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 700
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-700-gt-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 700
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-700-gt-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 700
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-700-gt-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 700
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-700-gt-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 700
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-700-gt-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 700
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-700-ge-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 700
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-700-ge-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 700
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-700-ge-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 700
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-700-ge-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 700
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-700-ge-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 700
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-700-ne-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 700
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-700-ne-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 700
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-700-ne-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 700
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-700-ne-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 700
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-700-ne-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 700
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-900-lt-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 900
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-900-lt-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 900
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-900-lt-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 900
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-900-lt-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 900
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-900-lt-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 900
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-900-le-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 900
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-900-le-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 900
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-900-le-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 900
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-900-le-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 900
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-900-le-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 900
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-900-eq-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 900
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-900-eq-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 900
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-900-eq-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 900
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-900-eq-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 900
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-900-eq-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 900
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-900-gt-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 900
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-900-gt-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 900
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-900-gt-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 900
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-900-gt-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 900
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-900-gt-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 900
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-900-ge-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 900
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-900-ge-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 900
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-900-ge-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 900
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-900-ge-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 900
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-900-ge-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 900
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-900-ne-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 900
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-900-ne-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 900
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-900-ne-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 900
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-900-ne-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 900
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-900-ne-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 900
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-999-lt-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 999
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-999-lt-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 999
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-999-lt-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 999
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-999-lt-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 999
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-999-lt-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock < 999
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-999-le-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 999
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-999-le-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 999
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-999-le-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 999
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-999-le-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 999
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-999-le-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <= 999
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-999-eq-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 999
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-999-eq-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 999
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-999-eq-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 999
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-999-eq-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 999
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-999-eq-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock = 999
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-999-gt-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 999
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-999-gt-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 999
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-999-gt-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 999
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-999-gt-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 999
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-999-gt-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock > 999
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-999-ge-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 999
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-999-ge-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 999
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-999-ge-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 999
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-999-ge-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 999
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-999-ge-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock >= 999
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: unsigned-type-999-ne-5
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 999
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: unsigned-type-999-ne-10
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 999
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: unsigned-type-999-ne-20
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 999
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: unsigned-type-999-ne-50
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 999
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: unsigned-type-999-ne-100
+  kind: dql
+  concepts:
+  - unsigned-type
+  ordered: true
+  mysql: 'SELECT id, stock
+
+    FROM products
+
+    WHERE stock <> 999
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '

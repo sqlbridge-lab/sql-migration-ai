@@ -1,0 +1,841 @@
+cases:
+- id: backtick-identifier-products-id-name-id-1
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `name`
+
+    FROM `products`
+
+    ORDER BY `id`
+
+    LIMIT 1
+
+    '
+- id: backtick-identifier-products-id-name-id-5
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `name`
+
+    FROM `products`
+
+    ORDER BY `id`
+
+    LIMIT 5
+
+    '
+- id: backtick-identifier-products-id-name-id-10
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `name`
+
+    FROM `products`
+
+    ORDER BY `id`
+
+    LIMIT 10
+
+    '
+- id: backtick-identifier-products-id-name-id-20
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `name`
+
+    FROM `products`
+
+    ORDER BY `id`
+
+    LIMIT 20
+
+    '
+- id: backtick-identifier-products-id-name-id-50
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `name`
+
+    FROM `products`
+
+    ORDER BY `id`
+
+    LIMIT 50
+
+    '
+- id: backtick-identifier-products-id-name-id-100
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `name`
+
+    FROM `products`
+
+    ORDER BY `id`
+
+    LIMIT 100
+
+    '
+- id: backtick-identifier-products-id-price-id-1
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `price`
+
+    FROM `products`
+
+    ORDER BY `id`
+
+    LIMIT 1
+
+    '
+- id: backtick-identifier-products-id-price-id-5
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `price`
+
+    FROM `products`
+
+    ORDER BY `id`
+
+    LIMIT 5
+
+    '
+- id: backtick-identifier-products-id-price-id-10
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `price`
+
+    FROM `products`
+
+    ORDER BY `id`
+
+    LIMIT 10
+
+    '
+- id: backtick-identifier-products-id-price-id-20
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `price`
+
+    FROM `products`
+
+    ORDER BY `id`
+
+    LIMIT 20
+
+    '
+- id: backtick-identifier-products-id-price-id-50
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `price`
+
+    FROM `products`
+
+    ORDER BY `id`
+
+    LIMIT 50
+
+    '
+- id: backtick-identifier-products-id-price-id-100
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `price`
+
+    FROM `products`
+
+    ORDER BY `id`
+
+    LIMIT 100
+
+    '
+- id: backtick-identifier-products-id-stock-id-1
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `stock`
+
+    FROM `products`
+
+    ORDER BY `id`
+
+    LIMIT 1
+
+    '
+- id: backtick-identifier-products-id-stock-id-5
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `stock`
+
+    FROM `products`
+
+    ORDER BY `id`
+
+    LIMIT 5
+
+    '
+- id: backtick-identifier-products-id-stock-id-10
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `stock`
+
+    FROM `products`
+
+    ORDER BY `id`
+
+    LIMIT 10
+
+    '
+- id: backtick-identifier-products-id-stock-id-20
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `stock`
+
+    FROM `products`
+
+    ORDER BY `id`
+
+    LIMIT 20
+
+    '
+- id: backtick-identifier-products-id-stock-id-50
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `stock`
+
+    FROM `products`
+
+    ORDER BY `id`
+
+    LIMIT 50
+
+    '
+- id: backtick-identifier-products-id-stock-id-100
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `stock`
+
+    FROM `products`
+
+    ORDER BY `id`
+
+    LIMIT 100
+
+    '
+- id: backtick-identifier-orders-id-status-id-1
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `status`
+
+    FROM `orders`
+
+    ORDER BY `id`
+
+    LIMIT 1
+
+    '
+- id: backtick-identifier-orders-id-status-id-5
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `status`
+
+    FROM `orders`
+
+    ORDER BY `id`
+
+    LIMIT 5
+
+    '
+- id: backtick-identifier-orders-id-status-id-10
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `status`
+
+    FROM `orders`
+
+    ORDER BY `id`
+
+    LIMIT 10
+
+    '
+- id: backtick-identifier-orders-id-status-id-20
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `status`
+
+    FROM `orders`
+
+    ORDER BY `id`
+
+    LIMIT 20
+
+    '
+- id: backtick-identifier-orders-id-status-id-50
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `status`
+
+    FROM `orders`
+
+    ORDER BY `id`
+
+    LIMIT 50
+
+    '
+- id: backtick-identifier-orders-id-status-id-100
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `status`
+
+    FROM `orders`
+
+    ORDER BY `id`
+
+    LIMIT 100
+
+    '
+- id: backtick-identifier-orders-id-user-id-id-1
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `user_id`
+
+    FROM `orders`
+
+    ORDER BY `id`
+
+    LIMIT 1
+
+    '
+- id: backtick-identifier-orders-id-user-id-id-5
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `user_id`
+
+    FROM `orders`
+
+    ORDER BY `id`
+
+    LIMIT 5
+
+    '
+- id: backtick-identifier-orders-id-user-id-id-10
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `user_id`
+
+    FROM `orders`
+
+    ORDER BY `id`
+
+    LIMIT 10
+
+    '
+- id: backtick-identifier-orders-id-user-id-id-20
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `user_id`
+
+    FROM `orders`
+
+    ORDER BY `id`
+
+    LIMIT 20
+
+    '
+- id: backtick-identifier-orders-id-user-id-id-50
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `user_id`
+
+    FROM `orders`
+
+    ORDER BY `id`
+
+    LIMIT 50
+
+    '
+- id: backtick-identifier-orders-id-user-id-id-100
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `user_id`
+
+    FROM `orders`
+
+    ORDER BY `id`
+
+    LIMIT 100
+
+    '
+- id: backtick-identifier-orders-id-total-id-1
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `total`
+
+    FROM `orders`
+
+    ORDER BY `id`
+
+    LIMIT 1
+
+    '
+- id: backtick-identifier-orders-id-total-id-5
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `total`
+
+    FROM `orders`
+
+    ORDER BY `id`
+
+    LIMIT 5
+
+    '
+- id: backtick-identifier-orders-id-total-id-10
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `total`
+
+    FROM `orders`
+
+    ORDER BY `id`
+
+    LIMIT 10
+
+    '
+- id: backtick-identifier-orders-id-total-id-20
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `total`
+
+    FROM `orders`
+
+    ORDER BY `id`
+
+    LIMIT 20
+
+    '
+- id: backtick-identifier-orders-id-total-id-50
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `total`
+
+    FROM `orders`
+
+    ORDER BY `id`
+
+    LIMIT 50
+
+    '
+- id: backtick-identifier-orders-id-total-id-100
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `total`
+
+    FROM `orders`
+
+    ORDER BY `id`
+
+    LIMIT 100
+
+    '
+- id: backtick-identifier-payments-id-method-id-1
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `method`
+
+    FROM `payments`
+
+    ORDER BY `id`
+
+    LIMIT 1
+
+    '
+- id: backtick-identifier-payments-id-method-id-5
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `method`
+
+    FROM `payments`
+
+    ORDER BY `id`
+
+    LIMIT 5
+
+    '
+- id: backtick-identifier-payments-id-method-id-10
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `method`
+
+    FROM `payments`
+
+    ORDER BY `id`
+
+    LIMIT 10
+
+    '
+- id: backtick-identifier-payments-id-method-id-20
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `method`
+
+    FROM `payments`
+
+    ORDER BY `id`
+
+    LIMIT 20
+
+    '
+- id: backtick-identifier-payments-id-method-id-50
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `method`
+
+    FROM `payments`
+
+    ORDER BY `id`
+
+    LIMIT 50
+
+    '
+- id: backtick-identifier-payments-id-method-id-100
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `method`
+
+    FROM `payments`
+
+    ORDER BY `id`
+
+    LIMIT 100
+
+    '
+- id: backtick-identifier-payments-id-paid-id-1
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `paid`
+
+    FROM `payments`
+
+    ORDER BY `id`
+
+    LIMIT 1
+
+    '
+- id: backtick-identifier-payments-id-paid-id-5
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `paid`
+
+    FROM `payments`
+
+    ORDER BY `id`
+
+    LIMIT 5
+
+    '
+- id: backtick-identifier-payments-id-paid-id-10
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `paid`
+
+    FROM `payments`
+
+    ORDER BY `id`
+
+    LIMIT 10
+
+    '
+- id: backtick-identifier-payments-id-paid-id-20
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `paid`
+
+    FROM `payments`
+
+    ORDER BY `id`
+
+    LIMIT 20
+
+    '
+- id: backtick-identifier-payments-id-paid-id-50
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `paid`
+
+    FROM `payments`
+
+    ORDER BY `id`
+
+    LIMIT 50
+
+    '
+- id: backtick-identifier-payments-id-paid-id-100
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `paid`
+
+    FROM `payments`
+
+    ORDER BY `id`
+
+    LIMIT 100
+
+    '
+- id: backtick-identifier-reviews-id-rating-id-1
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `rating`
+
+    FROM `reviews`
+
+    ORDER BY `id`
+
+    LIMIT 1
+
+    '
+- id: backtick-identifier-reviews-id-rating-id-5
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `rating`
+
+    FROM `reviews`
+
+    ORDER BY `id`
+
+    LIMIT 5
+
+    '
+- id: backtick-identifier-reviews-id-rating-id-10
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `rating`
+
+    FROM `reviews`
+
+    ORDER BY `id`
+
+    LIMIT 10
+
+    '
+- id: backtick-identifier-reviews-id-rating-id-20
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `rating`
+
+    FROM `reviews`
+
+    ORDER BY `id`
+
+    LIMIT 20
+
+    '
+- id: backtick-identifier-reviews-id-rating-id-50
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `rating`
+
+    FROM `reviews`
+
+    ORDER BY `id`
+
+    LIMIT 50
+
+    '
+- id: backtick-identifier-reviews-id-rating-id-100
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `rating`
+
+    FROM `reviews`
+
+    ORDER BY `id`
+
+    LIMIT 100
+
+    '
+- id: backtick-identifier-users-id-email-id-1
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `email`
+
+    FROM `users`
+
+    ORDER BY `id`
+
+    LIMIT 1
+
+    '
+- id: backtick-identifier-users-id-email-id-5
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `email`
+
+    FROM `users`
+
+    ORDER BY `id`
+
+    LIMIT 5
+
+    '
+- id: backtick-identifier-users-id-email-id-10
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `email`
+
+    FROM `users`
+
+    ORDER BY `id`
+
+    LIMIT 10
+
+    '
+- id: backtick-identifier-users-id-email-id-20
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `email`
+
+    FROM `users`
+
+    ORDER BY `id`
+
+    LIMIT 20
+
+    '
+- id: backtick-identifier-users-id-email-id-50
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `email`
+
+    FROM `users`
+
+    ORDER BY `id`
+
+    LIMIT 50
+
+    '
+- id: backtick-identifier-users-id-email-id-100
+  kind: dql
+  concepts:
+  - backtick-identifier
+  ordered: true
+  mysql: 'SELECT `id`, `email`
+
+    FROM `users`
+
+    ORDER BY `id`
+
+    LIMIT 100
+
+    '

@@ -1,0 +1,1345 @@
+cases:
+- id: ifnull-coalesce-payments-paid-at-timestamp-2000-01-01-00-00-00-1
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2000-01-01 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2000-01-01-00-00-00-5
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2000-01-01 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2000-01-01-00-00-00-10
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2000-01-01 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2000-01-01-00-00-00-20
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2000-01-01 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2000-01-01-00-00-00-50
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2000-01-01 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2000-01-01-00-00-00-100
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2000-01-01 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2000-01-01-00-00-00-150
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2000-01-01 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2000-01-01-00-00-00-200
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2000-01-01 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2020-06-15-12-30-00-1
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2020-06-15 12:30:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2020-06-15-12-30-00-5
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2020-06-15 12:30:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2020-06-15-12-30-00-10
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2020-06-15 12:30:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2020-06-15-12-30-00-20
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2020-06-15 12:30:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2020-06-15-12-30-00-50
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2020-06-15 12:30:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2020-06-15-12-30-00-100
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2020-06-15 12:30:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2020-06-15-12-30-00-150
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2020-06-15 12:30:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2020-06-15-12-30-00-200
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2020-06-15 12:30:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2025-01-01-00-00-00-1
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2025-01-01 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2025-01-01-00-00-00-5
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2025-01-01 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2025-01-01-00-00-00-10
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2025-01-01 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2025-01-01-00-00-00-20
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2025-01-01 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2025-01-01-00-00-00-50
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2025-01-01 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2025-01-01-00-00-00-100
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2025-01-01 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2025-01-01-00-00-00-150
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2025-01-01 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2025-01-01-00-00-00-200
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2025-01-01 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2025-02-04-00-00-00-1
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2025-02-04 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2025-02-04-00-00-00-5
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2025-02-04 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2025-02-04-00-00-00-10
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2025-02-04 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2025-02-04-00-00-00-20
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2025-02-04 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2025-02-04-00-00-00-50
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2025-02-04 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2025-02-04-00-00-00-100
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2025-02-04 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2025-02-04-00-00-00-150
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2025-02-04 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2025-02-04-00-00-00-200
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2025-02-04 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-1999-12-31-23-59-59-1
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''1999-12-31 23:59:59'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-1999-12-31-23-59-59-5
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''1999-12-31 23:59:59'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-1999-12-31-23-59-59-10
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''1999-12-31 23:59:59'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-1999-12-31-23-59-59-20
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''1999-12-31 23:59:59'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-1999-12-31-23-59-59-50
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''1999-12-31 23:59:59'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-1999-12-31-23-59-59-100
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''1999-12-31 23:59:59'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-1999-12-31-23-59-59-150
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''1999-12-31 23:59:59'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-1999-12-31-23-59-59-200
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''1999-12-31 23:59:59'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2100-01-01-00-00-00-1
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2100-01-01 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2100-01-01-00-00-00-5
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2100-01-01 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2100-01-01-00-00-00-10
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2100-01-01 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2100-01-01-00-00-00-20
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2100-01-01 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2100-01-01-00-00-00-50
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2100-01-01 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2100-01-01-00-00-00-100
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2100-01-01 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2100-01-01-00-00-00-150
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2100-01-01 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: ifnull-coalesce-payments-paid-at-timestamp-2100-01-01-00-00-00-200
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(paid_at, TIMESTAMP ''2100-01-01 00:00:00'') AS effective
+
+    FROM payments
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: ifnull-coalesce-categories-parent-id-0-1
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 0) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: ifnull-coalesce-categories-parent-id-0-5
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 0) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: ifnull-coalesce-categories-parent-id-0-10
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 0) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: ifnull-coalesce-categories-parent-id-0-20
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 0) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: ifnull-coalesce-categories-parent-id-0-50
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 0) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: ifnull-coalesce-categories-parent-id-0-100
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 0) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: ifnull-coalesce-categories-parent-id-0-150
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 0) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: ifnull-coalesce-categories-parent-id-0-200
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 0) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: ifnull-coalesce-categories-parent-id-1-1
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 1) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: ifnull-coalesce-categories-parent-id-1-5
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 1) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: ifnull-coalesce-categories-parent-id-1-10
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 1) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: ifnull-coalesce-categories-parent-id-1-20
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 1) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: ifnull-coalesce-categories-parent-id-1-50
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 1) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: ifnull-coalesce-categories-parent-id-1-100
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 1) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: ifnull-coalesce-categories-parent-id-1-150
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 1) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: ifnull-coalesce-categories-parent-id-1-200
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 1) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: ifnull-coalesce-categories-parent-id-5-1
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 5) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: ifnull-coalesce-categories-parent-id-5-5
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 5) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: ifnull-coalesce-categories-parent-id-5-10
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 5) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: ifnull-coalesce-categories-parent-id-5-20
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 5) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: ifnull-coalesce-categories-parent-id-5-50
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 5) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: ifnull-coalesce-categories-parent-id-5-100
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 5) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: ifnull-coalesce-categories-parent-id-5-150
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 5) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: ifnull-coalesce-categories-parent-id-5-200
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 5) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: ifnull-coalesce-categories-parent-id-10-1
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 10) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: ifnull-coalesce-categories-parent-id-10-5
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 10) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: ifnull-coalesce-categories-parent-id-10-10
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 10) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: ifnull-coalesce-categories-parent-id-10-20
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 10) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: ifnull-coalesce-categories-parent-id-10-50
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 10) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: ifnull-coalesce-categories-parent-id-10-100
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 10) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: ifnull-coalesce-categories-parent-id-10-150
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 10) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: ifnull-coalesce-categories-parent-id-10-200
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 10) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: ifnull-coalesce-categories-parent-id-20-1
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 20) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: ifnull-coalesce-categories-parent-id-20-5
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 20) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: ifnull-coalesce-categories-parent-id-20-10
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 20) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: ifnull-coalesce-categories-parent-id-20-20
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 20) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: ifnull-coalesce-categories-parent-id-20-50
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 20) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: ifnull-coalesce-categories-parent-id-20-100
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 20) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: ifnull-coalesce-categories-parent-id-20-150
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 20) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: ifnull-coalesce-categories-parent-id-20-200
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 20) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: ifnull-coalesce-categories-parent-id-100-1
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 100) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: ifnull-coalesce-categories-parent-id-100-5
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 100) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: ifnull-coalesce-categories-parent-id-100-10
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 100) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: ifnull-coalesce-categories-parent-id-100-20
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 100) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: ifnull-coalesce-categories-parent-id-100-50
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 100) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: ifnull-coalesce-categories-parent-id-100-100
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 100) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: ifnull-coalesce-categories-parent-id-100-150
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 100) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: ifnull-coalesce-categories-parent-id-100-200
+  kind: dql
+  concepts:
+  - ifnull-coalesce
+  ordered: true
+  mysql: 'SELECT id, IFNULL(parent_id, 100) AS effective
+
+    FROM categories
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '

@@ -1,0 +1,1153 @@
+cases:
+- id: bool-tinyint-0-eq-1
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid = 0
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: bool-tinyint-0-eq-5
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid = 0
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: bool-tinyint-0-eq-10
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid = 0
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: bool-tinyint-0-eq-20
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid = 0
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: bool-tinyint-0-eq-30
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid = 0
+
+    ORDER BY id
+
+    LIMIT 30
+
+    '
+- id: bool-tinyint-0-eq-50
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid = 0
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: bool-tinyint-0-eq-70
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid = 0
+
+    ORDER BY id
+
+    LIMIT 70
+
+    '
+- id: bool-tinyint-0-eq-100
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid = 0
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: bool-tinyint-0-eq-150
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid = 0
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: bool-tinyint-0-eq-200
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid = 0
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: bool-tinyint-0-eq-300
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid = 0
+
+    ORDER BY id
+
+    LIMIT 300
+
+    '
+- id: bool-tinyint-0-eq-500
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid = 0
+
+    ORDER BY id
+
+    LIMIT 500
+
+    '
+- id: bool-tinyint-0-ne-1
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid <> 0
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: bool-tinyint-0-ne-5
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid <> 0
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: bool-tinyint-0-ne-10
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid <> 0
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: bool-tinyint-0-ne-20
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid <> 0
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: bool-tinyint-0-ne-30
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid <> 0
+
+    ORDER BY id
+
+    LIMIT 30
+
+    '
+- id: bool-tinyint-0-ne-50
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid <> 0
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: bool-tinyint-0-ne-70
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid <> 0
+
+    ORDER BY id
+
+    LIMIT 70
+
+    '
+- id: bool-tinyint-0-ne-100
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid <> 0
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: bool-tinyint-0-ne-150
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid <> 0
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: bool-tinyint-0-ne-200
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid <> 0
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: bool-tinyint-0-ne-300
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid <> 0
+
+    ORDER BY id
+
+    LIMIT 300
+
+    '
+- id: bool-tinyint-0-ne-500
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid <> 0
+
+    ORDER BY id
+
+    LIMIT 500
+
+    '
+- id: bool-tinyint-0-isnull-1
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid_at IS NULL
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: bool-tinyint-0-isnull-5
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid_at IS NULL
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: bool-tinyint-0-isnull-10
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid_at IS NULL
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: bool-tinyint-0-isnull-20
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid_at IS NULL
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: bool-tinyint-0-isnull-30
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid_at IS NULL
+
+    ORDER BY id
+
+    LIMIT 30
+
+    '
+- id: bool-tinyint-0-isnull-50
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid_at IS NULL
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: bool-tinyint-0-isnull-70
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid_at IS NULL
+
+    ORDER BY id
+
+    LIMIT 70
+
+    '
+- id: bool-tinyint-0-isnull-100
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid_at IS NULL
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: bool-tinyint-0-isnull-150
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid_at IS NULL
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: bool-tinyint-0-isnull-200
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid_at IS NULL
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: bool-tinyint-0-isnull-300
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid_at IS NULL
+
+    ORDER BY id
+
+    LIMIT 300
+
+    '
+- id: bool-tinyint-0-isnull-500
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid_at IS NULL
+
+    ORDER BY id
+
+    LIMIT 500
+
+    '
+- id: bool-tinyint-1-eq-1
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid = 1
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: bool-tinyint-1-eq-5
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid = 1
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: bool-tinyint-1-eq-10
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid = 1
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: bool-tinyint-1-eq-20
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid = 1
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: bool-tinyint-1-eq-30
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid = 1
+
+    ORDER BY id
+
+    LIMIT 30
+
+    '
+- id: bool-tinyint-1-eq-50
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid = 1
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: bool-tinyint-1-eq-70
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid = 1
+
+    ORDER BY id
+
+    LIMIT 70
+
+    '
+- id: bool-tinyint-1-eq-100
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid = 1
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: bool-tinyint-1-eq-150
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid = 1
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: bool-tinyint-1-eq-200
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid = 1
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: bool-tinyint-1-eq-300
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid = 1
+
+    ORDER BY id
+
+    LIMIT 300
+
+    '
+- id: bool-tinyint-1-eq-500
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid = 1
+
+    ORDER BY id
+
+    LIMIT 500
+
+    '
+- id: bool-tinyint-1-ne-1
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid <> 1
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: bool-tinyint-1-ne-5
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid <> 1
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: bool-tinyint-1-ne-10
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid <> 1
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: bool-tinyint-1-ne-20
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid <> 1
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: bool-tinyint-1-ne-30
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid <> 1
+
+    ORDER BY id
+
+    LIMIT 30
+
+    '
+- id: bool-tinyint-1-ne-50
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid <> 1
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: bool-tinyint-1-ne-70
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid <> 1
+
+    ORDER BY id
+
+    LIMIT 70
+
+    '
+- id: bool-tinyint-1-ne-100
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid <> 1
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: bool-tinyint-1-ne-150
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid <> 1
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: bool-tinyint-1-ne-200
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid <> 1
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: bool-tinyint-1-ne-300
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid <> 1
+
+    ORDER BY id
+
+    LIMIT 300
+
+    '
+- id: bool-tinyint-1-ne-500
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid <> 1
+
+    ORDER BY id
+
+    LIMIT 500
+
+    '
+- id: bool-tinyint-1-isnull-1
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid_at IS NOT NULL
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: bool-tinyint-1-isnull-5
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid_at IS NOT NULL
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: bool-tinyint-1-isnull-10
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid_at IS NOT NULL
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: bool-tinyint-1-isnull-20
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid_at IS NOT NULL
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: bool-tinyint-1-isnull-30
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid_at IS NOT NULL
+
+    ORDER BY id
+
+    LIMIT 30
+
+    '
+- id: bool-tinyint-1-isnull-50
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid_at IS NOT NULL
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: bool-tinyint-1-isnull-70
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid_at IS NOT NULL
+
+    ORDER BY id
+
+    LIMIT 70
+
+    '
+- id: bool-tinyint-1-isnull-100
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid_at IS NOT NULL
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: bool-tinyint-1-isnull-150
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid_at IS NOT NULL
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: bool-tinyint-1-isnull-200
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid_at IS NOT NULL
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: bool-tinyint-1-isnull-300
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid_at IS NOT NULL
+
+    ORDER BY id
+
+    LIMIT 300
+
+    '
+- id: bool-tinyint-1-isnull-500
+  kind: dql
+  concepts:
+  - tinyint-bool
+  ordered: true
+  mysql: 'SELECT id, paid
+
+    FROM payments
+
+    WHERE paid_at IS NOT NULL
+
+    ORDER BY id
+
+    LIMIT 500
+
+    '

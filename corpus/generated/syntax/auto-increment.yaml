@@ -1,0 +1,511 @@
+cases:
+- id: auto-increment-int-varchar-10-false
+  kind: ddl
+  concepts:
+  - auto-increment
+  isolation: fresh
+  object:
+    type: table
+    name: tmp_ai
+  statement: "CREATE TEMPORARY TABLE {{object_name}} (\n  id INT AUTO_INCREMENT PRIMARY\
+    \ KEY,\n  label VARCHAR(10) NOT NULL\n)\n"
+  exercise: 'INSERT INTO {{object_name}} (label) VALUES (''a''), (''b''), (''c'')
+
+    '
+  post_query: 'SELECT id, label FROM {{object_name}} ORDER BY id
+
+    '
+- id: auto-increment-int-varchar-10-true
+  kind: ddl
+  concepts:
+  - auto-increment
+  isolation: fresh
+  object:
+    type: table
+    name: tmp_ai
+  statement: "CREATE TEMPORARY TABLE {{object_name}} (\n  id INT AUTO_INCREMENT PRIMARY\
+    \ KEY,\n  label VARCHAR(10) NOT NULL,\n  note VARCHAR(30) NOT NULL DEFAULT ''\n\
+    )\n"
+  exercise: 'INSERT INTO {{object_name}} (label, note) VALUES (''a'', ''x''), (''b'',
+    ''y''), (''c'', ''z'')
+
+    '
+  post_query: 'SELECT id, label, note FROM {{object_name}} ORDER BY id
+
+    '
+- id: auto-increment-int-varchar-20-false
+  kind: ddl
+  concepts:
+  - auto-increment
+  isolation: fresh
+  object:
+    type: table
+    name: tmp_ai
+  statement: "CREATE TEMPORARY TABLE {{object_name}} (\n  id INT AUTO_INCREMENT PRIMARY\
+    \ KEY,\n  label VARCHAR(20) NOT NULL\n)\n"
+  exercise: 'INSERT INTO {{object_name}} (label) VALUES (''a''), (''b''), (''c'')
+
+    '
+  post_query: 'SELECT id, label FROM {{object_name}} ORDER BY id
+
+    '
+- id: auto-increment-int-varchar-20-true
+  kind: ddl
+  concepts:
+  - auto-increment
+  isolation: fresh
+  object:
+    type: table
+    name: tmp_ai
+  statement: "CREATE TEMPORARY TABLE {{object_name}} (\n  id INT AUTO_INCREMENT PRIMARY\
+    \ KEY,\n  label VARCHAR(20) NOT NULL,\n  note VARCHAR(30) NOT NULL DEFAULT ''\n\
+    )\n"
+  exercise: 'INSERT INTO {{object_name}} (label, note) VALUES (''a'', ''x''), (''b'',
+    ''y''), (''c'', ''z'')
+
+    '
+  post_query: 'SELECT id, label, note FROM {{object_name}} ORDER BY id
+
+    '
+- id: auto-increment-int-varchar-50-false
+  kind: ddl
+  concepts:
+  - auto-increment
+  isolation: fresh
+  object:
+    type: table
+    name: tmp_ai
+  statement: "CREATE TEMPORARY TABLE {{object_name}} (\n  id INT AUTO_INCREMENT PRIMARY\
+    \ KEY,\n  label VARCHAR(50) NOT NULL\n)\n"
+  exercise: 'INSERT INTO {{object_name}} (label) VALUES (''a''), (''b''), (''c'')
+
+    '
+  post_query: 'SELECT id, label FROM {{object_name}} ORDER BY id
+
+    '
+- id: auto-increment-int-varchar-50-true
+  kind: ddl
+  concepts:
+  - auto-increment
+  isolation: fresh
+  object:
+    type: table
+    name: tmp_ai
+  statement: "CREATE TEMPORARY TABLE {{object_name}} (\n  id INT AUTO_INCREMENT PRIMARY\
+    \ KEY,\n  label VARCHAR(50) NOT NULL,\n  note VARCHAR(30) NOT NULL DEFAULT ''\n\
+    )\n"
+  exercise: 'INSERT INTO {{object_name}} (label, note) VALUES (''a'', ''x''), (''b'',
+    ''y''), (''c'', ''z'')
+
+    '
+  post_query: 'SELECT id, label, note FROM {{object_name}} ORDER BY id
+
+    '
+- id: auto-increment-bigint-varchar-10-false
+  kind: ddl
+  concepts:
+  - auto-increment
+  isolation: fresh
+  object:
+    type: table
+    name: tmp_ai
+  statement: "CREATE TEMPORARY TABLE {{object_name}} (\n  id BIGINT AUTO_INCREMENT\
+    \ PRIMARY KEY,\n  label VARCHAR(10) NOT NULL\n)\n"
+  exercise: 'INSERT INTO {{object_name}} (label) VALUES (''a''), (''b''), (''c'')
+
+    '
+  post_query: 'SELECT id, label FROM {{object_name}} ORDER BY id
+
+    '
+- id: auto-increment-bigint-varchar-10-true
+  kind: ddl
+  concepts:
+  - auto-increment
+  isolation: fresh
+  object:
+    type: table
+    name: tmp_ai
+  statement: "CREATE TEMPORARY TABLE {{object_name}} (\n  id BIGINT AUTO_INCREMENT\
+    \ PRIMARY KEY,\n  label VARCHAR(10) NOT NULL,\n  note VARCHAR(30) NOT NULL DEFAULT\
+    \ ''\n)\n"
+  exercise: 'INSERT INTO {{object_name}} (label, note) VALUES (''a'', ''x''), (''b'',
+    ''y''), (''c'', ''z'')
+
+    '
+  post_query: 'SELECT id, label, note FROM {{object_name}} ORDER BY id
+
+    '
+- id: auto-increment-bigint-varchar-20-false
+  kind: ddl
+  concepts:
+  - auto-increment
+  isolation: fresh
+  object:
+    type: table
+    name: tmp_ai
+  statement: "CREATE TEMPORARY TABLE {{object_name}} (\n  id BIGINT AUTO_INCREMENT\
+    \ PRIMARY KEY,\n  label VARCHAR(20) NOT NULL\n)\n"
+  exercise: 'INSERT INTO {{object_name}} (label) VALUES (''a''), (''b''), (''c'')
+
+    '
+  post_query: 'SELECT id, label FROM {{object_name}} ORDER BY id
+
+    '
+- id: auto-increment-bigint-varchar-20-true
+  kind: ddl
+  concepts:
+  - auto-increment
+  isolation: fresh
+  object:
+    type: table
+    name: tmp_ai
+  statement: "CREATE TEMPORARY TABLE {{object_name}} (\n  id BIGINT AUTO_INCREMENT\
+    \ PRIMARY KEY,\n  label VARCHAR(20) NOT NULL,\n  note VARCHAR(30) NOT NULL DEFAULT\
+    \ ''\n)\n"
+  exercise: 'INSERT INTO {{object_name}} (label, note) VALUES (''a'', ''x''), (''b'',
+    ''y''), (''c'', ''z'')
+
+    '
+  post_query: 'SELECT id, label, note FROM {{object_name}} ORDER BY id
+
+    '
+- id: auto-increment-bigint-varchar-50-false
+  kind: ddl
+  concepts:
+  - auto-increment
+  isolation: fresh
+  object:
+    type: table
+    name: tmp_ai
+  statement: "CREATE TEMPORARY TABLE {{object_name}} (\n  id BIGINT AUTO_INCREMENT\
+    \ PRIMARY KEY,\n  label VARCHAR(50) NOT NULL\n)\n"
+  exercise: 'INSERT INTO {{object_name}} (label) VALUES (''a''), (''b''), (''c'')
+
+    '
+  post_query: 'SELECT id, label FROM {{object_name}} ORDER BY id
+
+    '
+- id: auto-increment-bigint-varchar-50-true
+  kind: ddl
+  concepts:
+  - auto-increment
+  isolation: fresh
+  object:
+    type: table
+    name: tmp_ai
+  statement: "CREATE TEMPORARY TABLE {{object_name}} (\n  id BIGINT AUTO_INCREMENT\
+    \ PRIMARY KEY,\n  label VARCHAR(50) NOT NULL,\n  note VARCHAR(30) NOT NULL DEFAULT\
+    \ ''\n)\n"
+  exercise: 'INSERT INTO {{object_name}} (label, note) VALUES (''a'', ''x''), (''b'',
+    ''y''), (''c'', ''z'')
+
+    '
+  post_query: 'SELECT id, label, note FROM {{object_name}} ORDER BY id
+
+    '
+- id: auto-increment-smallint-varchar-10-false
+  kind: ddl
+  concepts:
+  - auto-increment
+  isolation: fresh
+  object:
+    type: table
+    name: tmp_ai
+  statement: "CREATE TEMPORARY TABLE {{object_name}} (\n  id SMALLINT AUTO_INCREMENT\
+    \ PRIMARY KEY,\n  label VARCHAR(10) NOT NULL\n)\n"
+  exercise: 'INSERT INTO {{object_name}} (label) VALUES (''a''), (''b''), (''c'')
+
+    '
+  post_query: 'SELECT id, label FROM {{object_name}} ORDER BY id
+
+    '
+- id: auto-increment-smallint-varchar-10-true
+  kind: ddl
+  concepts:
+  - auto-increment
+  isolation: fresh
+  object:
+    type: table
+    name: tmp_ai
+  statement: "CREATE TEMPORARY TABLE {{object_name}} (\n  id SMALLINT AUTO_INCREMENT\
+    \ PRIMARY KEY,\n  label VARCHAR(10) NOT NULL,\n  note VARCHAR(30) NOT NULL DEFAULT\
+    \ ''\n)\n"
+  exercise: 'INSERT INTO {{object_name}} (label, note) VALUES (''a'', ''x''), (''b'',
+    ''y''), (''c'', ''z'')
+
+    '
+  post_query: 'SELECT id, label, note FROM {{object_name}} ORDER BY id
+
+    '
+- id: auto-increment-smallint-varchar-20-false
+  kind: ddl
+  concepts:
+  - auto-increment
+  isolation: fresh
+  object:
+    type: table
+    name: tmp_ai
+  statement: "CREATE TEMPORARY TABLE {{object_name}} (\n  id SMALLINT AUTO_INCREMENT\
+    \ PRIMARY KEY,\n  label VARCHAR(20) NOT NULL\n)\n"
+  exercise: 'INSERT INTO {{object_name}} (label) VALUES (''a''), (''b''), (''c'')
+
+    '
+  post_query: 'SELECT id, label FROM {{object_name}} ORDER BY id
+
+    '
+- id: auto-increment-smallint-varchar-20-true
+  kind: ddl
+  concepts:
+  - auto-increment
+  isolation: fresh
+  object:
+    type: table
+    name: tmp_ai
+  statement: "CREATE TEMPORARY TABLE {{object_name}} (\n  id SMALLINT AUTO_INCREMENT\
+    \ PRIMARY KEY,\n  label VARCHAR(20) NOT NULL,\n  note VARCHAR(30) NOT NULL DEFAULT\
+    \ ''\n)\n"
+  exercise: 'INSERT INTO {{object_name}} (label, note) VALUES (''a'', ''x''), (''b'',
+    ''y''), (''c'', ''z'')
+
+    '
+  post_query: 'SELECT id, label, note FROM {{object_name}} ORDER BY id
+
+    '
+- id: auto-increment-smallint-varchar-50-false
+  kind: ddl
+  concepts:
+  - auto-increment
+  isolation: fresh
+  object:
+    type: table
+    name: tmp_ai
+  statement: "CREATE TEMPORARY TABLE {{object_name}} (\n  id SMALLINT AUTO_INCREMENT\
+    \ PRIMARY KEY,\n  label VARCHAR(50) NOT NULL\n)\n"
+  exercise: 'INSERT INTO {{object_name}} (label) VALUES (''a''), (''b''), (''c'')
+
+    '
+  post_query: 'SELECT id, label FROM {{object_name}} ORDER BY id
+
+    '
+- id: auto-increment-smallint-varchar-50-true
+  kind: ddl
+  concepts:
+  - auto-increment
+  isolation: fresh
+  object:
+    type: table
+    name: tmp_ai
+  statement: "CREATE TEMPORARY TABLE {{object_name}} (\n  id SMALLINT AUTO_INCREMENT\
+    \ PRIMARY KEY,\n  label VARCHAR(50) NOT NULL,\n  note VARCHAR(30) NOT NULL DEFAULT\
+    \ ''\n)\n"
+  exercise: 'INSERT INTO {{object_name}} (label, note) VALUES (''a'', ''x''), (''b'',
+    ''y''), (''c'', ''z'')
+
+    '
+  post_query: 'SELECT id, label, note FROM {{object_name}} ORDER BY id
+
+    '
+- id: auto-increment-tinyint-varchar-10-false
+  kind: ddl
+  concepts:
+  - auto-increment
+  isolation: fresh
+  object:
+    type: table
+    name: tmp_ai
+  statement: "CREATE TEMPORARY TABLE {{object_name}} (\n  id TINYINT AUTO_INCREMENT\
+    \ PRIMARY KEY,\n  label VARCHAR(10) NOT NULL\n)\n"
+  exercise: 'INSERT INTO {{object_name}} (label) VALUES (''a''), (''b''), (''c'')
+
+    '
+  post_query: 'SELECT id, label FROM {{object_name}} ORDER BY id
+
+    '
+- id: auto-increment-tinyint-varchar-10-true
+  kind: ddl
+  concepts:
+  - auto-increment
+  isolation: fresh
+  object:
+    type: table
+    name: tmp_ai
+  statement: "CREATE TEMPORARY TABLE {{object_name}} (\n  id TINYINT AUTO_INCREMENT\
+    \ PRIMARY KEY,\n  label VARCHAR(10) NOT NULL,\n  note VARCHAR(30) NOT NULL DEFAULT\
+    \ ''\n)\n"
+  exercise: 'INSERT INTO {{object_name}} (label, note) VALUES (''a'', ''x''), (''b'',
+    ''y''), (''c'', ''z'')
+
+    '
+  post_query: 'SELECT id, label, note FROM {{object_name}} ORDER BY id
+
+    '
+- id: auto-increment-tinyint-varchar-20-false
+  kind: ddl
+  concepts:
+  - auto-increment
+  isolation: fresh
+  object:
+    type: table
+    name: tmp_ai
+  statement: "CREATE TEMPORARY TABLE {{object_name}} (\n  id TINYINT AUTO_INCREMENT\
+    \ PRIMARY KEY,\n  label VARCHAR(20) NOT NULL\n)\n"
+  exercise: 'INSERT INTO {{object_name}} (label) VALUES (''a''), (''b''), (''c'')
+
+    '
+  post_query: 'SELECT id, label FROM {{object_name}} ORDER BY id
+
+    '
+- id: auto-increment-tinyint-varchar-20-true
+  kind: ddl
+  concepts:
+  - auto-increment
+  isolation: fresh
+  object:
+    type: table
+    name: tmp_ai
+  statement: "CREATE TEMPORARY TABLE {{object_name}} (\n  id TINYINT AUTO_INCREMENT\
+    \ PRIMARY KEY,\n  label VARCHAR(20) NOT NULL,\n  note VARCHAR(30) NOT NULL DEFAULT\
+    \ ''\n)\n"
+  exercise: 'INSERT INTO {{object_name}} (label, note) VALUES (''a'', ''x''), (''b'',
+    ''y''), (''c'', ''z'')
+
+    '
+  post_query: 'SELECT id, label, note FROM {{object_name}} ORDER BY id
+
+    '
+- id: auto-increment-tinyint-varchar-50-false
+  kind: ddl
+  concepts:
+  - auto-increment
+  isolation: fresh
+  object:
+    type: table
+    name: tmp_ai
+  statement: "CREATE TEMPORARY TABLE {{object_name}} (\n  id TINYINT AUTO_INCREMENT\
+    \ PRIMARY KEY,\n  label VARCHAR(50) NOT NULL\n)\n"
+  exercise: 'INSERT INTO {{object_name}} (label) VALUES (''a''), (''b''), (''c'')
+
+    '
+  post_query: 'SELECT id, label FROM {{object_name}} ORDER BY id
+
+    '
+- id: auto-increment-tinyint-varchar-50-true
+  kind: ddl
+  concepts:
+  - auto-increment
+  isolation: fresh
+  object:
+    type: table
+    name: tmp_ai
+  statement: "CREATE TEMPORARY TABLE {{object_name}} (\n  id TINYINT AUTO_INCREMENT\
+    \ PRIMARY KEY,\n  label VARCHAR(50) NOT NULL,\n  note VARCHAR(30) NOT NULL DEFAULT\
+    \ ''\n)\n"
+  exercise: 'INSERT INTO {{object_name}} (label, note) VALUES (''a'', ''x''), (''b'',
+    ''y''), (''c'', ''z'')
+
+    '
+  post_query: 'SELECT id, label, note FROM {{object_name}} ORDER BY id
+
+    '
+- id: auto-increment-mediumint-varchar-10-false
+  kind: ddl
+  concepts:
+  - auto-increment
+  isolation: fresh
+  object:
+    type: table
+    name: tmp_ai
+  statement: "CREATE TEMPORARY TABLE {{object_name}} (\n  id MEDIUMINT AUTO_INCREMENT\
+    \ PRIMARY KEY,\n  label VARCHAR(10) NOT NULL\n)\n"
+  exercise: 'INSERT INTO {{object_name}} (label) VALUES (''a''), (''b''), (''c'')
+
+    '
+  post_query: 'SELECT id, label FROM {{object_name}} ORDER BY id
+
+    '
+- id: auto-increment-mediumint-varchar-10-true
+  kind: ddl
+  concepts:
+  - auto-increment
+  isolation: fresh
+  object:
+    type: table
+    name: tmp_ai
+  statement: "CREATE TEMPORARY TABLE {{object_name}} (\n  id MEDIUMINT AUTO_INCREMENT\
+    \ PRIMARY KEY,\n  label VARCHAR(10) NOT NULL,\n  note VARCHAR(30) NOT NULL DEFAULT\
+    \ ''\n)\n"
+  exercise: 'INSERT INTO {{object_name}} (label, note) VALUES (''a'', ''x''), (''b'',
+    ''y''), (''c'', ''z'')
+
+    '
+  post_query: 'SELECT id, label, note FROM {{object_name}} ORDER BY id
+
+    '
+- id: auto-increment-mediumint-varchar-20-false
+  kind: ddl
+  concepts:
+  - auto-increment
+  isolation: fresh
+  object:
+    type: table
+    name: tmp_ai
+  statement: "CREATE TEMPORARY TABLE {{object_name}} (\n  id MEDIUMINT AUTO_INCREMENT\
+    \ PRIMARY KEY,\n  label VARCHAR(20) NOT NULL\n)\n"
+  exercise: 'INSERT INTO {{object_name}} (label) VALUES (''a''), (''b''), (''c'')
+
+    '
+  post_query: 'SELECT id, label FROM {{object_name}} ORDER BY id
+
+    '
+- id: auto-increment-mediumint-varchar-20-true
+  kind: ddl
+  concepts:
+  - auto-increment
+  isolation: fresh
+  object:
+    type: table
+    name: tmp_ai
+  statement: "CREATE TEMPORARY TABLE {{object_name}} (\n  id MEDIUMINT AUTO_INCREMENT\
+    \ PRIMARY KEY,\n  label VARCHAR(20) NOT NULL,\n  note VARCHAR(30) NOT NULL DEFAULT\
+    \ ''\n)\n"
+  exercise: 'INSERT INTO {{object_name}} (label, note) VALUES (''a'', ''x''), (''b'',
+    ''y''), (''c'', ''z'')
+
+    '
+  post_query: 'SELECT id, label, note FROM {{object_name}} ORDER BY id
+
+    '
+- id: auto-increment-mediumint-varchar-50-false
+  kind: ddl
+  concepts:
+  - auto-increment
+  isolation: fresh
+  object:
+    type: table
+    name: tmp_ai
+  statement: "CREATE TEMPORARY TABLE {{object_name}} (\n  id MEDIUMINT AUTO_INCREMENT\
+    \ PRIMARY KEY,\n  label VARCHAR(50) NOT NULL\n)\n"
+  exercise: 'INSERT INTO {{object_name}} (label) VALUES (''a''), (''b''), (''c'')
+
+    '
+  post_query: 'SELECT id, label FROM {{object_name}} ORDER BY id
+
+    '
+- id: auto-increment-mediumint-varchar-50-true
+  kind: ddl
+  concepts:
+  - auto-increment
+  isolation: fresh
+  object:
+    type: table
+    name: tmp_ai
+  statement: "CREATE TEMPORARY TABLE {{object_name}} (\n  id MEDIUMINT AUTO_INCREMENT\
+    \ PRIMARY KEY,\n  label VARCHAR(50) NOT NULL,\n  note VARCHAR(30) NOT NULL DEFAULT\
+    \ ''\n)\n"
+  exercise: 'INSERT INTO {{object_name}} (label, note) VALUES (''a'', ''x''), (''b'',
+    ''y''), (''c'', ''z'')
+
+    '
+  post_query: 'SELECT id, label, note FROM {{object_name}} ORDER BY id
+
+    '

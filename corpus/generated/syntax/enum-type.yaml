@@ -1,0 +1,1601 @@
+cases:
+- id: enum-type-pending-eq-1
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''pending''
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: enum-type-pending-eq-5
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''pending''
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: enum-type-pending-eq-10
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''pending''
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: enum-type-pending-eq-20
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''pending''
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: enum-type-pending-eq-30
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''pending''
+
+    ORDER BY id
+
+    LIMIT 30
+
+    '
+- id: enum-type-pending-eq-50
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''pending''
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: enum-type-pending-eq-70
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''pending''
+
+    ORDER BY id
+
+    LIMIT 70
+
+    '
+- id: enum-type-pending-eq-100
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''pending''
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: enum-type-pending-eq-150
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''pending''
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: enum-type-pending-eq-200
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''pending''
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: enum-type-pending-ne-1
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''pending''
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: enum-type-pending-ne-5
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''pending''
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: enum-type-pending-ne-10
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''pending''
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: enum-type-pending-ne-20
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''pending''
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: enum-type-pending-ne-30
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''pending''
+
+    ORDER BY id
+
+    LIMIT 30
+
+    '
+- id: enum-type-pending-ne-50
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''pending''
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: enum-type-pending-ne-70
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''pending''
+
+    ORDER BY id
+
+    LIMIT 70
+
+    '
+- id: enum-type-pending-ne-100
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''pending''
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: enum-type-pending-ne-150
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''pending''
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: enum-type-pending-ne-200
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''pending''
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: enum-type-paid-eq-1
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''paid''
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: enum-type-paid-eq-5
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''paid''
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: enum-type-paid-eq-10
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''paid''
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: enum-type-paid-eq-20
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''paid''
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: enum-type-paid-eq-30
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''paid''
+
+    ORDER BY id
+
+    LIMIT 30
+
+    '
+- id: enum-type-paid-eq-50
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''paid''
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: enum-type-paid-eq-70
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''paid''
+
+    ORDER BY id
+
+    LIMIT 70
+
+    '
+- id: enum-type-paid-eq-100
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''paid''
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: enum-type-paid-eq-150
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''paid''
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: enum-type-paid-eq-200
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''paid''
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: enum-type-paid-ne-1
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''paid''
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: enum-type-paid-ne-5
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''paid''
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: enum-type-paid-ne-10
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''paid''
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: enum-type-paid-ne-20
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''paid''
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: enum-type-paid-ne-30
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''paid''
+
+    ORDER BY id
+
+    LIMIT 30
+
+    '
+- id: enum-type-paid-ne-50
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''paid''
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: enum-type-paid-ne-70
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''paid''
+
+    ORDER BY id
+
+    LIMIT 70
+
+    '
+- id: enum-type-paid-ne-100
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''paid''
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: enum-type-paid-ne-150
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''paid''
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: enum-type-paid-ne-200
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''paid''
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: enum-type-shipped-eq-1
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''shipped''
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: enum-type-shipped-eq-5
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''shipped''
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: enum-type-shipped-eq-10
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''shipped''
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: enum-type-shipped-eq-20
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''shipped''
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: enum-type-shipped-eq-30
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''shipped''
+
+    ORDER BY id
+
+    LIMIT 30
+
+    '
+- id: enum-type-shipped-eq-50
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''shipped''
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: enum-type-shipped-eq-70
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''shipped''
+
+    ORDER BY id
+
+    LIMIT 70
+
+    '
+- id: enum-type-shipped-eq-100
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''shipped''
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: enum-type-shipped-eq-150
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''shipped''
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: enum-type-shipped-eq-200
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''shipped''
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: enum-type-shipped-ne-1
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''shipped''
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: enum-type-shipped-ne-5
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''shipped''
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: enum-type-shipped-ne-10
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''shipped''
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: enum-type-shipped-ne-20
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''shipped''
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: enum-type-shipped-ne-30
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''shipped''
+
+    ORDER BY id
+
+    LIMIT 30
+
+    '
+- id: enum-type-shipped-ne-50
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''shipped''
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: enum-type-shipped-ne-70
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''shipped''
+
+    ORDER BY id
+
+    LIMIT 70
+
+    '
+- id: enum-type-shipped-ne-100
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''shipped''
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: enum-type-shipped-ne-150
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''shipped''
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: enum-type-shipped-ne-200
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''shipped''
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: enum-type-delivered-eq-1
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''delivered''
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: enum-type-delivered-eq-5
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''delivered''
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: enum-type-delivered-eq-10
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''delivered''
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: enum-type-delivered-eq-20
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''delivered''
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: enum-type-delivered-eq-30
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''delivered''
+
+    ORDER BY id
+
+    LIMIT 30
+
+    '
+- id: enum-type-delivered-eq-50
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''delivered''
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: enum-type-delivered-eq-70
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''delivered''
+
+    ORDER BY id
+
+    LIMIT 70
+
+    '
+- id: enum-type-delivered-eq-100
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''delivered''
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: enum-type-delivered-eq-150
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''delivered''
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: enum-type-delivered-eq-200
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''delivered''
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: enum-type-delivered-ne-1
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''delivered''
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: enum-type-delivered-ne-5
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''delivered''
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: enum-type-delivered-ne-10
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''delivered''
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: enum-type-delivered-ne-20
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''delivered''
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: enum-type-delivered-ne-30
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''delivered''
+
+    ORDER BY id
+
+    LIMIT 30
+
+    '
+- id: enum-type-delivered-ne-50
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''delivered''
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: enum-type-delivered-ne-70
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''delivered''
+
+    ORDER BY id
+
+    LIMIT 70
+
+    '
+- id: enum-type-delivered-ne-100
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''delivered''
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: enum-type-delivered-ne-150
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''delivered''
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: enum-type-delivered-ne-200
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''delivered''
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: enum-type-cancelled-eq-1
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''cancelled''
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: enum-type-cancelled-eq-5
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''cancelled''
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: enum-type-cancelled-eq-10
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''cancelled''
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: enum-type-cancelled-eq-20
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''cancelled''
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: enum-type-cancelled-eq-30
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''cancelled''
+
+    ORDER BY id
+
+    LIMIT 30
+
+    '
+- id: enum-type-cancelled-eq-50
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''cancelled''
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: enum-type-cancelled-eq-70
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''cancelled''
+
+    ORDER BY id
+
+    LIMIT 70
+
+    '
+- id: enum-type-cancelled-eq-100
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''cancelled''
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: enum-type-cancelled-eq-150
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''cancelled''
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: enum-type-cancelled-eq-200
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status = ''cancelled''
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: enum-type-cancelled-ne-1
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''cancelled''
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: enum-type-cancelled-ne-5
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''cancelled''
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: enum-type-cancelled-ne-10
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''cancelled''
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: enum-type-cancelled-ne-20
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''cancelled''
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: enum-type-cancelled-ne-30
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''cancelled''
+
+    ORDER BY id
+
+    LIMIT 30
+
+    '
+- id: enum-type-cancelled-ne-50
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''cancelled''
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: enum-type-cancelled-ne-70
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''cancelled''
+
+    ORDER BY id
+
+    LIMIT 70
+
+    '
+- id: enum-type-cancelled-ne-100
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''cancelled''
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: enum-type-cancelled-ne-150
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''cancelled''
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: enum-type-cancelled-ne-200
+  kind: dql
+  concepts:
+  - enum-type
+  ordered: true
+  mysql: 'SELECT id, status
+
+    FROM orders
+
+    WHERE status <> ''cancelled''
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '

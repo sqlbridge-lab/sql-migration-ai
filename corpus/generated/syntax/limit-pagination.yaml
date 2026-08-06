@@ -1,0 +1,2017 @@
+cases:
+- id: limit-pagination-1-0
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 0, 1
+
+    '
+- id: limit-pagination-1-1
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 1, 1
+
+    '
+- id: limit-pagination-1-2
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 2, 1
+
+    '
+- id: limit-pagination-1-5
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 5, 1
+
+    '
+- id: limit-pagination-1-10
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 10, 1
+
+    '
+- id: limit-pagination-1-20
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 20, 1
+
+    '
+- id: limit-pagination-1-30
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 30, 1
+
+    '
+- id: limit-pagination-1-50
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 50, 1
+
+    '
+- id: limit-pagination-1-70
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 70, 1
+
+    '
+- id: limit-pagination-1-100
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 100, 1
+
+    '
+- id: limit-pagination-1-150
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 150, 1
+
+    '
+- id: limit-pagination-1-200
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 200, 1
+
+    '
+- id: limit-pagination-1-250
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 250, 1
+
+    '
+- id: limit-pagination-1-300
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 300, 1
+
+    '
+- id: limit-pagination-1-350
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 350, 1
+
+    '
+- id: limit-pagination-1-400
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 400, 1
+
+    '
+- id: limit-pagination-1-500
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 500, 1
+
+    '
+- id: limit-pagination-1-600
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 600, 1
+
+    '
+- id: limit-pagination-1-700
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 700, 1
+
+    '
+- id: limit-pagination-1-800
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 800, 1
+
+    '
+- id: limit-pagination-1-850
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 850, 1
+
+    '
+- id: limit-pagination-1-900
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 900, 1
+
+    '
+- id: limit-pagination-1-950
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 950, 1
+
+    '
+- id: limit-pagination-1-999
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 999, 1
+
+    '
+- id: limit-pagination-5-0
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 0, 5
+
+    '
+- id: limit-pagination-5-1
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 1, 5
+
+    '
+- id: limit-pagination-5-2
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 2, 5
+
+    '
+- id: limit-pagination-5-5
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 5, 5
+
+    '
+- id: limit-pagination-5-10
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 10, 5
+
+    '
+- id: limit-pagination-5-20
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 20, 5
+
+    '
+- id: limit-pagination-5-30
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 30, 5
+
+    '
+- id: limit-pagination-5-50
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 50, 5
+
+    '
+- id: limit-pagination-5-70
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 70, 5
+
+    '
+- id: limit-pagination-5-100
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 100, 5
+
+    '
+- id: limit-pagination-5-150
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 150, 5
+
+    '
+- id: limit-pagination-5-200
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 200, 5
+
+    '
+- id: limit-pagination-5-250
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 250, 5
+
+    '
+- id: limit-pagination-5-300
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 300, 5
+
+    '
+- id: limit-pagination-5-350
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 350, 5
+
+    '
+- id: limit-pagination-5-400
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 400, 5
+
+    '
+- id: limit-pagination-5-500
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 500, 5
+
+    '
+- id: limit-pagination-5-600
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 600, 5
+
+    '
+- id: limit-pagination-5-700
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 700, 5
+
+    '
+- id: limit-pagination-5-800
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 800, 5
+
+    '
+- id: limit-pagination-5-850
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 850, 5
+
+    '
+- id: limit-pagination-5-900
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 900, 5
+
+    '
+- id: limit-pagination-5-950
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 950, 5
+
+    '
+- id: limit-pagination-5-999
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 999, 5
+
+    '
+- id: limit-pagination-10-0
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 0, 10
+
+    '
+- id: limit-pagination-10-1
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 1, 10
+
+    '
+- id: limit-pagination-10-2
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 2, 10
+
+    '
+- id: limit-pagination-10-5
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 5, 10
+
+    '
+- id: limit-pagination-10-10
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 10, 10
+
+    '
+- id: limit-pagination-10-20
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 20, 10
+
+    '
+- id: limit-pagination-10-30
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 30, 10
+
+    '
+- id: limit-pagination-10-50
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 50, 10
+
+    '
+- id: limit-pagination-10-70
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 70, 10
+
+    '
+- id: limit-pagination-10-100
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 100, 10
+
+    '
+- id: limit-pagination-10-150
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 150, 10
+
+    '
+- id: limit-pagination-10-200
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 200, 10
+
+    '
+- id: limit-pagination-10-250
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 250, 10
+
+    '
+- id: limit-pagination-10-300
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 300, 10
+
+    '
+- id: limit-pagination-10-350
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 350, 10
+
+    '
+- id: limit-pagination-10-400
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 400, 10
+
+    '
+- id: limit-pagination-10-500
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 500, 10
+
+    '
+- id: limit-pagination-10-600
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 600, 10
+
+    '
+- id: limit-pagination-10-700
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 700, 10
+
+    '
+- id: limit-pagination-10-800
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 800, 10
+
+    '
+- id: limit-pagination-10-850
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 850, 10
+
+    '
+- id: limit-pagination-10-900
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 900, 10
+
+    '
+- id: limit-pagination-10-950
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 950, 10
+
+    '
+- id: limit-pagination-10-999
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 999, 10
+
+    '
+- id: limit-pagination-20-0
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 0, 20
+
+    '
+- id: limit-pagination-20-1
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 1, 20
+
+    '
+- id: limit-pagination-20-2
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 2, 20
+
+    '
+- id: limit-pagination-20-5
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 5, 20
+
+    '
+- id: limit-pagination-20-10
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 10, 20
+
+    '
+- id: limit-pagination-20-20
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 20, 20
+
+    '
+- id: limit-pagination-20-30
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 30, 20
+
+    '
+- id: limit-pagination-20-50
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 50, 20
+
+    '
+- id: limit-pagination-20-70
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 70, 20
+
+    '
+- id: limit-pagination-20-100
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 100, 20
+
+    '
+- id: limit-pagination-20-150
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 150, 20
+
+    '
+- id: limit-pagination-20-200
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 200, 20
+
+    '
+- id: limit-pagination-20-250
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 250, 20
+
+    '
+- id: limit-pagination-20-300
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 300, 20
+
+    '
+- id: limit-pagination-20-350
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 350, 20
+
+    '
+- id: limit-pagination-20-400
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 400, 20
+
+    '
+- id: limit-pagination-20-500
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 500, 20
+
+    '
+- id: limit-pagination-20-600
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 600, 20
+
+    '
+- id: limit-pagination-20-700
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 700, 20
+
+    '
+- id: limit-pagination-20-800
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 800, 20
+
+    '
+- id: limit-pagination-20-850
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 850, 20
+
+    '
+- id: limit-pagination-20-900
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 900, 20
+
+    '
+- id: limit-pagination-20-950
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 950, 20
+
+    '
+- id: limit-pagination-20-999
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 999, 20
+
+    '
+- id: limit-pagination-50-0
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 0, 50
+
+    '
+- id: limit-pagination-50-1
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 1, 50
+
+    '
+- id: limit-pagination-50-2
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 2, 50
+
+    '
+- id: limit-pagination-50-5
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 5, 50
+
+    '
+- id: limit-pagination-50-10
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 10, 50
+
+    '
+- id: limit-pagination-50-20
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 20, 50
+
+    '
+- id: limit-pagination-50-30
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 30, 50
+
+    '
+- id: limit-pagination-50-50
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 50, 50
+
+    '
+- id: limit-pagination-50-70
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 70, 50
+
+    '
+- id: limit-pagination-50-100
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 100, 50
+
+    '
+- id: limit-pagination-50-150
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 150, 50
+
+    '
+- id: limit-pagination-50-200
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 200, 50
+
+    '
+- id: limit-pagination-50-250
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 250, 50
+
+    '
+- id: limit-pagination-50-300
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 300, 50
+
+    '
+- id: limit-pagination-50-350
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 350, 50
+
+    '
+- id: limit-pagination-50-400
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 400, 50
+
+    '
+- id: limit-pagination-50-500
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 500, 50
+
+    '
+- id: limit-pagination-50-600
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 600, 50
+
+    '
+- id: limit-pagination-50-700
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 700, 50
+
+    '
+- id: limit-pagination-50-800
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 800, 50
+
+    '
+- id: limit-pagination-50-850
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 850, 50
+
+    '
+- id: limit-pagination-50-900
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 900, 50
+
+    '
+- id: limit-pagination-50-950
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 950, 50
+
+    '
+- id: limit-pagination-50-999
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 999, 50
+
+    '
+- id: limit-pagination-100-0
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 0, 100
+
+    '
+- id: limit-pagination-100-1
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 1, 100
+
+    '
+- id: limit-pagination-100-2
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 2, 100
+
+    '
+- id: limit-pagination-100-5
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 5, 100
+
+    '
+- id: limit-pagination-100-10
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 10, 100
+
+    '
+- id: limit-pagination-100-20
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 20, 100
+
+    '
+- id: limit-pagination-100-30
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 30, 100
+
+    '
+- id: limit-pagination-100-50
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 50, 100
+
+    '
+- id: limit-pagination-100-70
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 70, 100
+
+    '
+- id: limit-pagination-100-100
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 100, 100
+
+    '
+- id: limit-pagination-100-150
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 150, 100
+
+    '
+- id: limit-pagination-100-200
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 200, 100
+
+    '
+- id: limit-pagination-100-250
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 250, 100
+
+    '
+- id: limit-pagination-100-300
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 300, 100
+
+    '
+- id: limit-pagination-100-350
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 350, 100
+
+    '
+- id: limit-pagination-100-400
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 400, 100
+
+    '
+- id: limit-pagination-100-500
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 500, 100
+
+    '
+- id: limit-pagination-100-600
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 600, 100
+
+    '
+- id: limit-pagination-100-700
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 700, 100
+
+    '
+- id: limit-pagination-100-800
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 800, 100
+
+    '
+- id: limit-pagination-100-850
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 850, 100
+
+    '
+- id: limit-pagination-100-900
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 900, 100
+
+    '
+- id: limit-pagination-100-950
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 950, 100
+
+    '
+- id: limit-pagination-100-999
+  kind: dql
+  concepts:
+  - limit-pagination
+  ordered: true
+  mysql: 'SELECT id, name
+
+    FROM products
+
+    ORDER BY id
+
+    LIMIT 999, 100
+
+    '
