@@ -1,0 +1,2161 @@
+cases:
+- id: date-function-date-add-interval-1-day-1
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 1 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: date-function-date-add-interval-1-day-5
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 1 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: date-function-date-add-interval-1-day-10
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 1 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: date-function-date-add-interval-1-day-20
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 1 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: date-function-date-add-interval-1-day-50
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 1 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: date-function-date-add-interval-1-day-100
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 1 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: date-function-date-add-interval-1-day-150
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 1 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: date-function-date-add-interval-1-day-200
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 1 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: date-function-date-add-interval-7-day-1
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 7 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: date-function-date-add-interval-7-day-5
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 7 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: date-function-date-add-interval-7-day-10
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 7 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: date-function-date-add-interval-7-day-20
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 7 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: date-function-date-add-interval-7-day-50
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 7 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: date-function-date-add-interval-7-day-100
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 7 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: date-function-date-add-interval-7-day-150
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 7 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: date-function-date-add-interval-7-day-200
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 7 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: date-function-date-add-interval-1-month-1
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 1 MONTH) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: date-function-date-add-interval-1-month-5
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 1 MONTH) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: date-function-date-add-interval-1-month-10
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 1 MONTH) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: date-function-date-add-interval-1-month-20
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 1 MONTH) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: date-function-date-add-interval-1-month-50
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 1 MONTH) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: date-function-date-add-interval-1-month-100
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 1 MONTH) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: date-function-date-add-interval-1-month-150
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 1 MONTH) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: date-function-date-add-interval-1-month-200
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 1 MONTH) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: date-function-date-add-interval-12-hour-1
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 12 HOUR) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: date-function-date-add-interval-12-hour-5
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 12 HOUR) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: date-function-date-add-interval-12-hour-10
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 12 HOUR) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: date-function-date-add-interval-12-hour-20
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 12 HOUR) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: date-function-date-add-interval-12-hour-50
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 12 HOUR) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: date-function-date-add-interval-12-hour-100
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 12 HOUR) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: date-function-date-add-interval-12-hour-150
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 12 HOUR) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: date-function-date-add-interval-12-hour-200
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 12 HOUR) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: date-function-date-add-interval-30-minute-1
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 30 MINUTE) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: date-function-date-add-interval-30-minute-5
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 30 MINUTE) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: date-function-date-add-interval-30-minute-10
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 30 MINUTE) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: date-function-date-add-interval-30-minute-20
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 30 MINUTE) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: date-function-date-add-interval-30-minute-50
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 30 MINUTE) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: date-function-date-add-interval-30-minute-100
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 30 MINUTE) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: date-function-date-add-interval-30-minute-150
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 30 MINUTE) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: date-function-date-add-interval-30-minute-200
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_ADD(ordered_at, INTERVAL 30 MINUTE) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: date-function-date-sub-interval-1-day-1
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 1 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: date-function-date-sub-interval-1-day-5
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 1 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: date-function-date-sub-interval-1-day-10
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 1 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: date-function-date-sub-interval-1-day-20
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 1 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: date-function-date-sub-interval-1-day-50
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 1 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: date-function-date-sub-interval-1-day-100
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 1 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: date-function-date-sub-interval-1-day-150
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 1 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: date-function-date-sub-interval-1-day-200
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 1 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: date-function-date-sub-interval-7-day-1
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 7 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: date-function-date-sub-interval-7-day-5
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 7 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: date-function-date-sub-interval-7-day-10
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 7 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: date-function-date-sub-interval-7-day-20
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 7 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: date-function-date-sub-interval-7-day-50
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 7 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: date-function-date-sub-interval-7-day-100
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 7 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: date-function-date-sub-interval-7-day-150
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 7 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: date-function-date-sub-interval-7-day-200
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 7 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: date-function-date-sub-interval-1-month-1
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 1 MONTH) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: date-function-date-sub-interval-1-month-5
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 1 MONTH) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: date-function-date-sub-interval-1-month-10
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 1 MONTH) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: date-function-date-sub-interval-1-month-20
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 1 MONTH) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: date-function-date-sub-interval-1-month-50
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 1 MONTH) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: date-function-date-sub-interval-1-month-100
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 1 MONTH) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: date-function-date-sub-interval-1-month-150
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 1 MONTH) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: date-function-date-sub-interval-1-month-200
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 1 MONTH) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: date-function-date-sub-interval-12-hour-1
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 12 HOUR) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: date-function-date-sub-interval-12-hour-5
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 12 HOUR) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: date-function-date-sub-interval-12-hour-10
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 12 HOUR) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: date-function-date-sub-interval-12-hour-20
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 12 HOUR) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: date-function-date-sub-interval-12-hour-50
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 12 HOUR) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: date-function-date-sub-interval-12-hour-100
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 12 HOUR) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: date-function-date-sub-interval-12-hour-150
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 12 HOUR) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: date-function-date-sub-interval-12-hour-200
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 12 HOUR) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: date-function-date-sub-interval-30-minute-1
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 30 MINUTE) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: date-function-date-sub-interval-30-minute-5
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 30 MINUTE) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: date-function-date-sub-interval-30-minute-10
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 30 MINUTE) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: date-function-date-sub-interval-30-minute-20
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 30 MINUTE) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: date-function-date-sub-interval-30-minute-50
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 30 MINUTE) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: date-function-date-sub-interval-30-minute-100
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 30 MINUTE) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: date-function-date-sub-interval-30-minute-150
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 30 MINUTE) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: date-function-date-sub-interval-30-minute-200
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, DATE_SUB(ordered_at, INTERVAL 30 MINUTE) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: date-function-adddate-interval-1-day-1
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 1 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: date-function-adddate-interval-1-day-5
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 1 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: date-function-adddate-interval-1-day-10
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 1 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: date-function-adddate-interval-1-day-20
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 1 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: date-function-adddate-interval-1-day-50
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 1 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: date-function-adddate-interval-1-day-100
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 1 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: date-function-adddate-interval-1-day-150
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 1 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: date-function-adddate-interval-1-day-200
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 1 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: date-function-adddate-interval-7-day-1
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 7 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: date-function-adddate-interval-7-day-5
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 7 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: date-function-adddate-interval-7-day-10
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 7 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: date-function-adddate-interval-7-day-20
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 7 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: date-function-adddate-interval-7-day-50
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 7 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: date-function-adddate-interval-7-day-100
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 7 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: date-function-adddate-interval-7-day-150
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 7 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: date-function-adddate-interval-7-day-200
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 7 DAY) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: date-function-adddate-interval-1-month-1
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 1 MONTH) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: date-function-adddate-interval-1-month-5
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 1 MONTH) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: date-function-adddate-interval-1-month-10
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 1 MONTH) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: date-function-adddate-interval-1-month-20
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 1 MONTH) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: date-function-adddate-interval-1-month-50
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 1 MONTH) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: date-function-adddate-interval-1-month-100
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 1 MONTH) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: date-function-adddate-interval-1-month-150
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 1 MONTH) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: date-function-adddate-interval-1-month-200
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 1 MONTH) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: date-function-adddate-interval-12-hour-1
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 12 HOUR) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: date-function-adddate-interval-12-hour-5
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 12 HOUR) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: date-function-adddate-interval-12-hour-10
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 12 HOUR) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: date-function-adddate-interval-12-hour-20
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 12 HOUR) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: date-function-adddate-interval-12-hour-50
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 12 HOUR) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: date-function-adddate-interval-12-hour-100
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 12 HOUR) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: date-function-adddate-interval-12-hour-150
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 12 HOUR) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: date-function-adddate-interval-12-hour-200
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 12 HOUR) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
+- id: date-function-adddate-interval-30-minute-1
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 30 MINUTE) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 1
+
+    '
+- id: date-function-adddate-interval-30-minute-5
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 30 MINUTE) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 5
+
+    '
+- id: date-function-adddate-interval-30-minute-10
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 30 MINUTE) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 10
+
+    '
+- id: date-function-adddate-interval-30-minute-20
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 30 MINUTE) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 20
+
+    '
+- id: date-function-adddate-interval-30-minute-50
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 30 MINUTE) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 50
+
+    '
+- id: date-function-adddate-interval-30-minute-100
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 30 MINUTE) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 100
+
+    '
+- id: date-function-adddate-interval-30-minute-150
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 30 MINUTE) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 150
+
+    '
+- id: date-function-adddate-interval-30-minute-200
+  kind: dql
+  concepts:
+  - date-function
+  ordered: true
+  nondeterministic:
+    strategy: fixed_clock
+  mysql: 'SELECT id, ADDDATE(ordered_at, INTERVAL 30 MINUTE) AS due_at
+
+    FROM orders
+
+    WHERE ordered_at < NOW()
+
+    ORDER BY id
+
+    LIMIT 200
+
+    '
