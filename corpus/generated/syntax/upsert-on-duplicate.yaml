@@ -1,901 +1,901 @@
 cases:
-- id: upsert-on-duplicate-1-user1-example-com-user-1-name-values-name
+- id: upsert-on-duplicate-1-user1-example-com-name-values-name
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (1, ''user1@example.com'', ''User 1'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (1, ''user1@example.com'', ''Inserted 1'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE name = VALUES(name)
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 1
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 1
 
     '
-- id: upsert-on-duplicate-1-user1-example-com-user-1-name-upserted
+- id: upsert-on-duplicate-1-user1-example-com-name-upserted
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (1, ''user1@example.com'', ''User 1'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (1, ''user1@example.com'', ''Inserted 1'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE name = ''Upserted''
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 1
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 1
 
     '
-- id: upsert-on-duplicate-1-user1-example-com-user-1-email-values-email
+- id: upsert-on-duplicate-1-user1-example-com-name-concat-u-name
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (1, ''user1@example.com'', ''User 1'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (1, ''user1@example.com'', ''Inserted 1'', TIMESTAMP ''2099-12-31 23:59:59'')
 
-    ON DUPLICATE KEY UPDATE email = VALUES(email)
-
-    '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 1
+    ON DUPLICATE KEY UPDATE name = CONCAT(''U'', name)
 
     '
-- id: upsert-on-duplicate-1-user1-example-com-user-1-created-at-values-created-at
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 1
+
+    '
+- id: upsert-on-duplicate-1-user1-example-com-created-at-values-created-at
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (1, ''user1@example.com'', ''User 1'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (1, ''user1@example.com'', ''Inserted 1'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE created_at = VALUES(created_at)
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 1
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 1
 
     '
-- id: upsert-on-duplicate-2-user2-example-com-user-2-name-values-name
+- id: upsert-on-duplicate-2-user2-example-com-name-values-name
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (2, ''user2@example.com'', ''User 2'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (2, ''user2@example.com'', ''Inserted 2'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE name = VALUES(name)
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 2
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 2
 
     '
-- id: upsert-on-duplicate-2-user2-example-com-user-2-name-upserted
+- id: upsert-on-duplicate-2-user2-example-com-name-upserted
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (2, ''user2@example.com'', ''User 2'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (2, ''user2@example.com'', ''Inserted 2'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE name = ''Upserted''
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 2
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 2
 
     '
-- id: upsert-on-duplicate-2-user2-example-com-user-2-email-values-email
+- id: upsert-on-duplicate-2-user2-example-com-name-concat-u-name
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (2, ''user2@example.com'', ''User 2'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (2, ''user2@example.com'', ''Inserted 2'', TIMESTAMP ''2099-12-31 23:59:59'')
 
-    ON DUPLICATE KEY UPDATE email = VALUES(email)
-
-    '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 2
+    ON DUPLICATE KEY UPDATE name = CONCAT(''U'', name)
 
     '
-- id: upsert-on-duplicate-2-user2-example-com-user-2-created-at-values-created-at
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 2
+
+    '
+- id: upsert-on-duplicate-2-user2-example-com-created-at-values-created-at
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (2, ''user2@example.com'', ''User 2'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (2, ''user2@example.com'', ''Inserted 2'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE created_at = VALUES(created_at)
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 2
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 2
 
     '
-- id: upsert-on-duplicate-3-user3-example-com-user-3-name-values-name
+- id: upsert-on-duplicate-3-user3-example-com-name-values-name
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (3, ''user3@example.com'', ''User 3'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (3, ''user3@example.com'', ''Inserted 3'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE name = VALUES(name)
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 3
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 3
 
     '
-- id: upsert-on-duplicate-3-user3-example-com-user-3-name-upserted
+- id: upsert-on-duplicate-3-user3-example-com-name-upserted
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (3, ''user3@example.com'', ''User 3'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (3, ''user3@example.com'', ''Inserted 3'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE name = ''Upserted''
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 3
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 3
 
     '
-- id: upsert-on-duplicate-3-user3-example-com-user-3-email-values-email
+- id: upsert-on-duplicate-3-user3-example-com-name-concat-u-name
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (3, ''user3@example.com'', ''User 3'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (3, ''user3@example.com'', ''Inserted 3'', TIMESTAMP ''2099-12-31 23:59:59'')
 
-    ON DUPLICATE KEY UPDATE email = VALUES(email)
-
-    '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 3
+    ON DUPLICATE KEY UPDATE name = CONCAT(''U'', name)
 
     '
-- id: upsert-on-duplicate-3-user3-example-com-user-3-created-at-values-created-at
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 3
+
+    '
+- id: upsert-on-duplicate-3-user3-example-com-created-at-values-created-at
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (3, ''user3@example.com'', ''User 3'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (3, ''user3@example.com'', ''Inserted 3'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE created_at = VALUES(created_at)
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 3
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 3
 
     '
-- id: upsert-on-duplicate-4-user4-example-com-user-4-name-values-name
+- id: upsert-on-duplicate-4-user4-example-com-name-values-name
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (4, ''user4@example.com'', ''User 4'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (4, ''user4@example.com'', ''Inserted 4'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE name = VALUES(name)
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 4
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 4
 
     '
-- id: upsert-on-duplicate-4-user4-example-com-user-4-name-upserted
+- id: upsert-on-duplicate-4-user4-example-com-name-upserted
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (4, ''user4@example.com'', ''User 4'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (4, ''user4@example.com'', ''Inserted 4'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE name = ''Upserted''
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 4
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 4
 
     '
-- id: upsert-on-duplicate-4-user4-example-com-user-4-email-values-email
+- id: upsert-on-duplicate-4-user4-example-com-name-concat-u-name
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (4, ''user4@example.com'', ''User 4'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (4, ''user4@example.com'', ''Inserted 4'', TIMESTAMP ''2099-12-31 23:59:59'')
 
-    ON DUPLICATE KEY UPDATE email = VALUES(email)
-
-    '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 4
+    ON DUPLICATE KEY UPDATE name = CONCAT(''U'', name)
 
     '
-- id: upsert-on-duplicate-4-user4-example-com-user-4-created-at-values-created-at
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 4
+
+    '
+- id: upsert-on-duplicate-4-user4-example-com-created-at-values-created-at
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (4, ''user4@example.com'', ''User 4'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (4, ''user4@example.com'', ''Inserted 4'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE created_at = VALUES(created_at)
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 4
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 4
 
     '
-- id: upsert-on-duplicate-5-user5-example-com-user-5-name-values-name
+- id: upsert-on-duplicate-5-user5-example-com-name-values-name
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (5, ''user5@example.com'', ''User 5'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (5, ''user5@example.com'', ''Inserted 5'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE name = VALUES(name)
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 5
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 5
 
     '
-- id: upsert-on-duplicate-5-user5-example-com-user-5-name-upserted
+- id: upsert-on-duplicate-5-user5-example-com-name-upserted
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (5, ''user5@example.com'', ''User 5'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (5, ''user5@example.com'', ''Inserted 5'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE name = ''Upserted''
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 5
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 5
 
     '
-- id: upsert-on-duplicate-5-user5-example-com-user-5-email-values-email
+- id: upsert-on-duplicate-5-user5-example-com-name-concat-u-name
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (5, ''user5@example.com'', ''User 5'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (5, ''user5@example.com'', ''Inserted 5'', TIMESTAMP ''2099-12-31 23:59:59'')
 
-    ON DUPLICATE KEY UPDATE email = VALUES(email)
-
-    '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 5
+    ON DUPLICATE KEY UPDATE name = CONCAT(''U'', name)
 
     '
-- id: upsert-on-duplicate-5-user5-example-com-user-5-created-at-values-created-at
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 5
+
+    '
+- id: upsert-on-duplicate-5-user5-example-com-created-at-values-created-at
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (5, ''user5@example.com'', ''User 5'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (5, ''user5@example.com'', ''Inserted 5'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE created_at = VALUES(created_at)
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 5
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 5
 
     '
-- id: upsert-on-duplicate-6-user6-example-com-user-6-name-values-name
+- id: upsert-on-duplicate-6-user6-example-com-name-values-name
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (6, ''user6@example.com'', ''User 6'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (6, ''user6@example.com'', ''Inserted 6'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE name = VALUES(name)
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 6
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 6
 
     '
-- id: upsert-on-duplicate-6-user6-example-com-user-6-name-upserted
+- id: upsert-on-duplicate-6-user6-example-com-name-upserted
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (6, ''user6@example.com'', ''User 6'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (6, ''user6@example.com'', ''Inserted 6'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE name = ''Upserted''
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 6
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 6
 
     '
-- id: upsert-on-duplicate-6-user6-example-com-user-6-email-values-email
+- id: upsert-on-duplicate-6-user6-example-com-name-concat-u-name
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (6, ''user6@example.com'', ''User 6'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (6, ''user6@example.com'', ''Inserted 6'', TIMESTAMP ''2099-12-31 23:59:59'')
 
-    ON DUPLICATE KEY UPDATE email = VALUES(email)
-
-    '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 6
+    ON DUPLICATE KEY UPDATE name = CONCAT(''U'', name)
 
     '
-- id: upsert-on-duplicate-6-user6-example-com-user-6-created-at-values-created-at
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 6
+
+    '
+- id: upsert-on-duplicate-6-user6-example-com-created-at-values-created-at
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (6, ''user6@example.com'', ''User 6'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (6, ''user6@example.com'', ''Inserted 6'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE created_at = VALUES(created_at)
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 6
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 6
 
     '
-- id: upsert-on-duplicate-7-user7-example-com-user-7-name-values-name
+- id: upsert-on-duplicate-7-user7-example-com-name-values-name
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (7, ''user7@example.com'', ''User 7'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (7, ''user7@example.com'', ''Inserted 7'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE name = VALUES(name)
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 7
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 7
 
     '
-- id: upsert-on-duplicate-7-user7-example-com-user-7-name-upserted
+- id: upsert-on-duplicate-7-user7-example-com-name-upserted
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (7, ''user7@example.com'', ''User 7'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (7, ''user7@example.com'', ''Inserted 7'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE name = ''Upserted''
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 7
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 7
 
     '
-- id: upsert-on-duplicate-7-user7-example-com-user-7-email-values-email
+- id: upsert-on-duplicate-7-user7-example-com-name-concat-u-name
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (7, ''user7@example.com'', ''User 7'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (7, ''user7@example.com'', ''Inserted 7'', TIMESTAMP ''2099-12-31 23:59:59'')
 
-    ON DUPLICATE KEY UPDATE email = VALUES(email)
-
-    '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 7
+    ON DUPLICATE KEY UPDATE name = CONCAT(''U'', name)
 
     '
-- id: upsert-on-duplicate-7-user7-example-com-user-7-created-at-values-created-at
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 7
+
+    '
+- id: upsert-on-duplicate-7-user7-example-com-created-at-values-created-at
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (7, ''user7@example.com'', ''User 7'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (7, ''user7@example.com'', ''Inserted 7'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE created_at = VALUES(created_at)
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 7
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 7
 
     '
-- id: upsert-on-duplicate-8-user8-example-com-user-8-name-values-name
+- id: upsert-on-duplicate-8-user8-example-com-name-values-name
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (8, ''user8@example.com'', ''User 8'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (8, ''user8@example.com'', ''Inserted 8'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE name = VALUES(name)
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 8
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 8
 
     '
-- id: upsert-on-duplicate-8-user8-example-com-user-8-name-upserted
+- id: upsert-on-duplicate-8-user8-example-com-name-upserted
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (8, ''user8@example.com'', ''User 8'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (8, ''user8@example.com'', ''Inserted 8'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE name = ''Upserted''
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 8
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 8
 
     '
-- id: upsert-on-duplicate-8-user8-example-com-user-8-email-values-email
+- id: upsert-on-duplicate-8-user8-example-com-name-concat-u-name
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (8, ''user8@example.com'', ''User 8'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (8, ''user8@example.com'', ''Inserted 8'', TIMESTAMP ''2099-12-31 23:59:59'')
 
-    ON DUPLICATE KEY UPDATE email = VALUES(email)
-
-    '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 8
+    ON DUPLICATE KEY UPDATE name = CONCAT(''U'', name)
 
     '
-- id: upsert-on-duplicate-8-user8-example-com-user-8-created-at-values-created-at
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 8
+
+    '
+- id: upsert-on-duplicate-8-user8-example-com-created-at-values-created-at
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (8, ''user8@example.com'', ''User 8'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (8, ''user8@example.com'', ''Inserted 8'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE created_at = VALUES(created_at)
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 8
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 8
 
     '
-- id: upsert-on-duplicate-9-user9-example-com-user-9-name-values-name
+- id: upsert-on-duplicate-9-user9-example-com-name-values-name
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (9, ''user9@example.com'', ''User 9'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (9, ''user9@example.com'', ''Inserted 9'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE name = VALUES(name)
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 9
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 9
 
     '
-- id: upsert-on-duplicate-9-user9-example-com-user-9-name-upserted
+- id: upsert-on-duplicate-9-user9-example-com-name-upserted
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (9, ''user9@example.com'', ''User 9'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (9, ''user9@example.com'', ''Inserted 9'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE name = ''Upserted''
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 9
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 9
 
     '
-- id: upsert-on-duplicate-9-user9-example-com-user-9-email-values-email
+- id: upsert-on-duplicate-9-user9-example-com-name-concat-u-name
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (9, ''user9@example.com'', ''User 9'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (9, ''user9@example.com'', ''Inserted 9'', TIMESTAMP ''2099-12-31 23:59:59'')
 
-    ON DUPLICATE KEY UPDATE email = VALUES(email)
-
-    '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 9
+    ON DUPLICATE KEY UPDATE name = CONCAT(''U'', name)
 
     '
-- id: upsert-on-duplicate-9-user9-example-com-user-9-created-at-values-created-at
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 9
+
+    '
+- id: upsert-on-duplicate-9-user9-example-com-created-at-values-created-at
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (9, ''user9@example.com'', ''User 9'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (9, ''user9@example.com'', ''Inserted 9'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE created_at = VALUES(created_at)
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 9
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 9
 
     '
-- id: upsert-on-duplicate-10-user10-example-com-user-10-name-values-name
+- id: upsert-on-duplicate-10-user10-example-com-name-values-name
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (10, ''user10@example.com'', ''User 10'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (10, ''user10@example.com'', ''Inserted 10'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE name = VALUES(name)
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 10
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 10
 
     '
-- id: upsert-on-duplicate-10-user10-example-com-user-10-name-upserted
+- id: upsert-on-duplicate-10-user10-example-com-name-upserted
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (10, ''user10@example.com'', ''User 10'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (10, ''user10@example.com'', ''Inserted 10'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE name = ''Upserted''
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 10
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 10
 
     '
-- id: upsert-on-duplicate-10-user10-example-com-user-10-email-values-email
+- id: upsert-on-duplicate-10-user10-example-com-name-concat-u-name
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (10, ''user10@example.com'', ''User 10'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (10, ''user10@example.com'', ''Inserted 10'', TIMESTAMP ''2099-12-31 23:59:59'')
 
-    ON DUPLICATE KEY UPDATE email = VALUES(email)
-
-    '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 10
+    ON DUPLICATE KEY UPDATE name = CONCAT(''U'', name)
 
     '
-- id: upsert-on-duplicate-10-user10-example-com-user-10-created-at-values-created-at
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 10
+
+    '
+- id: upsert-on-duplicate-10-user10-example-com-created-at-values-created-at
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (10, ''user10@example.com'', ''User 10'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (10, ''user10@example.com'', ''Inserted 10'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE created_at = VALUES(created_at)
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 10
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 10
 
     '
-- id: upsert-on-duplicate-11-user11-example-com-user-11-name-values-name
+- id: upsert-on-duplicate-11-user11-example-com-name-values-name
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (11, ''user11@example.com'', ''User 11'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (11, ''user11@example.com'', ''Inserted 11'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE name = VALUES(name)
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 11
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 11
 
     '
-- id: upsert-on-duplicate-11-user11-example-com-user-11-name-upserted
+- id: upsert-on-duplicate-11-user11-example-com-name-upserted
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (11, ''user11@example.com'', ''User 11'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (11, ''user11@example.com'', ''Inserted 11'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE name = ''Upserted''
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 11
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 11
 
     '
-- id: upsert-on-duplicate-11-user11-example-com-user-11-email-values-email
+- id: upsert-on-duplicate-11-user11-example-com-name-concat-u-name
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (11, ''user11@example.com'', ''User 11'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (11, ''user11@example.com'', ''Inserted 11'', TIMESTAMP ''2099-12-31 23:59:59'')
 
-    ON DUPLICATE KEY UPDATE email = VALUES(email)
-
-    '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 11
+    ON DUPLICATE KEY UPDATE name = CONCAT(''U'', name)
 
     '
-- id: upsert-on-duplicate-11-user11-example-com-user-11-created-at-values-created-at
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 11
+
+    '
+- id: upsert-on-duplicate-11-user11-example-com-created-at-values-created-at
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (11, ''user11@example.com'', ''User 11'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (11, ''user11@example.com'', ''Inserted 11'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE created_at = VALUES(created_at)
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 11
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 11
 
     '
-- id: upsert-on-duplicate-12-user12-example-com-user-12-name-values-name
+- id: upsert-on-duplicate-12-user12-example-com-name-values-name
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (12, ''user12@example.com'', ''User 12'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (12, ''user12@example.com'', ''Inserted 12'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE name = VALUES(name)
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 12
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 12
 
     '
-- id: upsert-on-duplicate-12-user12-example-com-user-12-name-upserted
+- id: upsert-on-duplicate-12-user12-example-com-name-upserted
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (12, ''user12@example.com'', ''User 12'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (12, ''user12@example.com'', ''Inserted 12'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE name = ''Upserted''
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 12
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 12
 
     '
-- id: upsert-on-duplicate-12-user12-example-com-user-12-email-values-email
+- id: upsert-on-duplicate-12-user12-example-com-name-concat-u-name
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (12, ''user12@example.com'', ''User 12'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (12, ''user12@example.com'', ''Inserted 12'', TIMESTAMP ''2099-12-31 23:59:59'')
 
-    ON DUPLICATE KEY UPDATE email = VALUES(email)
-
-    '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 12
+    ON DUPLICATE KEY UPDATE name = CONCAT(''U'', name)
 
     '
-- id: upsert-on-duplicate-12-user12-example-com-user-12-created-at-values-created-at
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 12
+
+    '
+- id: upsert-on-duplicate-12-user12-example-com-created-at-values-created-at
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (12, ''user12@example.com'', ''User 12'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (12, ''user12@example.com'', ''Inserted 12'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE created_at = VALUES(created_at)
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 12
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 12
 
     '
-- id: upsert-on-duplicate-13-user13-example-com-user-13-name-values-name
+- id: upsert-on-duplicate-13-user13-example-com-name-values-name
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (13, ''user13@example.com'', ''User 13'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (13, ''user13@example.com'', ''Inserted 13'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE name = VALUES(name)
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 13
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 13
 
     '
-- id: upsert-on-duplicate-13-user13-example-com-user-13-name-upserted
+- id: upsert-on-duplicate-13-user13-example-com-name-upserted
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (13, ''user13@example.com'', ''User 13'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (13, ''user13@example.com'', ''Inserted 13'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE name = ''Upserted''
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 13
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 13
 
     '
-- id: upsert-on-duplicate-13-user13-example-com-user-13-email-values-email
+- id: upsert-on-duplicate-13-user13-example-com-name-concat-u-name
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (13, ''user13@example.com'', ''User 13'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (13, ''user13@example.com'', ''Inserted 13'', TIMESTAMP ''2099-12-31 23:59:59'')
 
-    ON DUPLICATE KEY UPDATE email = VALUES(email)
-
-    '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 13
+    ON DUPLICATE KEY UPDATE name = CONCAT(''U'', name)
 
     '
-- id: upsert-on-duplicate-13-user13-example-com-user-13-created-at-values-created-at
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 13
+
+    '
+- id: upsert-on-duplicate-13-user13-example-com-created-at-values-created-at
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (13, ''user13@example.com'', ''User 13'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (13, ''user13@example.com'', ''Inserted 13'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE created_at = VALUES(created_at)
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 13
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 13
 
     '
-- id: upsert-on-duplicate-14-user14-example-com-user-14-name-values-name
+- id: upsert-on-duplicate-14-user14-example-com-name-values-name
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (14, ''user14@example.com'', ''User 14'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (14, ''user14@example.com'', ''Inserted 14'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE name = VALUES(name)
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 14
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 14
 
     '
-- id: upsert-on-duplicate-14-user14-example-com-user-14-name-upserted
+- id: upsert-on-duplicate-14-user14-example-com-name-upserted
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (14, ''user14@example.com'', ''User 14'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (14, ''user14@example.com'', ''Inserted 14'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE name = ''Upserted''
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 14
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 14
 
     '
-- id: upsert-on-duplicate-14-user14-example-com-user-14-email-values-email
+- id: upsert-on-duplicate-14-user14-example-com-name-concat-u-name
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (14, ''user14@example.com'', ''User 14'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (14, ''user14@example.com'', ''Inserted 14'', TIMESTAMP ''2099-12-31 23:59:59'')
 
-    ON DUPLICATE KEY UPDATE email = VALUES(email)
-
-    '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 14
+    ON DUPLICATE KEY UPDATE name = CONCAT(''U'', name)
 
     '
-- id: upsert-on-duplicate-14-user14-example-com-user-14-created-at-values-created-at
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 14
+
+    '
+- id: upsert-on-duplicate-14-user14-example-com-created-at-values-created-at
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (14, ''user14@example.com'', ''User 14'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (14, ''user14@example.com'', ''Inserted 14'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE created_at = VALUES(created_at)
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 14
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 14
 
     '
-- id: upsert-on-duplicate-15-user15-example-com-user-15-name-values-name
+- id: upsert-on-duplicate-15-user15-example-com-name-values-name
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (15, ''user15@example.com'', ''User 15'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (15, ''user15@example.com'', ''Inserted 15'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE name = VALUES(name)
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 15
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 15
 
     '
-- id: upsert-on-duplicate-15-user15-example-com-user-15-name-upserted
+- id: upsert-on-duplicate-15-user15-example-com-name-upserted
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (15, ''user15@example.com'', ''User 15'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (15, ''user15@example.com'', ''Inserted 15'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE name = ''Upserted''
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 15
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 15
 
     '
-- id: upsert-on-duplicate-15-user15-example-com-user-15-email-values-email
+- id: upsert-on-duplicate-15-user15-example-com-name-concat-u-name
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (15, ''user15@example.com'', ''User 15'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (15, ''user15@example.com'', ''Inserted 15'', TIMESTAMP ''2099-12-31 23:59:59'')
 
-    ON DUPLICATE KEY UPDATE email = VALUES(email)
-
-    '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 15
+    ON DUPLICATE KEY UPDATE name = CONCAT(''U'', name)
 
     '
-- id: upsert-on-duplicate-15-user15-example-com-user-15-created-at-values-created-at
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 15
+
+    '
+- id: upsert-on-duplicate-15-user15-example-com-created-at-values-created-at
   kind: dml
   concepts:
   - upsert-on-duplicate
   isolation: fresh
   statement: 'INSERT INTO users (id, email, name, created_at)
 
-    VALUES (15, ''user15@example.com'', ''User 15'', TIMESTAMP ''2025-01-01 00:01:00'')
+    VALUES (15, ''user15@example.com'', ''Inserted 15'', TIMESTAMP ''2099-12-31 23:59:59'')
 
     ON DUPLICATE KEY UPDATE created_at = VALUES(created_at)
 
     '
-  post_query: 'SELECT id, email, name FROM users WHERE id = 15
+  post_query: 'SELECT id, name, created_at FROM users WHERE id = 15
 
     '

@@ -10,7 +10,7 @@
 | date-function | 120 | 66 |
 | enum-type | 100 | 66 |
 | tinyint-bool | 72 | 40 |
-| unsigned-type | 360 | 66 |
+| unsigned-type | 350 | 66 |
 | upsert-on-duplicate | 60 | 40 |
 | auto-increment | 30 | 30 |
-| **합계** | **1042** | **1000** |
+| **합계** | **1032** | **1000** |

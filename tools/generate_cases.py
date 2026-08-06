@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import itertools
+import os
 import re
 import shutil
 import sys
@@ -138,6 +139,14 @@ def expand_template(
         if template.valid is not None and not template.valid(combination):
             continue
         changed = template.build(base_case, combination)
+        # build는 kind·concepts·id를 만들지 않는다(단일 원본 계약, P2-7). 이를 반환하면
+        # dict 병합으로 조용히 덮어써져 분포 집계(concept)와 YAML이 어긋나므로 거부한다.
+        forbidden = {"id", "kind", "concepts"} & changed.keys()
+        if forbidden:
+            raise ValueError(
+                f"build가 금지 필드를 반환했다({sorted(forbidden)}): "
+                f"base_id={template.base_id} — kind·concepts·id는 생성기가 주입한다"
+            )
         case_data: dict[str, Any] = {
             "id": make_id(template.base_id, combination, axis_order),
             "kind": kind,
@@ -410,10 +419,18 @@ def _bool_tinyint_template() -> Template:
 def _unsigned_template() -> Template:
     """unsigned-type: products.stock INT UNSIGNED 경계 조회.
 
-    stock 임계(경계 0·999 포함 12값) × 연산자(6) × LIMIT(5) = 360 ≥ 66.
+    stock 임계(경계 0·999 포함 12값) × 연산자(6) × LIMIT(5) = 360에서, 항상 0행인
+    무효 조합(stock<0, stock>999)을 valid predicate로 제거해 350 ≥ 66.
     """
     thresholds = [0, 1, 5, 10, 50, 100, 200, 300, 500, 700, 900, 999]
     op_slugs = ["lt", "le", "eq", "gt", "ge", "ne"]
+
+    # stock은 0..999. stock<0(threshold=0,lt)·stock>999(threshold=999,gt)는 항상 0행
+    # → 회귀 표본으로 무의미하므로 버린다(P1-3/P2-6 잔여 무효 조합).
+    always_empty = {(0, "lt"), (999, "gt")}
+
+    def is_valid(combo: dict[str, Any]) -> bool:
+        return (combo["threshold"], combo["op"]) not in always_empty
 
     def build(_base: dict[str, Any], combo: dict[str, Any]) -> dict[str, Any]:
         threshold, op, limit = (
@@ -437,6 +454,7 @@ def _unsigned_template() -> Template:
             Axis("op", op_slugs),
             Axis("limit", [5, 10, 20, 50, 100]),
         ],
+        valid=is_valid,
         build=build,
     )
 
@@ -444,31 +462,42 @@ def _unsigned_template() -> Template:
 def _upsert_template() -> Template:
     """upsert-on-duplicate: INSERT ... ON DUPLICATE KEY UPDATE(dml).
 
-    (id, email, name)을 구조화 축으로 묶어 같은 시드 행 하나를 가리킨다(P1-3) —
-    두 시드 행의 PK·UNIQUE를 동시에 건드리는 불가능 조합 차단. 시드행(15) × 갱신컬럼(4) = 60.
+    (id, email)을 구조화 축으로 묶어 같은 시드 행 하나를 가리킨다(P1-3) — 삽입 email이
+    그 시드 행과 충돌해 ON DUPLICATE가 트리거된다. 시드행(15) × 갱신식(4) = 60 ≥ 40.
+
+    **오라클이 실제 갱신을 관찰하게 만든다(리뷰 #6)**: 삽입하는 값(name·created_at)을
+    시드와 **다르게** 넣어 UPDATE가 실제 변화를 만들고, post_query가 갱신 대상 컬럼
+    (name·created_at)을 select한다. 그래야 변환기가 ON CONFLICT DO NOTHING으로 잘못
+    바꾸면 MySQL(갱신됨)·PG(갱신 안 됨) 결과가 달라져 fail로 드러난다.
+    email은 UNIQUE라 갱신하면 다른 시드 행과 충돌하므로 갱신하지 않는다(no-op 대신 제외).
     """
-    # 기존 시드 행 15개(id=1..15)를 재사용. email은 씨드 규칙 user{n}@example.com.
-    rows = [(i, f"user{i}@example.com", f"User {i}") for i in range(1, 16)]
-    # ON DUPLICATE KEY UPDATE로 갱신할 컬럼/식 4가지.
+    # 기존 시드 행 15개(id=1..15)를 재사용. email 충돌로 ON DUPLICATE 트리거.
+    rows = [(i, f"user{i}@example.com") for i in range(1, 16)]
+    # 삽입값(시드와 다름): name='Inserted {i}', created_at 고정 미래 시각.
+    #   시드 name은 'User {i}', 시드 created_at은 BASE+{i}분 → 둘 다 삽입값과 다르다.
+    # 갱신식 4가지 — 모두 시드와 다른 결과를 만들어 post_query로 관찰된다.
     updates = [
-        ("name", "VALUES(name)"),
-        ("name", "'Upserted'"),
-        ("email", "VALUES(email)"),
-        ("created_at", "VALUES(created_at)"),
+        ("name", "VALUES(name)"),  # → 'Inserted {i}' (시드 'User {i}'와 다름)
+        ("name", "'Upserted'"),  # → 'Upserted'
+        ("name", "CONCAT('U', name)"),  # → 'UUser {i}' (기존 name 기반 갱신)
+        ("created_at", "VALUES(created_at)"),  # → 고정 미래 시각(시드와 다름)
     ]
 
     def build(_base: dict[str, Any], combo: dict[str, Any]) -> dict[str, Any]:
-        uid, email, name = combo["row"]
+        uid, email = combo["row"]
         upd_col, upd_expr = combo["update"]
         return {
             "isolation": "fresh",
             "statement": (
                 f"INSERT INTO users (id, email, name, created_at)\n"
-                f"VALUES ({uid}, '{email}', '{name}', "
-                f"TIMESTAMP '2025-01-01 00:01:00')\n"
+                f"VALUES ({uid}, '{email}', 'Inserted {uid}', "
+                f"TIMESTAMP '2099-12-31 23:59:59')\n"
                 f"ON DUPLICATE KEY UPDATE {upd_col} = {upd_expr}\n"
             ),
-            "post_query": f"SELECT id, email, name FROM users WHERE id = {uid}\n",
+            # 갱신 대상 컬럼(name·created_at)을 모두 관찰 — DO NOTHING 오판을 잡는다.
+            "post_query": (
+                f"SELECT id, name, created_at FROM users WHERE id = {uid}\n"
+            ),
         }
 
     return Template(
@@ -665,15 +694,61 @@ _GOLDEN_ROOT = _PROJECT_ROOT / "corpus" / "cases"
 def check_out_guard(out: Path) -> None:
     """--out이 golden(corpus/cases) 자체·상위·하위 경로면 거부한다(P1-5).
 
-    resolve()로 절대경로화한 뒤 is_relative_to를 양방향으로 검사한다:
-    - out이 golden의 하위(또는 자체) → golden 훼손 위험.
-    - golden이 out의 하위 → 디렉터리 단위 교체가 golden을 지운다.
+    두 경로가 겹친다 = 한쪽이 다른 쪽의 조상이거나 동일. 대소문자 비구분FS(macOS)의
+    `corpus/CASES` 별칭·심볼릭링크까지 잡기 위해:
+    - out(resolve)이 **존재**하면 조상 체인을 golden과 inode(samefile)로 비교한다.
+      `corpus/CASES/syntax`는 조상 `corpus/CASES`가 golden과 같은 inode라 걸린다.
+    - out이 **존재하지 않는 신규 경로**면 inode가 없으므로, 존재하는 최장 접두는 inode로,
+      나머지 세그먼트는 casefold 문자열로 겹침을 판정한다.
     """
     out_abs = out.resolve()
     golden_abs = _GOLDEN_ROOT.resolve()
-    if out_abs.is_relative_to(golden_abs) or golden_abs.is_relative_to(out_abs):
+    golden_chain = [golden_abs, *golden_abs.parents]
+
+    if out_abs.exists():
+        # out이 golden이거나 그 하위: out의 조상 체인에 golden과 같은 inode가 있나.
+        if any(os.path.samefile(a, golden_abs) for a in [out_abs, *out_abs.parents]):
+            raise ValueError(
+                f"--out({out_abs})이 golden({golden_abs}) 자체이거나 하위다"
+                f"(별칭/심볼릭링크 포함) — golden 훼손 방지"
+            )
+        # golden이 out 하위(out이 golden 상위): golden의 조상(golden 제외)에 out과 같은 inode.
+        if any(os.path.samefile(out_abs, b) for b in golden_abs.parents):
+            raise ValueError(
+                f"--out({out_abs})이 golden({golden_abs})의 상위다"
+                f"(별칭/심볼릭링크 포함) — 디렉터리 교체가 golden을 지운다"
+            )
+        return
+
+    # out이 존재하지 않음: 존재하는 최장 접두를 inode로 golden 체인에 앵커한 뒤,
+    # 남은 세그먼트를 casefold로 비교한다.
+    existing = out_abs
+    tail: list[str] = []
+    while not existing.exists() and existing != existing.parent:
+        tail.append(existing.name)
+        existing = existing.parent
+    tail.reverse()
+    anchor_idx = next(
+        (i for i, g in enumerate(golden_chain) if os.path.samefile(existing, g)),
+        None,
+    )
+    if anchor_idx is None:
+        return  # 존재 접두가 golden 체인 어디와도 무관 → 겹치지 않음.
+    # anchor가 golden보다 하위/동일(idx==0이 golden 자체)이면 out은 golden 하위.
+    if anchor_idx == 0:
         raise ValueError(
-            f"--out({out_abs})이 golden 경로({golden_abs})와 겹친다 — golden 훼손 방지"
+            f"--out({out_abs})이 golden({golden_abs})의 하위다 — golden 훼손 방지"
+        )
+    # anchor가 golden의 상위: golden의 나머지 세그먼트와 out의 tail을 casefold로 비교해
+    # 같은 갈래로 내려가면 겹침(예: anchor=corpus, out tail=[CASES,...] vs golden [cases]).
+    golden_tail = golden_abs.relative_to(golden_chain[anchor_idx]).parts
+    common = min(len(tail), len(golden_tail))
+    if [s.casefold() for s in tail[:common]] == [
+        s.casefold() for s in golden_tail[:common]
+    ]:
+        raise ValueError(
+            f"--out({out_abs})이 golden({golden_abs})와 겹친다"
+            f"(대소문자 별칭 포함) — golden 훼손 방지"
         )
 
 
@@ -690,34 +765,74 @@ def _write_generated_tree(
     (dest / "DISTRIBUTION.md").write_text(distribution_md, encoding="utf-8")
 
 
+def _revalidate_tree(tree: Path, whitelist: set[str]) -> None:
+    """실제 산출 파일을 다시 읽어 최상위 구조·직렬화까지 통과하는지 확인(P1-5).
+
+    인메모리 dict가 아니라 파일을 재로드하므로 "직렬화 후 깨짐"을 잡는다. 실패 시 ValueError.
+    """
+    raws, load_result = load_cases(sorted(tree.rglob("*.yaml")))
+    result = validate_corpus(raws, whitelist, allow_incomplete_coverage=True)
+    errors = load_result.errors + result.errors
+    if errors:
+        raise ValueError("재로드 정적 검증 실패:\n" + "\n".join(errors))
+
+
+def validate_generated(
+    cases: list[GeneratedCase],
+    whitelist: set[str],
+    distribution_md: str,
+) -> None:
+    """temp에 전개→재로드→검증만 수행한다(파일 안 남김, check-only용).
+
+    check-only가 이 검증을 건너뛰면 빈 SQL·필수 필드 누락도 CI를 통과하므로(리뷰 #2),
+    파일을 쓰지 않는 경로에서도 반드시 이 실검증을 돈다.
+    """
+    groups = group_by_base_id(cases)
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp_dir = Path(tmp) / "generated"
+        _write_generated_tree(tmp_dir, groups, distribution_md)
+        _revalidate_tree(tmp_dir, whitelist)
+
+
 def write_corpus_atomic(
     out: Path,
     cases: list[GeneratedCase],
     whitelist: set[str],
     distribution_md: str,
 ) -> None:
-    """원자적 산출: temp 전개 → 재로드 → validate → 디렉터리 단위 교체(P1-5).
+    """원자적 산출: out 인접에 staging → 재로드 검증 → rename 스왑으로 교체(P1-5).
 
-    실패 시 temp 폐기, out 무손상(부분 산출 없음). out은 호출 전 check_out_guard로
-    검사돼 있어야 한다.
+    실패 시 staging 폐기, out 무손상(부분 산출 없음). 기존 out은 새것이 제자리로 들어온
+    뒤에만 제거하므로 "교체 중 중단 시 기존 산출물 소실"(리뷰 #3)이 없다. staging을 out과
+    같은 부모에 두어 같은 파일시스템을 보장한다(cross-FS move의 복사 폴백·부분 산출 방지).
+    out은 호출 전 check_out_guard로 검사돼 있어야 한다.
     """
     groups = group_by_base_id(cases)
-    with tempfile.TemporaryDirectory() as tmp:
-        tmp_dir = Path(tmp) / "generated"
-        _write_generated_tree(tmp_dir, groups, distribution_md)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    # out과 같은 부모에 staging·backup 디렉터리(같은 FS → os.replace 원자성).
+    staging = out.parent / f".{out.name}.staging.{os.getpid()}"
+    backup = out.parent / f".{out.name}.backup.{os.getpid()}"
+    for leftover in (staging, backup):
+        if leftover.exists():
+            shutil.rmtree(leftover)
+    try:
+        _write_generated_tree(staging, groups, distribution_md)
+        _revalidate_tree(staging, whitelist)  # 검증 통과 전엔 out을 건드리지 않는다.
 
-        # 재직렬화 검증(P1-5): 실제 산출 파일을 다시 읽어 최상위 구조·직렬화까지 통과 확인.
-        raws, load_result = load_cases(sorted(tmp_dir.rglob("*.yaml")))
-        result = validate_corpus(raws, whitelist, allow_incomplete_coverage=True)
-        errors = load_result.errors + result.errors
-        if errors:
-            raise ValueError("재로드 정적 검증 실패:\n" + "\n".join(errors))
-
-        # 성공 시에만 디렉터리 단위 교체(stale 파일 제거 포함).
         if out.exists():
-            shutil.rmtree(out)
-        out.parent.mkdir(parents=True, exist_ok=True)
-        shutil.move(str(tmp_dir), str(out))
+            os.replace(out, backup)  # 기존 out을 백업으로 원자 이동.
+        try:
+            os.replace(staging, out)  # 새것을 제자리로 원자 이동.
+        except OSError:
+            if backup.exists():  # 실패 시 기존 out 복원.
+                os.replace(backup, out)
+            raise
+        if backup.exists():
+            shutil.rmtree(backup)  # 성공 후에만 백업 제거.
+    finally:
+        for leftover in (staging, backup):
+            if leftover.exists():
+                shutil.rmtree(leftover, ignore_errors=True)
 
 
 # ---------------------------------------------------------------------------
@@ -750,6 +865,8 @@ def run(
         return 1
 
     if check_only:
+        # 파일은 안 쓰지만 재직렬화·정적 검증은 반드시 수행한다(리뷰 #2 — fail-closed).
+        validate_generated(cases, whitelist, distribution_md)
         print(f"OK(check-only): 케이스 {len(cases)}개 생성·검증 통과")
         return 0
 

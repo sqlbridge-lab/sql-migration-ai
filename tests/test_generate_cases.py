@@ -36,6 +36,7 @@ from generate_cases import (
     make_id,
     render_distribution,
     safe_id_part,
+    validate_generated,
     write_corpus_atomic,
 )
 from validate_corpus import ID_PATTERN, load_concepts, validate_corpus
@@ -435,3 +436,120 @@ def test_write_atomic_removes_stale_files(
     # 재실행하면 디렉터리 단위 교체로 stale이 사라진다.
     write_corpus_atomic(out, all_generated, whitelist, md)
     assert not stale.exists()
+
+
+# --- 코드 리뷰 회귀 방어(Codex #1~#6) ---
+
+
+def test_out_guard_rejects_case_insensitive_alias() -> None:
+    # #1: 대소문자 비구분FS에서 corpus/CASES·CORPUS 별칭이 golden과 같은 실제 디렉터리를
+    # 가리키면 거부한다(is_relative_to 문자열 비교만으로는 놓친다).
+    if not (_ROOT / "corpus" / "CASES").exists():
+        pytest.skip("대소문자 구분 파일시스템 — 별칭 테스트 비적용")
+    for rel in ["corpus/CASES", "CORPUS/cases", "CORPUS", "corpus/CASES/syntax"]:
+        with pytest.raises(ValueError):
+            check_out_guard(_ROOT / rel)
+
+
+def test_out_guard_allows_case_insensitive_siblings() -> None:
+    # #1 회귀 방지: 형제 경로(corpus/GENERATED, corpus/cases_backup)는 통과해야 한다.
+    check_out_guard(_ROOT / "corpus" / "GENERATED")
+    check_out_guard(_ROOT / "corpus" / "cases_backup")
+
+
+def test_validate_generated_rejects_invalid(
+    all_generated: list[GeneratedCase], whitelist: set[str]
+) -> None:
+    # #2: check-only가 쓰는 validate_generated는 파일을 안 남기고도 정적 검증을 수행한다.
+    # 정상 케이스는 통과.
+    validate_generated(all_generated, whitelist, "dummy")
+    # 빈 mysql을 섞으면 검증 실패(파일 미기록 경로에서도 fail-closed).
+    broken = GeneratedCase(
+        id="broken-x",
+        base_id="limit-pagination",
+        concept="limit-pagination",
+        data={
+            "id": "broken-x",
+            "kind": "dql",
+            "concepts": ["limit-pagination"],
+            "mysql": "",
+        },
+    )
+    with pytest.raises(ValueError, match="정적 검증 실패"):
+        validate_generated([*all_generated, broken], whitelist, "dummy")
+
+
+def test_write_atomic_preserves_existing_on_replace_failure(
+    tmp_path: Path, all_generated: list[GeneratedCase], whitelist: set[str]
+) -> None:
+    # #3: 교체(os.replace) 실패 시 기존 산출물을 잃지 않는다.
+    out = tmp_path / "generated"
+    md = render_distribution(count_by_concept(all_generated), 1000)
+    write_corpus_atomic(out, all_generated, whitelist, md)
+    sentinel = (out / "DISTRIBUTION.md").read_text(encoding="utf-8")
+
+    import generate_cases
+
+    original = generate_cases.os.replace
+
+    calls = {"n": 0}
+
+    def flaky_replace(src: str | Path, dst: str | Path) -> None:
+        # 새것을 out으로 옮기는 두 번째 replace에서 실패 주입(기존은 이미 backup으로 이동).
+        calls["n"] += 1
+        if calls["n"] == 2:
+            raise OSError("주입된 교체 실패")
+        original(src, dst)
+
+    generate_cases.os.replace = flaky_replace
+    try:
+        with pytest.raises(OSError, match="주입된 교체 실패"):
+            write_corpus_atomic(out, all_generated, whitelist, md)
+    finally:
+        generate_cases.os.replace = original
+
+    # 기존 out이 복원돼 그대로 남아있다(소실 없음).
+    assert out.exists()
+    assert (out / "DISTRIBUTION.md").read_text(encoding="utf-8") == sentinel
+
+
+def test_expand_rejects_build_returning_forbidden_fields(golden: dict) -> None:
+    # #4: build가 id/kind/concepts를 반환하면 거부한다(분포 집계와 YAML 불일치 차단).
+    for field in ["id", "kind", "concepts"]:
+        bad = Template(
+            base_id="limit-pagination",
+            axes=[Axis("n", [1])],
+            build=lambda _b, _c, f=field: {"mysql": "SELECT 1", f: "x"},
+        )
+        with pytest.raises(ValueError, match="금지 필드"):
+            expand_template(bad, golden)
+
+
+def test_unsigned_no_always_empty_combos(
+    generated: list[GeneratedCase],
+) -> None:
+    # #5: stock<0·stock>999(항상 0행) 조합이 생성되지 않는다.
+    unsigned = [c for c in generated if c.concept == "unsigned-type"]
+    assert unsigned
+    for c in unsigned:
+        sql = c.data["mysql"]
+        assert "stock < 0" not in sql
+        assert "stock > 999" not in sql
+
+
+def test_upsert_updates_are_observable(generated: list[GeneratedCase]) -> None:
+    # #6: 삽입값이 시드와 다르고(갱신이 no-op 아님), post_query가 갱신 대상 컬럼을 관찰한다.
+    upsert = [c for c in generated if c.concept == "upsert-on-duplicate"]
+    assert upsert
+    for c in upsert:
+        stmt = c.data["statement"]
+        pq = c.data["post_query"]
+        # 삽입 name은 시드('User {i}')와 다른 'Inserted {i}', created_at도 미래 시각.
+        assert "'Inserted " in stmt
+        assert "2099-12-31" in stmt
+        # 갱신 컬럼은 name 또는 created_at이고, post_query가 그 둘을 모두 관찰한다.
+        upd = stmt.split("ON DUPLICATE KEY UPDATE")[1]
+        assert "name" in upd or "created_at" in upd
+        assert "name" in pq and "created_at" in pq
+        # email은 갱신하지 않는다(UNIQUE 충돌 회피).
+        assert "email =" not in upd and "email=" not in upd

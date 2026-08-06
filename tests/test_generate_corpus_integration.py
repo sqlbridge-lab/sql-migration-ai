@@ -113,3 +113,42 @@ def test_seed_preflight_representative_nonempty(
             assert case.mysql is not None
             rows = ex.run_query(case.mysql).rows
             assert len(rows) > 0, f"{case_id}: 결과 0행(표본 무의미)"
+
+
+# --- 리뷰 #6 회귀: upsert 갱신이 실제로 관찰되는가(DO NOTHING 오판 방지) ---
+
+
+@pytest.mark.integration
+def test_upsert_updates_are_actually_observed(
+    loaded_cases: list[Case], mysql_up: None
+) -> None:
+    """대표 upsert 케이스를 트랜잭션 안에서 실행해 post_query 결과가 시드와 달라짐을 실측.
+
+    삽입값이 시드와 같으면(no-op) 또는 post_query가 갱신 컬럼을 안 보면, 변환기가
+    ON CONFLICT DO NOTHING으로 잘못 바꿔도 통과하는 오라클 사각지대가 된다(리뷰 #6).
+    갱신이 실제로 관찰됨을 확인해 그 사각지대가 없음을 고정한다.
+    """
+    by_id = {c.id: c for c in loaded_cases}
+    upsert_ids = [
+        c.id
+        for c in loaded_cases
+        if c.concepts == ["upsert-on-duplicate"] and "-1-user1" in c.id
+    ]
+    assert upsert_ids, "대표 upsert 케이스 없음"
+
+    seed_sql = "SELECT id, name, created_at FROM users WHERE id = 1"
+    with Executor.connect(MYSQL_CONFIG, "mysql") as ex:
+        seed = ex.run_query(seed_sql).rows[0]
+        for case_id in upsert_ids:
+            case = by_id[case_id]
+            assert case.statement is not None
+            post_query = case.control_mysql["post_query"]
+            ex.begin()
+            try:
+                ex.run_statement(case.statement)
+                after = ex.run_query(post_query).rows[0]
+            finally:
+                ex.rollback()  # 격리: 시드 복원.
+            assert after != seed, (
+                f"{case_id}: upsert가 no-op이라 갱신이 관찰되지 않음(오라클 사각지대)"
+            )
